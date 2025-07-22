@@ -54,23 +54,41 @@ def update_issues_node(state: State) -> State:
 
 
 def render_issues_node(state: dict) -> dict:
-    # Parse structured issue(s) from last AI message
-    last_msg = next((msg.content for msg in reversed(state["messages"]) if isinstance(msg, AIMessage)), None)
-    if not last_msg:
-        return state
-
+    """Render issues with images based on collected information"""
+    
+    # Get the collected information from the state
+    collected_info = state.get("collected_info", {})
+    
+    if not collected_info:
+        return {
+            **state,
+            "messages": state["messages"] + [
+                AIMessage(content="❌ No issue information available to display.")
+            ]
+        }
+    
+    # Convert single issue to list format expected by display_issues
+    issues = [collected_info] if isinstance(collected_info, dict) else collected_info
+    
     try:
-        issues = [parser.parse(last_msg).model_dump()]
-    except Exception:
-        issues = []
-
-    markdown_output = display_issues(issues)
-    image_message = AIMessage(content=markdown_output)
-
-    return {
-        **state,
-        "messages": state["messages"] + [image_message]
-    }
+        # Generate markdown with images
+        markdown_output = display_issues(issues)
+        image_message = AIMessage(content=markdown_output)
+        
+        print(f"[DEBUG] Generated markdown output: {len(markdown_output)} characters")
+        
+        return {
+            **state,
+            "messages": state["messages"] + [image_message]
+        }
+    except Exception as e:
+        print(f"[ERROR] Failed to render issues: {e}")
+        return {
+            **state,
+            "messages": state["messages"] + [
+                AIMessage(content=f"❌ Error displaying part information: {str(e)}")
+            ]
+        }
 
 def confirm_issues_node(state: State) -> State:
     confirm_msg = AIMessage(content="✅ Does this look correct? (yes / no / partially)")
@@ -234,7 +252,7 @@ def issue_classifier_node(state: State) -> State:
 
     # Temos tudo que precisamos!
     success_msg = AIMessage(
-        content=f"Perfect! I identified the problem: {updated_info}. Let me show you something."
+        content=f"Perfect! I identified the problem: {updated_info}."
     )
     return {
         **state,
