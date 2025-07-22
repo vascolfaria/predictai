@@ -1,0 +1,15 @@
+langgraph~=0.5.3
+langgraph-prebuilt
+langgraph-sdk
+langgraph-checkpoint-sqlite
+langsmith
+langchain-community
+langchain-core~=0.3.69
+langchain-openai
+notebook
+tavily-python
+wikipedia
+trustcall
+langgraph-cli[inmem]
+python-dotenv~=1.1.1
+python-utils

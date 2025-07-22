@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    "langchain",
+    "langchain_openai",
+    "langchain_google_genai",
+    "langgraph",
+    "."
+  ],
+  "graphs": {
+    "multi_agent": "./multi_agent.py:graph"
+  },
+  "env": "./.env",
+  "python_version": "3.11"
+}
