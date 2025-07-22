@@ -1,0 +1,3010 @@
+{
+  "Deluxe 7": {
+    "Brakes": {
+      "Brake cable/hose": {
+        "Front": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Brake lever": {
+        "Front": {
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Brake pads": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Brake unit/caliper": {
+        "Front": {
+          "Grease": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Grease": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Drivetrain": {
+      "Bottom bracket": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Chain": {
+        "null": {
+          "Lubricate": {},
+          "Replace": {},
+          "Tension": {}
+        }
+      },
+      "Chain wheel": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Chainguard": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Crank": {
+        "Both/All": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Left": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Right": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Pedals": {
+        "Both/All": {
+          "Replace": {}
+        },
+        "Left": {
+          "Replace": {}
+        },
+        "Right": {
+          "Replace": {}
+        }
+      },
+      "Sprocket": {
+        "null": {
+          "Replace": {}
+        }
+      }
+    },
+    "Fenders": {
+      "Fender": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Fender stay": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Frame": {
+      "Barcode": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Carrier": {
+        "Front": {
+          "Replace": {}
+        }
+      },
+      "Carrier bracket": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Carrier bumper": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Frame/panel": {
+        "null": {
+          "Sticker": {}
+        }
+      },
+      "Front fork": {
+        "null": {
+          "Replace": {},
+          "Sticker": {}
+        }
+      },
+      "Kickstand": {
+        "null": {
+          "Adjust": {},
+          "Lubricate": {},
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Kickstand foot": {
+        "null": {
+          "Replace": {}
+        }
+      }
+    },
+    "Gears": {
+      "Cassette-joint": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Gears": {
+        "null": {
+          "Adjust": {}
+        }
+      },
+      "Shifter": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Shifter cable": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Handlebar": {
+      "Bell": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Grips": {
+        "null": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Handlebar": {
+        "null": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Headset": {
+        "null": {
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Headset cover": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Stem": {
+        "null": {
+          "Grease": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Light": {
+      "Bye bye battery": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Cable": {
+        "Front": {
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Light": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Magnet": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Reflector": {
+        "Rear": {
+          "Replace": {}
+        }
+      }
+    },
+    "Lock": {
+      "Chain lock": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Frame lock": {
+        "null": {
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Saddle": {
+      "Saddle": {
+        "null": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Saddle clamp": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Seatpost": {
+        "null": {
+          "Grease": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Seatpost clamp": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Wheel": {
+      "Hub": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Innertube": {
+        "Both/All": {
+          "Pump": {}
+        },
+        "Front": {
+          "Pump": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Pump": {},
+          "Replace": {}
+        }
+      },
+      "Rimtape": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Spoke/nipple": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Tire": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Valve": {
+        "Front": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Wheel": {
+        "Front": {
+          "Replace": {},
+          "True": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "True": {}
+        }
+      }
+    }
+  },
+  "e-Kick": {
+    "Brakes": {
+      "Brake cable/hose": {
+        "Left": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        },
+        "Right": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Brake lever": {
+        "Left": {
+          "Repair": {},
+          "Replace": {}
+        },
+        "Right": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Brake unit/caliper": {
+        "Left": {
+          "Repair": {},
+          "Replace": {}
+        },
+        "Right": {
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Electrics": {
+      "Battery": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Charge port": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Charger": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Controller": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Display": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Display cable": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Engine power cable": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Software": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Fenders": {
+      "Fender": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      }
+    },
+    "Folding": {
+      "Front hinge": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Hook on handlebar post": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Spring mechanism": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Frame": {
+      "Barcode": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Bottomplate downside": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Frame/panel": {
+        "null": {
+          "Sticker": {}
+        }
+      },
+      "Front fork": {
+        "null": {
+          "Replace": {},
+          "Sticker": {}
+        }
+      },
+      "Kickstand": {
+        "null": {
+          "Adjust": {},
+          "Lubricate": {},
+          "Replace": {},
+          "Tighten": {}
+        }
+      }
+    },
+    "Handlebar": {
+      "Bell": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Grips": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Gripstop": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Handlebar": {
+        "null": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Headset": {
+        "null": {
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Stem": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Throttle": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Throttle cable": {
+        "null": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Light": {
+      "Brake light": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Cable": {
+        "Front": {
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Light": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Reflector": {
+        "Rear": {
+          "Replace": {}
+        }
+      }
+    },
+    "Lock": {
+      "Chain lock": {
+        "null": {
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Wheel": {
+      "Tire": {
+        "Front": {
+          "Pump": {},
+          "Repair": {}
+        },
+        "Rear": {
+          "Pump": {},
+          "Repair": {}
+        }
+      },
+      "Valve": {
+        "Front": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Wheel": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      }
+    }
+  },
+  "e-Scooter": {
+    "Body & Panel": {
+      "Battery compartment": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Battery cover": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Body panel": {
+        "Left": {
+          "Replace": {}
+        },
+        "Right": {
+          "Replace": {}
+        }
+      },
+      "End cap": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Footrest": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Front wheel cover": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Handrail": {
+        "Left": {
+          "Replace": {}
+        },
+        "Right": {
+          "Replace": {}
+        }
+      },
+      "Helmet hook": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Neck cover": {
+        "Front": {
+          "Replace": {}
+        }
+      },
+      "Panel": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Side panel": {
+        "Left": {
+          "Replace": {}
+        },
+        "Right": {
+          "Replace": {}
+        }
+      },
+      "Windshield": {
+        "null": {
+          "Replace": {}
+        }
+      }
+    },
+    "Brakes": {
+      "Brake cable/hose": {
+        "Front": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Brake disc": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Brake lever": {
+        "Front": {
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Brake pads": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Brake unit/caliper": {
+        "Front": {
+          "Grease": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Grease": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Electrics": {
+      "Alarm": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Battery": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Cable hall sensor": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Charger": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "DC-DC converter": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Display": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Display cable": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "ECU": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Engine power cable": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Flasher": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Horn": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Software": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Fenders": {
+      "Fender": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      }
+    },
+    "Frame": {
+      "Barcode": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Bottomplate downside": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Foot pegs": {
+        "Left": {
+          "Replace": {}
+        },
+        "Right": {
+          "Replace": {}
+        }
+      },
+      "Frame/panel": {
+        "null": {
+          "Sticker": {}
+        }
+      },
+      "Front fork": {
+        "null": {
+          "Replace": {},
+          "Sticker": {}
+        }
+      },
+      "Kickstand": {
+        "null": {
+          "Adjust": {},
+          "Lubricate": {},
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Kickstand spring": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Midstand": {
+        "null": {
+          "Lubricate": {},
+          "Replace": {}
+        }
+      },
+      "Suspension": {
+        "Left": {
+          "Replace": {}
+        },
+        "Right": {
+          "Replace": {}
+        }
+      },
+      "Swing arm": {
+        "null": {
+          "Replace": {},
+          "Sticker": {}
+        }
+      }
+    },
+    "Handlebar": {
+      "Combination switch": {
+        "Left": {
+          "Repair": {},
+          "Replace": {}
+        },
+        "Right": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Grips": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Handlebar": {
+        "null": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Headset": {
+        "null": {
+          "Lubricate": {}
+        }
+      },
+      "Mirror": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Throttle": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Throttle cable": {
+        "null": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Light": {
+      "Brake light": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Cable": {
+        "Front": {
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Light": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Turn signal": {
+        "Left": {
+          "Repair": {},
+          "Replace": {}
+        },
+        "Right": {
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Lock": {
+      "Battery lock": {
+        "null": {
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Chain lock": {
+        "null": {
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Power lock": {
+        "null": {
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Saddle": {
+      "Saddle": {
+        "null": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Wheel": {
+      "Tire": {
+        "Front": {
+          "Pump": {},
+          "Repair": {}
+        },
+        "Rear": {
+          "Pump": {},
+          "Repair": {}
+        }
+      },
+      "Valve": {
+        "Front": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Wheel": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      }
+    }
+  },
+  "Original 1": {
+    "Brakes": {
+      "Brake unit/caliper": {
+        "Rear": {
+          "Grease": {}
+        }
+      }
+    },
+    "Drivetrain": {
+      "Bottom bracket": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Chain": {
+        "null": {
+          "Lubricate": {},
+          "Replace": {},
+          "Tension": {}
+        }
+      },
+      "Chainguard": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Crank": {
+        "Both/All": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Left": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Right": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Pedals": {
+        "Both/All": {
+          "Replace": {}
+        },
+        "Left": {
+          "Replace": {}
+        },
+        "Right": {
+          "Replace": {}
+        }
+      },
+      "Sprocket": {
+        "null": {
+          "Replace": {}
+        }
+      }
+    },
+    "Fenders": {
+      "Fender": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Fender stay": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Frame": {
+      "Barcode": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Carrier": {
+        "Front": {
+          "Replace": {}
+        }
+      },
+      "Carrier bracket": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Carrier bumper": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Frame/panel": {
+        "null": {
+          "Sticker": {}
+        }
+      },
+      "Front fork": {
+        "null": {
+          "Replace": {},
+          "Sticker": {}
+        }
+      },
+      "Kickstand": {
+        "null": {
+          "Adjust": {},
+          "Lubricate": {},
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Kickstand foot": {
+        "null": {
+          "Replace": {}
+        }
+      }
+    },
+    "Handlebar": {
+      "Bell": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Grips": {
+        "null": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Handlebar": {
+        "null": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Headset": {
+        "null": {
+          "Adjust": {},
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Headset cover": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Stem": {
+        "null": {
+          "Grease": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Light": {
+      "Light": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Magnet": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Reflector": {
+        "Rear": {
+          "Replace": {}
+        }
+      }
+    },
+    "Lock": {
+      "Chain lock": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Frame lock": {
+        "null": {
+          "Adjust": {},
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Saddle": {
+      "Saddle": {
+        "null": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Saddle clamp": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Seatpost": {
+        "null": {
+          "Grease": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Seatpost clamp": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Wheel": {
+      "Hub": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Innertube": {
+        "Both/All": {
+          "Pump": {}
+        },
+        "Front": {
+          "Pump": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Pump": {},
+          "Replace": {}
+        }
+      },
+      "Rimtape": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Spoke/nipple": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Tire": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Valve": {
+        "Front": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Wheel": {
+        "Front": {
+          "Replace": {},
+          "True": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "True": {}
+        }
+      }
+    }
+  },
+  "Original 1+": {
+    "Brakes": {
+      "Brake cable/hose": {
+        "Front": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Brake lever": {
+        "Front": {
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Brake unit/caliper": {
+        "Front": {
+          "Grease": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Grease": {}
+        }
+      }
+    },
+    "Drivetrain": {
+      "Bottom bracket": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Chain": {
+        "null": {
+          "Lubricate": {},
+          "Replace": {},
+          "Tension": {}
+        }
+      },
+      "Chain wheel": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Chainguard": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Crank": {
+        "Both/All": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Left": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Right": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Pedals": {
+        "Both/All": {
+          "Replace": {}
+        },
+        "Left": {
+          "Replace": {}
+        },
+        "Right": {
+          "Replace": {}
+        }
+      },
+      "Sprocket": {
+        "null": {
+          "Replace": {}
+        }
+      }
+    },
+    "Fenders": {
+      "Fender": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Fender stay": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Frame": {
+      "Barcode": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Carrier": {
+        "Front": {
+          "Replace": {}
+        }
+      },
+      "Carrier bracket": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Carrier bumper": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Frame/panel": {
+        "null": {
+          "Sticker": {}
+        }
+      },
+      "Front fork": {
+        "null": {
+          "Replace": {},
+          "Sticker": {}
+        }
+      },
+      "Kickstand": {
+        "null": {
+          "Adjust": {},
+          "Lubricate": {},
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Kickstand foot": {
+        "null": {
+          "Replace": {}
+        }
+      }
+    },
+    "Handlebar": {
+      "Bell": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Grips": {
+        "null": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Handlebar": {
+        "null": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Headset": {
+        "null": {
+          "Adjust": {},
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Headset cover": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Stem": {
+        "null": {
+          "Grease": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Light": {
+      "Cable": {
+        "Front": {
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Light": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Lock": {
+      "Chain lock": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Frame lock": {
+        "null": {
+          "Adjust": {},
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Saddle": {
+      "Saddle": {
+        "null": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Seatpost": {
+        "null": {
+          "Grease": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Seatpost clamp": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Wheel": {
+      "Hub": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Innertube": {
+        "Both/All": {
+          "Pump": {}
+        },
+        "Front": {
+          "Pump": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Pump": {},
+          "Replace": {}
+        }
+      },
+      "Rimtape": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Spoke/nipple": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Tire": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Valve": {
+        "Front": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Wheel": {
+        "Front": {
+          "Replace": {},
+          "True": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "True": {}
+        }
+      }
+    }
+  },
+  "Power 1": {
+    "Brakes": {
+      "Brake cable/hose": {
+        "Front": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Brake lever": {
+        "Front": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Brake unit/caliper": {
+        "Front": {
+          "Grease": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Grease": {}
+        }
+      }
+    },
+    "Drivetrain": {
+      "Chain": {
+        "null": {
+          "Lubricate": {},
+          "Replace": {},
+          "Tension": {}
+        }
+      },
+      "Chain wheel": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Chainguard": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Crank": {
+        "Both/All": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Left": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Right": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Pedals": {
+        "Both/All": {
+          "Replace": {}
+        },
+        "Left": {
+          "Replace": {}
+        },
+        "Right": {
+          "Replace": {}
+        }
+      },
+      "Sprocket": {
+        "null": {
+          "Replace": {}
+        }
+      }
+    },
+    "Electrics": {
+      "Battery": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Battery clip": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Battery cover": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Charge port": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Charger": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Display": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Display cable": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Engine": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Engine power cable": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "IOT Module": {
+        "null": {
+          "Add new": {},
+          "Replace": {}
+        }
+      },
+      "Software": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Speed sensor": {
+        "null": {
+          "Replace": {}
+        }
+      }
+    },
+    "Fenders": {
+      "Fender": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Fender stay": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Frame": {
+      "Barcode": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Carrier": {
+        "Front": {
+          "Replace": {}
+        }
+      },
+      "Carrier bracket": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Carrier bumper": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Frame/panel": {
+        "null": {
+          "Sticker": {}
+        }
+      },
+      "Front fork": {
+        "null": {
+          "Replace": {},
+          "Sticker": {}
+        }
+      },
+      "Kickstand": {
+        "null": {
+          "Adjust": {},
+          "Lubricate": {},
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Kickstand foot": {
+        "null": {
+          "Replace": {}
+        }
+      }
+    },
+    "Handlebar": {
+      "Bell": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Grips": {
+        "null": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Handlebar": {
+        "null": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Headset": {
+        "null": {
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Stem": {
+        "null": {
+          "Grease": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Light": {
+      "Cable": {
+        "Front": {
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Light": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Lock": {
+      "Battery lock": {
+        "null": {
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Chain lock": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Frame lock": {
+        "null": {
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Saddle": {
+      "Saddle": {
+        "null": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Seatpost": {
+        "null": {
+          "Grease": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Seatpost clamp": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Wheel": {
+      "Hub": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Innertube": {
+        "Both/All": {
+          "Pump": {}
+        },
+        "Front": {
+          "Pump": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Pump": {},
+          "Replace": {}
+        }
+      },
+      "Rimtape": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Spoke/nipple": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Tire": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Valve": {
+        "Front": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Wheel": {
+        "Front": {
+          "Replace": {},
+          "True": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "True": {}
+        }
+      }
+    }
+  },
+  "Power 7": {
+    "Brakes": {
+      "Brake cable/hose": {
+        "Front": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Brake disc": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Brake lever": {
+        "Front": {
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Brake pads": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Brake unit/caliper": {
+        "Front": {
+          "Grease": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Grease": {}
+        }
+      }
+    },
+    "Drivetrain": {
+      "Chain": {
+        "null": {
+          "Lubricate": {},
+          "Replace": {},
+          "Tension": {}
+        }
+      },
+      "Chain wheel": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Chainguard": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Crank": {
+        "Both/All": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Left": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Right": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Pedals": {
+        "Both/All": {
+          "Replace": {}
+        },
+        "Left": {
+          "Replace": {}
+        },
+        "Right": {
+          "Replace": {}
+        }
+      },
+      "Sprocket": {
+        "null": {
+          "Replace": {}
+        }
+      }
+    },
+    "Electrics": {
+      "Battery": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Battery clip": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Battery cover": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Charge port": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Charger": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Display": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Display cable": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Engine": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Engine power cable": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "IOT Module": {
+        "null": {
+          "Add new": {},
+          "Replace": {}
+        }
+      },
+      "Power button": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Software": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Speed sensor": {
+        "null": {
+          "Replace": {}
+        }
+      }
+    },
+    "Fenders": {
+      "Fender": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Fender stay": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Frame": {
+      "Barcode": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Carrier": {
+        "Front": {
+          "Replace": {}
+        }
+      },
+      "Carrier bracket": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Carrier bumper": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Frame/panel": {
+        "null": {
+          "Sticker": {}
+        }
+      },
+      "Front fork": {
+        "null": {
+          "Replace": {},
+          "Sticker": {}
+        }
+      },
+      "Kickstand": {
+        "null": {
+          "Adjust": {},
+          "Lubricate": {},
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Kickstand foot": {
+        "null": {
+          "Replace": {}
+        }
+      }
+    },
+    "Gears": {
+      "Cassette-joint": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Gears": {
+        "null": {
+          "Adjust": {}
+        }
+      },
+      "Shifter": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Shifter cable": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Handlebar": {
+      "Bell": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Grips": {
+        "null": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Handlebar": {
+        "null": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Headset": {
+        "null": {
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Headset cover": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Stem": {
+        "null": {
+          "Grease": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Light": {
+      "Cable": {
+        "Front": {
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Light": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Lock": {
+      "Battery lock": {
+        "null": {
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Chain lock": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Frame lock": {
+        "null": {
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Saddle": {
+      "Saddle": {
+        "null": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Seatpost": {
+        "null": {
+          "Grease": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Seatpost clamp": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Wheel": {
+      "Hub": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Innertube": {
+        "Both/All": {
+          "Pump": {}
+        },
+        "Front": {
+          "Pump": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Pump": {},
+          "Replace": {}
+        }
+      },
+      "Rimtape": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Spoke/nipple": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Tire": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Valve": {
+        "Front": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Wheel": {
+        "Front": {
+          "Replace": {},
+          "True": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "True": {}
+        }
+      }
+    }
+  },
+  "Power Plus": {
+    "Brakes": {
+      "Brake cable/hose": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Brake disc": {
+        "Front": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Brake lever": {
+        "Front": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Brake pads": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Brake unit/caliper": {
+        "Front": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Complete system": {
+        "Front": {
+          "Bleed": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Bleed": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Drivetrain": {
+      "Chain": {
+        "null": {
+          "Lubricate": {},
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Chain wheel": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Chain wheel protector": {
+        "null": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Chainguard": {
+        "Left": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Right": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Crank": {
+        "Both/All": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Left": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Right": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Pedals": {
+        "Both/All": {
+          "Replace": {}
+        },
+        "Left": {
+          "Replace": {}
+        },
+        "Right": {
+          "Replace": {}
+        }
+      },
+      "Sprocket": {
+        "null": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Tensioner": {
+        "null": {
+          "Repair": {},
+          "Replace": {},
+          "Tighten": {}
+        }
+      }
+    },
+    "Electrics": {
+      "Battery": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Charge port": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Charger": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Display": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Display cable": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Engine": {
+        "null": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Engine bracket": {
+        "Left": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Right": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Engine power cable": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "IOT CAN cable": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "IOT Module": {
+        "null": {
+          "Add new": {},
+          "Replace": {}
+        }
+      },
+      "Software": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Speed sensor": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "USB charger": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Fenders": {
+      "Fender": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Fender stay": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Frame": {
+      "Barcode": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Carrier": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Carrier bumper": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Carrier strip": {
+        "Front": {
+          "Replace": {}
+        }
+      },
+      "Frame/panel": {
+        "null": {
+          "Sticker": {}
+        }
+      },
+      "Front fork": {
+        "null": {
+          "Replace": {},
+          "Sticker": {}
+        }
+      },
+      "Kickstand": {
+        "null": {
+          "Adjust": {},
+          "Lubricate": {},
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Kickstand foot": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Midstand": {
+        "null": {
+          "Adjust": {},
+          "Lubricate": {},
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Shimmy damper": {
+        "null": {
+          "Replace": {}
+        }
+      }
+    },
+    "Handlebar": {
+      "Bell": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Grips": {
+        "null": {
+          "Adjust": {},
+          "Replace": {}
+        }
+      },
+      "Handlebar": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "Headset": {
+        "null": {
+          "Adjust": {},
+          "Lubricate": {},
+          "Replace": {}
+        }
+      },
+      "Headset cover": {
+        "null": {
+          "Replace": {}
+        }
+      },
+      "SP mount": {
+        "null": {
+          "Replace": {}
+        }
+      }
+    },
+    "Light": {
+      "Cable": {
+        "Front": {
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear left": {
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear right": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Light": {
+        "Front": {
+          "Adjust": {},
+          "Replace": {}
+        },
+        "Rear left": {
+          "Replace": {}
+        },
+        "Rear right": {
+          "Replace": {}
+        }
+      },
+      "Protector": {
+        "Left": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      }
+    },
+    "Lock": {
+      "Battery lock": {
+        "null": {
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Chain lock": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Frame lock": {
+        "null": {
+          "Lubricate": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Saddle": {
+      "Saddle": {
+        "null": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Seatpost": {
+        "null": {
+          "Grease": {},
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Seatpost clamp": {
+        "null": {
+          "Repair": {},
+          "Replace": {}
+        }
+      }
+    },
+    "Wheel": {
+      "Hub": {
+        "Front": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Adjust": {},
+          "Repair": {},
+          "Replace": {}
+        }
+      },
+      "Innertube": {
+        "Both/All": {
+          "Pump": {}
+        },
+        "Front": {
+          "Pump": {},
+          "Replace": {}
+        },
+        "Rear": {
+          "Pump": {},
+          "Replace": {}
+        }
+      },
+      "Rimtape": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Spoke/nipple": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Tire": {
+        "Front": {
+          "Replace": {}
+        },
+        "Rear": {
+          "Replace": {}
+        }
+      },
+      "Valve": {
+        "Front": {
+          "Replace": {},
+          "Tighten": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "Tighten": {}
+        }
+      },
+      "Wheel": {
+        "Front": {
+          "Replace": {},
+          "True": {}
+        },
+        "Rear": {
+          "Replace": {},
+          "True": {}
+        }
+      }
+    }
+  }
+}
