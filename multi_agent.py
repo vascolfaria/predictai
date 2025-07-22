@@ -13,7 +13,6 @@ from utils.model_utils import init_chat_model
 from langgraph.graph import StateGraph, END, MessagesState
 from langchain.tools import BaseTool
 from langgraph.graph.message import add_messages
-from langgraph.graph.schema import ChatMessage, State
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 from langchain_core.tools import tool
 from langchain_openai import ChatOpenAI
@@ -167,8 +166,9 @@ graph.add_node("issue_classifier", issue_classifier_node)
 
 # Add edges
 graph.set_entry_point("router")
-graph.add_edge("router", lambda state: state.current_agent)
-graph.add_edge("speech_to_text", END)
+graph.add_edge("router", "speech_to_text")
+graph.add_edge("speech_to_text", "issue_classifier")
+graph.add_edge("issue_classifier", END)
 
 # Terminate at placeholder for now
 # graph.add_edge("speech_to_text", END)
