@@ -165,7 +165,7 @@ def issue_classifier_node(state: State) -> State:
 
     Here are the fields you need to extract and the possible values of each one based on the text given by the member:
     - bike_type: Deluxe 7, Original 1, Original 1+, Power 1, Power 7 or Power Plus
-        - part_category: Brakes, Drivetrain, Fenders, Frame, Gears, Handlebar, Light, Lock, Saddle, Wheel, Electrics, Folding, Body & Panel
+    - part_category: Brakes, Drivetrain, Fenders, Frame, Gears, Handlebar, Light, Lock, Saddle, Wheel, Electrics, Folding, Body & Panel
     - part_name: Brake cable/hose, Brake lever, Brake pads, Brake unit/caliper, Bottom bracket, Chain, Chain wheel, Chainguard, Crank, Pedals, Sprocket, Fender, Fender stay, Barcode, Carrier, Carrier bracket, Carrier bumper, Frame/panel, Front fork, Kickstand, Kickstand foot, Cassette-joint, Gears, Shifter, Shifter cable, Bell, Grips, Handlebar, Headset, Headset cover, Stem, Bye bye battery, Cable, Light, Magnet, Reflector, Chain lock, Frame lock, Saddle, Saddle clamp, Seatpost, Seatpost clamp, Hub, Innertube, Rimtape, Spoke/nipple, Tire, Valve, Wheel, Battery, Charge port, Charger, Controller, Display, Display cable, Engine power cable, Software, Front hinge, Hook on handlebar post, Spring mechanism, Bottomplate downside, Gripstop, Throttle, Throttle cable, Brake light, Battery compartment, Battery cover, Body panel, End cap, Footrest, Front wheel cover, Handrail, Helmet hook, Neck cover, Panel, Side panel, Windshield, Brake disc, Alarm, Cable hall sensor, DC-DC converter, ECU, Flasher, Horn, Foot pegs, Kickstand spring, Midstand, Suspension, Swing arm, Combination switch, Mirror, Turn signal, Battery lock, Power lock, Battery clip, Engine, IOT Module, Speed sensor, Power button, Complete system, Chain wheel protector, Tensioner, Engine bracket, IOT CAN cable, USB charger, Carrier strip, Shimmy damper, SP mount, Protector
     - position: front, rear, left, right, or null (when it's not applicable)
     - likely_service: Adjust, Repair, Replace, Grease, Lubricate, Tension, Tighten, Sticker, Pump, True, Add new, Bleed
@@ -179,6 +179,10 @@ def issue_classifier_node(state: State) -> State:
         "likely_service": "replace"
     }}
 
+    The name of this JSON is reported_problems.
+    
+    The reported_problems can be more than one dict if more than one problem is being reported by the member.
+    
     Respond in this format:
     {parser.get_format_instructions()}
     """.strip()
@@ -309,7 +313,6 @@ graph.add_conditional_edges("confirm_issues", handle_confirmation_node, {
     "next_agent": "next_agent",
     "clarification": "clarification",
     "update_issues_node": "update_issues_node",
-    "confirm_issues": "confirm_issues"
 })
 graph.add_edge("update_issues_node", "render_issues")
 graph.add_edge("next_agent", END)  # Add termination
