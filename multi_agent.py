@@ -27,8 +27,7 @@ class State(MessagesState):
         "audio_intro_node",
         "audio_record_node",
         "audio_process_node",
-        "issue_classifier",
-        "repair_diagnostics"
+        "issue_classifier"
     ]
     audio_path: Optional[str] = None
     transcription: Optional[str] = None
@@ -230,13 +229,13 @@ def issue_classifier_node(state: State) -> State:
 
     # Temos tudo que precisamos!
     success_msg = AIMessage(
-        content=f"Perfect! I identified the problem: {updated_info}. I'll process the diagnostics"
+        content=f"Perfect! I identified the problem: {updated_info}. Let me show you something."
     )
     return {
         **state,
         "collected_info": updated_info,
         "messages": state["messages"] + [success_msg],
-        "current_agent": "repair_diagnostics"
+        "current_agent": "render_issues"
     }
 
 def wait_for_human_node(state: State) -> State:
@@ -263,14 +262,6 @@ def needs_more_info(state: State) -> bool:
     )
 
 
-def repair_diagnostics_node(state: dict) -> dict:
-    print("TODO: implement repair diagnostics")
-    return {
-        **state,
-        "current_agent": "final_response"
-    }
-
-
 def route_from_issue_classifier(state: State) -> str:
     collected = state.get("collected_info", {})
     required_fields = ["bike_type", "part_category", "part_name", "likely_service"]
@@ -280,7 +271,7 @@ def route_from_issue_classifier(state: State) -> str:
         for field in required_fields
     )
 
-    return "repair_diagnostics" if has_all_info else "audio_intro"
+    return "render_issues" if has_all_info else "audio_intro"
 
 
 # 5. Build LangGraph
@@ -292,20 +283,17 @@ graph.add_node("audio_intro", audio_intro_node)
 graph.add_node("audio_record", audio_record_node)
 graph.add_node("audio_process", audio_process_node)
 graph.add_node("issue_classifier", issue_classifier_node)
-graph.add_node("repair_diagnostics", repair_diagnostics_node)
 graph.add_node("wait_for_human", wait_for_human_node)
 graph.add_node("render_issues", render_issues_node)
 graph.add_node("confirm_issues", confirm_issues_node)
 graph.add_node("handle_confirmation", handle_confirmation_node)
 graph.add_node("update_issues_node", wait_for_human_node)  # placeholder
 graph.add_node("clarification", wait_for_human_node) #placeholder
-graph.add_node("next_agent", repair_diagnostics_node) #placeholder
+graph.add_node("next_agent", wait_for_human_node) #placeholder
 
 
 # Future nodes would go here:
 # graph.add_node("repair_vs_replace", repair_vs_replace_node)
-# graph.add_node("next_agent", repair_diagnostics_node)
-
 
 # Add edges
 graph.set_entry_point("audio_intro")
@@ -317,11 +305,9 @@ graph.add_conditional_edges(
     route_from_issue_classifier,
     {
         "audio_intro": "audio_intro",
-        "repair_diagnostics": "repair_diagnostics"
+        "render_issues": "render_issues"
     }
 )
-graph.add_edge("repair_diagnostics", END)
-graph.add_edge("issue_classifier", "render_issues")
 graph.add_edge("render_issues", "confirm_issues")
 graph.add_edge("confirm_issues", "handle_confirmation")
 graph.add_conditional_edges("handle_confirmation", handle_confirmation_node, {
@@ -334,6 +320,5 @@ graph.add_edge("update_issues_node", "render_issues")
 
 
 # Terminate at placeholder for now
-# graph.add_edge("repair_diagnostics", END)
 
 app = graph.compile(checkpointer=memory)
