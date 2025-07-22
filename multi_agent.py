@@ -30,6 +30,7 @@ class State(MessagesState):
         "issue_classifier"
     ]
     audio_path: Optional[str] = None
+
     transcription: Optional[str] = None
     collected_info: Optional[dict] = None
     conversation_round: int = 0
@@ -160,7 +161,7 @@ def issue_classifier_node(state: State) -> State:
     
     If you do not know the value for a field, output null.
     
-    More than one problem can be reported by the member. The bike type will always be the same. Each part name 
+    More than one problem can be reported by the member. The bike type will always be the same.
 
     Here are the fields you need to extract and the possible values of each one based on the text given by the member:
     - bike_type: Deluxe 7, Original 1, Original 1+, Power 1, Power 7 or Power Plus
@@ -235,7 +236,6 @@ def issue_classifier_node(state: State) -> State:
         **state,
         "collected_info": updated_info,
         "messages": state["messages"] + [success_msg],
-        "current_agent": "render_issues"
     }
 
 def wait_for_human_node(state: State) -> State:
@@ -286,14 +286,9 @@ graph.add_node("issue_classifier", issue_classifier_node)
 graph.add_node("wait_for_human", wait_for_human_node)
 graph.add_node("render_issues", render_issues_node)
 graph.add_node("confirm_issues", confirm_issues_node)
-graph.add_node("handle_confirmation", handle_confirmation_node)
-graph.add_node("update_issues_node", wait_for_human_node)  # placeholder
-graph.add_node("clarification", wait_for_human_node) #placeholder
-graph.add_node("next_agent", wait_for_human_node) #placeholder
-
-
-# Future nodes would go here:
-# graph.add_node("repair_vs_replace", repair_vs_replace_node)
+graph.add_node("update_issues_node", wait_for_human_node)
+graph.add_node("clarification", wait_for_human_node)
+graph.add_node("next_agent", wait_for_human_node)
 
 # Add edges
 graph.set_entry_point("audio_intro")
@@ -309,14 +304,15 @@ graph.add_conditional_edges(
     }
 )
 graph.add_edge("render_issues", "confirm_issues")
-graph.add_edge("confirm_issues", "handle_confirmation")
-graph.add_conditional_edges("handle_confirmation", handle_confirmation_node, {
+# Route directly from confirm_issues using handle_confirmation_node
+graph.add_conditional_edges("confirm_issues", handle_confirmation_node, {
     "next_agent": "next_agent",
     "clarification": "clarification",
     "update_issues_node": "update_issues_node",
     "confirm_issues": "confirm_issues"
 })
 graph.add_edge("update_issues_node", "render_issues")
+graph.add_edge("next_agent", END)  # Add termination
 
 
 # Terminate at placeholder for now
