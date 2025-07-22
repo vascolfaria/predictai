@@ -1,0 +1,4938 @@
+{
+  "Deluxe 7": {
+    "Brakes": {
+      "Brake cable/hose": {
+        "Front": {
+          "Adjust": {
+            "id": "53F22754-F7D4-4C48-A5AC-9AD3D7400C42"
+          },
+          "Repair": {
+            "id": "D1E27920-C8BB-4CD4-9A9F-B83140AD1CE6"
+          },
+          "Replace": {
+            "id": "9FD893E5-6A04-4E40-AFF9-66C10B0352E0"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "CFA92F86-9F2E-4F30-A6BA-0DD3A2618F50"
+          },
+          "Repair": {
+            "id": "09106231-F427-4FC9-8826-824F742B839A"
+          },
+          "Replace": {
+            "id": "6A5A355D-05C4-46CB-ADB7-AA3C58B1A47A"
+          }
+        }
+      },
+      "Brake lever": {
+        "Front": {
+          "Repair": {
+            "id": "84F5EB71-0E9E-4E56-9995-FA72BC83E902"
+          },
+          "Replace": {
+            "id": "0A1A9FFC-B423-4DE3-B386-8B6C87AB9B89"
+          }
+        },
+        "Rear": {
+          "Repair": {
+            "id": "5C9C1B63-A13E-41CE-9439-0BFA0CE67E66"
+          },
+          "Replace": {
+            "id": "7749F82F-4FDE-40C1-937A-42E7FA381EFF"
+          }
+        }
+      },
+      "Brake pads": {
+        "Front": {
+          "Replace": {
+            "id": "00FC9307-D557-42C7-B0D3-7837E2E781B0"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "5E8D8E0C-5CC6-4118-8D25-9A98A4F62397"
+          }
+        }
+      },
+      "Brake unit/caliper": {
+        "Front": {
+          "Grease": {
+            "id": "2506D843-266D-4894-A5AD-FB2A01CFBF2E"
+          },
+          "Replace": {
+            "id": "7B66B457-AF68-4669-9967-2DD990016CD7"
+          }
+        },
+        "Rear": {
+          "Grease": {
+            "id": "50DECC66-28D7-4CB1-9466-E65A8ED9C714"
+          },
+          "Replace": {
+            "id": "673A2A0B-A58F-4ACA-B556-E103DA729E76"
+          }
+        }
+      }
+    },
+    "Drivetrain": {
+      "Bottom bracket": {
+        "null": {
+          "Repair": {
+            "id": "DFDBA4DF-54CE-4252-9004-4F96C028CBA7"
+          },
+          "Replace": {
+            "id": "36119813-52CE-4DD5-8033-D7D716D347F2"
+          }
+        }
+      },
+      "Chain": {
+        "null": {
+          "Lubricate": {
+            "id": "537E4B53-2818-4492-9206-946699D6ED9F"
+          },
+          "Replace": {
+            "id": "7BDA4994-1376-4084-AF54-84752B7FC469"
+          },
+          "Tension": {
+            "id": "031015B4-AB2F-411F-B96E-C3C7CFC4CD1A"
+          }
+        }
+      },
+      "Chain wheel": {
+        "null": {
+          "Replace": {
+            "id": "F47BA7CB-02E2-4C67-A11D-82CC643D9FD8"
+          }
+        }
+      },
+      "Chainguard": {
+        "null": {
+          "Repair": {
+            "id": "BB213BAB-4A55-4C47-BE33-286A7E05836B"
+          },
+          "Replace": {
+            "id": "F5A33EEB-186C-44AA-9E2A-3622410313F7"
+          }
+        }
+      },
+      "Crank": {
+        "Both/All": {
+          "Replace": {
+            "id": "692700C8-ED86-4862-9125-0EE84AD62F52"
+          },
+          "Tighten": {
+            "id": "B0E4BAF5-F694-4384-9831-D0423FF53A92"
+          }
+        },
+        "Left": {
+          "Replace": {
+            "id": "377BA008-F763-42F6-92D3-755776859A01"
+          },
+          "Tighten": {
+            "id": "D8558E33-A197-4369-ACE8-2097FFFD7B61"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "6346B69D-DAE6-41AB-A3AB-607B5BBB5091"
+          },
+          "Tighten": {
+            "id": "C927E6C8-DE09-47F5-8000-695708F529B0"
+          }
+        }
+      },
+      "Pedals": {
+        "Both/All": {
+          "Replace": {
+            "id": "2CABBF4D-5FFA-4C82-872A-A2D09C097B8C"
+          }
+        },
+        "Left": {
+          "Replace": {
+            "id": "15D2273C-789C-4D05-884D-E154F05A048F"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "40AE5CDC-6B52-4262-95CB-AF4A2F07CB53"
+          }
+        }
+      },
+      "Sprocket": {
+        "null": {
+          "Replace": {
+            "id": "BE064417-64F2-47D9-AF3D-DBA6F74698E3"
+          }
+        }
+      }
+    },
+    "Fenders": {
+      "Fender": {
+        "Front": {
+          "Adjust": {
+            "id": "8C4A99D6-2B88-4929-9F56-4F504E8F8A0A"
+          },
+          "Replace": {
+            "id": "D07341DB-4D37-4345-8AE3-39B7E82D27CF"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "E587A37E-5FC2-4118-B4EA-7D8FACF99C2B"
+          }
+        }
+      },
+      "Fender stay": {
+        "Front": {
+          "Adjust": {
+            "id": "345559F0-AEFE-4A6F-A12F-962988CEFA35"
+          },
+          "Replace": {
+            "id": "3CEDBCFC-7292-42B6-98A4-4DFDDA538C17"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "EAA6D810-46B6-4B35-9875-F6DB1B8DF458"
+          },
+          "Replace": {
+            "id": "C114C258-0301-47D7-9560-BE434AA7FB8D"
+          }
+        }
+      }
+    },
+    "Frame": {
+      "Barcode": {
+        "null": {
+          "Replace": {
+            "id": "5A65E7FB-9E00-48D5-8014-915AF3E23ABE"
+          }
+        }
+      },
+      "Carrier": {
+        "Front": {
+          "Replace": {
+            "id": "A6D2DA94-168B-4D13-9CDA-298527CB45B7"
+          }
+        }
+      },
+      "Carrier bracket": {
+        "null": {
+          "Replace": {
+            "id": "2A2E0167-A671-4D17-B2F0-F789E71F3AEB"
+          }
+        }
+      },
+      "Carrier bumper": {
+        "null": {
+          "Replace": {
+            "id": "F394B98E-F4A4-4DC1-ABEA-5F21FE26BE55"
+          }
+        }
+      },
+      "Frame/panel": {
+        "null": {
+          "Sticker": {
+            "id": "21A3525B-4F2C-4FE9-BFA2-6AE85CE0574F"
+          }
+        }
+      },
+      "Front fork": {
+        "null": {
+          "Replace": {
+            "id": "8DB4FA2D-42BE-49C7-BF25-01BED62A5A5E"
+          },
+          "Sticker": {
+            "id": "94248302-0238-4431-AB32-910212898585"
+          }
+        }
+      },
+      "Kickstand": {
+        "null": {
+          "Adjust": {
+            "id": "E04CF676-C63B-46B6-9663-1301AD314A13"
+          },
+          "Lubricate": {
+            "id": "98490FF3-8A8F-454B-A71B-0528FE9004AB"
+          },
+          "Replace": {
+            "id": "25C30D3B-6424-4E1F-BC0E-A18251BFEBA1"
+          },
+          "Tighten": {
+            "id": "06868243-C30F-47A3-B52C-1071C775E57C"
+          }
+        }
+      },
+      "Kickstand foot": {
+        "null": {
+          "Replace": {
+            "id": "976EEDFF-934C-4DD3-BFC8-7EA426BB0DAD"
+          }
+        }
+      }
+    },
+    "Gears": {
+      "Cassette-joint": {
+        "null": {
+          "Repair": {
+            "id": "1A41F433-948F-4EAB-953B-F6E3AAB6B802"
+          },
+          "Replace": {
+            "id": "0305ED8D-29E9-4A8A-BFBD-27FD7B32A9A5"
+          }
+        }
+      },
+      "Gears": {
+        "null": {
+          "Adjust": {
+            "id": "0E2389A3-98D8-45B5-85D5-59AB5EC296BA"
+          }
+        }
+      },
+      "Shifter": {
+        "null": {
+          "Repair": {
+            "id": "59D3E5A1-A5D5-4AA7-AFC9-B68CBA634521"
+          },
+          "Replace": {
+            "id": "9FD6DD64-EA92-4BE0-83F5-739877069A34"
+          }
+        }
+      },
+      "Shifter cable": {
+        "null": {
+          "Repair": {
+            "id": "3EB62A04-22BA-4E18-B55C-724277A165E5"
+          },
+          "Replace": {
+            "id": "81E0E3BB-99C6-44F6-93F3-8E54DF91277C"
+          }
+        }
+      }
+    },
+    "Handlebar": {
+      "Bell": {
+        "null": {
+          "Repair": {
+            "id": "91EE5B6C-3FD9-4608-A950-71CDF10ABA1C"
+          },
+          "Replace": {
+            "id": "1B485C88-022F-473C-94AD-7D17C36AC14A"
+          }
+        }
+      },
+      "Grips": {
+        "null": {
+          "Adjust": {
+            "id": "B56C7816-223A-4E79-A1D1-E085F846C23F"
+          },
+          "Replace": {
+            "id": "5CC5E833-AA31-4854-9741-20FA23173D22"
+          }
+        }
+      },
+      "Handlebar": {
+        "null": {
+          "Adjust": {
+            "id": "419020F6-A3F5-4149-94E9-219FF555285D"
+          },
+          "Replace": {
+            "id": "7D6DDF45-E829-4631-A00C-60249DBEAF63"
+          }
+        }
+      },
+      "Headset": {
+        "null": {
+          "Lubricate": {
+            "id": "6A5B2B49-2A27-4B2B-A821-EC09AFBC91A4"
+          },
+          "Repair": {
+            "id": "36FD00B4-D631-42FD-9936-503400CEADA0"
+          },
+          "Replace": {
+            "id": "2E267A9A-BA0D-4629-B0B1-8CC7F268EE8D"
+          }
+        }
+      },
+      "Headset cover": {
+        "null": {
+          "Replace": {
+            "id": "92FEDA6E-59EF-4180-AB7F-A3F3DD3DC144"
+          }
+        }
+      },
+      "Stem": {
+        "null": {
+          "Grease": {
+            "id": "271252C8-2061-4D16-A10A-36CEEE106EF2"
+          },
+          "Repair": {
+            "id": "D2DE8CCE-9D1A-4984-B7E7-39FFF9155F7C"
+          },
+          "Replace": {
+            "id": "DEB408E8-3616-4047-A023-8A63043D0C5D"
+          }
+        }
+      }
+    },
+    "Light": {
+      "Bye bye battery": {
+        "null": {
+          "Replace": {
+            "id": "E31F22DD-C734-47CB-9A94-3F43D202F514"
+          }
+        }
+      },
+      "Cable": {
+        "Front": {
+          "Repair": {
+            "id": "2BF7CECE-F92B-4C9D-9067-D52DF941ECFA"
+          },
+          "Replace": {
+            "id": "2F65BE63-911B-42EC-B7CF-FB908E6CE9A9"
+          }
+        },
+        "Rear": {
+          "Repair": {
+            "id": "FAEEE1B3-ACB9-4F12-A3EE-117AD03051A8"
+          },
+          "Replace": {
+            "id": "446B13E1-C27F-4340-BB3D-B2E40E9B87C7"
+          }
+        }
+      },
+      "Light": {
+        "Front": {
+          "Adjust": {
+            "id": "4DD24982-4FA1-47B2-8C20-AE6C34356174"
+          },
+          "Replace": {
+            "id": "3316A0FA-58BD-4A83-883D-E9D46CCFD7FE"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "DE2AEBD0-1AB3-4EDF-93E8-8BF1B5D6787F"
+          },
+          "Replace": {
+            "id": "628C20BF-FEE7-48A7-A14E-A39E738E53AA"
+          }
+        }
+      },
+      "Magnet": {
+        "Front": {
+          "Adjust": {
+            "id": "2C89FDAF-020D-4990-B4CC-508E03DD8480"
+          },
+          "Replace": {
+            "id": "0D497C2D-620B-464D-9B92-2C52E45E37EC"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "5E2F5BA2-F9A4-496A-AD1C-A276B078AA57"
+          },
+          "Replace": {
+            "id": "E97AB2B6-F202-4071-A107-180CB8A8EA24"
+          }
+        }
+      },
+      "Reflector": {
+        "Rear": {
+          "Replace": {
+            "id": "BB07C23F-E89E-42A6-BE71-A4F634830050"
+          }
+        }
+      }
+    },
+    "Lock": {
+      "Chain lock": {
+        "null": {
+          "Repair": {
+            "id": "63190449-689A-422F-9962-05F68D0BD19E"
+          },
+          "Replace": {
+            "id": "F3C625D6-A1D7-4B1A-85C0-D85CAF3C8B2B"
+          }
+        }
+      },
+      "Frame lock": {
+        "null": {
+          "Lubricate": {
+            "id": "68AE58DD-A4C0-43AD-9F84-29D45BD4278D"
+          },
+          "Repair": {
+            "id": "810378C2-A040-48BD-B7FD-4CD2DD459D3B"
+          },
+          "Replace": {
+            "id": "3C04F36A-8BCC-4CCE-9C2C-0967149DCB5F"
+          }
+        }
+      }
+    },
+    "Saddle": {
+      "Saddle": {
+        "null": {
+          "Adjust": {
+            "id": "3B7134D5-7F6B-4910-BA89-BB2425F12EEA"
+          },
+          "Repair": {
+            "id": "FA5126A5-3FC0-46C1-AE1E-E5D929846D4D"
+          },
+          "Replace": {
+            "id": "0B721377-CF0E-45B8-9C02-3DA520FB9776"
+          }
+        }
+      },
+      "Saddle clamp": {
+        "null": {
+          "Repair": {
+            "id": "A8DAA5C7-AC03-4234-A5D6-226ADBF58DD3"
+          },
+          "Replace": {
+            "id": "356724DB-8E35-4FD5-825F-A9C47B778BBF"
+          }
+        }
+      },
+      "Seatpost": {
+        "null": {
+          "Grease": {
+            "id": "9BE96D77-8EA3-40CC-92CC-6B4520DE2EC1"
+          },
+          "Repair": {
+            "id": "BA36E1A4-2623-409D-B5EA-CEAD297E74CC"
+          },
+          "Replace": {
+            "id": "5EFFF08B-CCFC-4309-BE0C-B1BCEA3B5FBA"
+          }
+        }
+      },
+      "Seatpost clamp": {
+        "null": {
+          "Repair": {
+            "id": "B3A142C5-D10E-4B79-994E-E513A810BB80"
+          },
+          "Replace": {
+            "id": "BAB9F366-1F67-498B-B18D-1505A495EE4D"
+          }
+        }
+      }
+    },
+    "Wheel": {
+      "Hub": {
+        "Front": {
+          "Adjust": {
+            "id": "D7D0BAFD-90E8-4D67-9BAC-23F1F8CC1678"
+          },
+          "Replace": {
+            "id": "0FDA7A4B-A99F-400C-B3C3-287FA4D3F373"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "C01F5BB2-ECC5-49E5-B4E1-9E2607DC39CA"
+          },
+          "Replace": {
+            "id": "27F7CD11-CE91-40AF-BC58-09DC90AB2F31"
+          }
+        }
+      },
+      "Innertube": {
+        "Both/All": {
+          "Pump": {
+            "id": "B6C833E8-329E-4A05-9EBD-20554B3B6159"
+          }
+        },
+        "Front": {
+          "Pump": {
+            "id": "B2DD71FE-0E12-4CB7-801B-3B38FC6D1663"
+          },
+          "Replace": {
+            "id": "04AE8189-ED55-4490-8B69-D59DD66FEFB1"
+          }
+        },
+        "Rear": {
+          "Pump": {
+            "id": "7FAFA658-C921-4B1B-B900-0AA7659E8301"
+          },
+          "Replace": {
+            "id": "CC686528-EEE6-4548-893F-D54CDD717329"
+          }
+        }
+      },
+      "Rimtape": {
+        "Front": {
+          "Replace": {
+            "id": "DE0F5789-4F67-49B1-B1A8-5D6CC91D0756"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "2F246FF7-5C25-4BED-AF0F-FD48A7B202E0"
+          }
+        }
+      },
+      "Spoke/nipple": {
+        "Front": {
+          "Replace": {
+            "id": "2B120A57-36A5-45DA-8509-82EC7AD81A7C"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "D081E5A4-6F27-420D-8B34-C78BF2B1E5CE"
+          }
+        }
+      },
+      "Tire": {
+        "Front": {
+          "Replace": {
+            "id": "62E0C1CC-D78C-4999-96E3-FBBAC0BD9454"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "DFC9253E-2905-413C-83AA-CDD7CECDAC5B"
+          }
+        }
+      },
+      "Valve": {
+        "Front": {
+          "Replace": {
+            "id": "22B3FAA4-92B6-4C94-B879-4F474F6E7EFC"
+          },
+          "Tighten": {
+            "id": "7DEB8513-2806-4C29-963B-507673492740"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "1B73BCC5-CA35-480F-91D5-D95F670BF7ED"
+          },
+          "Tighten": {
+            "id": "614B8F94-B63C-4956-8125-A033599D140C"
+          }
+        }
+      },
+      "Wheel": {
+        "Front": {
+          "Replace": {
+            "id": "8CB09669-FC3D-41B0-90C0-990CE981FCD5"
+          },
+          "True": {
+            "id": "36EB0C90-D4EA-4FE5-8301-053CA89C08C3"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "C5EAEB39-0247-4C33-AE85-05D21C7C0ABE"
+          },
+          "True": {
+            "id": "ED60C4A8-71CA-405E-98DD-163C2365BA72"
+          }
+        }
+      }
+    }
+  },
+  "e-Kick": {
+    "Brakes": {
+      "Brake cable/hose": {
+        "Left": {
+          "Adjust": {
+            "id": "CEB5524C-99B9-40D2-8897-922058B32B3C"
+          },
+          "Repair": {
+            "id": "BB0C98C0-B727-460A-9B07-F491344AB140"
+          },
+          "Replace": {
+            "id": "7FBBB0CC-63FD-481F-86C6-D45284B0940F"
+          }
+        },
+        "Right": {
+          "Adjust": {
+            "id": "EF404689-20E3-4BCF-9210-6E077565F826"
+          },
+          "Repair": {
+            "id": "52EB3D20-A493-4A69-A702-2A3871102F7B"
+          },
+          "Replace": {
+            "id": "21B4D833-8E35-4792-B8C7-D08258126D3F"
+          }
+        }
+      },
+      "Brake lever": {
+        "Left": {
+          "Repair": {
+            "id": "E046FB15-DA5F-4B03-BE69-D1F241E65B2D"
+          },
+          "Replace": {
+            "id": "424FDA46-6C70-4E94-A69E-A6BE378DB490"
+          }
+        },
+        "Right": {
+          "Repair": {
+            "id": "9ECACA46-D614-48F8-87EE-86DA9183D92D"
+          },
+          "Replace": {
+            "id": "F691631F-E114-4021-B56B-07DE8E1503EC"
+          }
+        }
+      },
+      "Brake unit/caliper": {
+        "Left": {
+          "Repair": {
+            "id": "C817C598-4D4F-430E-B2E7-DDF24D042817"
+          },
+          "Replace": {
+            "id": "C6E2E4A7-E81B-46F3-8EA9-D047A1CA2079"
+          }
+        },
+        "Right": {
+          "Repair": {
+            "id": "2CCFB5BD-6C27-426A-A7EC-354C2BA18029"
+          },
+          "Replace": {
+            "id": "BD7B4671-5833-477D-836C-81F7FABDCBF6"
+          }
+        }
+      }
+    },
+    "Electrics": {
+      "Battery": {
+        "null": {
+          "Repair": {
+            "id": "81A86501-7E70-4429-AFD3-98BB411E2426"
+          },
+          "Replace": {
+            "id": "5EB35E94-440F-45B4-BC46-7E06F60B159A"
+          }
+        }
+      },
+      "Charge port": {
+        "null": {
+          "Repair": {
+            "id": "9AE1712F-9D6B-42C5-8E93-A7F9646C87F8"
+          },
+          "Replace": {
+            "id": "8F8E037F-65D0-470F-A28D-36D32C65F31F"
+          }
+        }
+      },
+      "Charger": {
+        "null": {
+          "Repair": {
+            "id": "C95B90DC-C2EC-46A8-9B0B-06E91EF2977C"
+          },
+          "Replace": {
+            "id": "167CB04C-5B90-476B-8ADD-7F694F7505EF"
+          }
+        }
+      },
+      "Controller": {
+        "null": {
+          "Replace": {
+            "id": "2FBB6025-AF8E-4754-8083-90FDF56A7FB9"
+          }
+        }
+      },
+      "Display": {
+        "null": {
+          "Repair": {
+            "id": "B66886C9-1ED9-41DE-93F8-4C39F27A2DFE"
+          },
+          "Replace": {
+            "id": "6C554A2D-EEC1-47DC-A539-C953D3A64880"
+          }
+        }
+      },
+      "Display cable": {
+        "null": {
+          "Repair": {
+            "id": "0103E09F-1A4F-415F-A573-93F3C36E6D93"
+          },
+          "Replace": {
+            "id": "F4BF8195-A18B-4933-A30F-4730B5D93084"
+          }
+        }
+      },
+      "Engine power cable": {
+        "null": {
+          "Repair": {
+            "id": "5B18494C-A342-41D5-8879-50EEA7DADE53"
+          },
+          "Replace": {
+            "id": "02C940A6-E136-4231-8AE9-2239542A4EC7"
+          }
+        }
+      },
+      "Software": {
+        "null": {
+          "Repair": {
+            "id": "F130BB5E-6E0F-42D0-BD13-CD2EF57A233E"
+          },
+          "Replace": {
+            "id": "278D8F55-6029-41F0-9F8E-F68DCC9BDEED"
+          }
+        }
+      }
+    },
+    "Fenders": {
+      "Fender": {
+        "Front": {
+          "Replace": {
+            "id": "09494457-E871-4098-9FAC-3DD6F1D91FFF"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "4E2C6BCC-B7D3-4925-9BB2-D3152DB0924C"
+          }
+        }
+      }
+    },
+    "Folding": {
+      "Front hinge": {
+        "null": {
+          "Repair": {
+            "id": "7DCBE821-5E24-4EE9-A654-DA8E66A7CC3D"
+          },
+          "Replace": {
+            "id": "9B8650CB-0065-4D0E-80CA-3A452767DAA0"
+          }
+        }
+      },
+      "Hook on handlebar post": {
+        "null": {
+          "Repair": {
+            "id": "DAA9B86F-ADAC-4800-897F-1DFE883D2D93"
+          },
+          "Replace": {
+            "id": "E67F8387-67C9-408D-B85E-13C1837465BC"
+          }
+        }
+      },
+      "Spring mechanism": {
+        "null": {
+          "Repair": {
+            "id": "6B7B168E-0007-4B12-8881-49686888DB2D"
+          },
+          "Replace": {
+            "id": "953D04DA-7467-4610-BC39-D8E29CD005B2"
+          }
+        }
+      }
+    },
+    "Frame": {
+      "Barcode": {
+        "null": {
+          "Replace": {
+            "id": "8B6DBFAB-87C8-4F4D-8403-F7C792C0E4E6"
+          }
+        }
+      },
+      "Bottomplate downside": {
+        "null": {
+          "Repair": {
+            "id": "0964D93D-8F60-405D-ACD7-8F312CC95830"
+          },
+          "Replace": {
+            "id": "575D2E44-2D97-400F-9A0B-FE091D006C55"
+          }
+        }
+      },
+      "Frame/panel": {
+        "null": {
+          "Sticker": {
+            "id": "0B54F934-709B-4B1F-965D-36B886C28A93"
+          }
+        }
+      },
+      "Front fork": {
+        "null": {
+          "Replace": {
+            "id": "0679721F-C162-432E-BEB0-F4503A36AFA5"
+          },
+          "Sticker": {
+            "id": "2EDCBEEE-0115-4CD0-BF52-85D2E635A1A2"
+          }
+        }
+      },
+      "Kickstand": {
+        "null": {
+          "Adjust": {
+            "id": "BBEE2F0A-C382-4D8E-AD69-75965BC3C0E6"
+          },
+          "Lubricate": {
+            "id": "8838AB70-8402-428F-8AF1-B7DBA7142F8A"
+          },
+          "Replace": {
+            "id": "96B147F3-6B61-40AF-8537-2AC68D9EBF05"
+          },
+          "Tighten": {
+            "id": "444F4890-250D-49F1-8FDB-B60630965E98"
+          }
+        }
+      }
+    },
+    "Handlebar": {
+      "Bell": {
+        "null": {
+          "Repair": {
+            "id": "FD0F2D0E-372B-4633-8681-DB25EF77C151"
+          },
+          "Replace": {
+            "id": "8B012DC8-4B63-44E8-A6A8-6EE3F915B6EC"
+          }
+        }
+      },
+      "Grips": {
+        "null": {
+          "Replace": {
+            "id": "4D0BFD36-9CEC-4BF6-B92B-5E2A7A11E1CB"
+          }
+        }
+      },
+      "Gripstop": {
+        "null": {
+          "Repair": {
+            "id": "E3EDFFC9-75AF-4122-B411-1F7B7FDC8849"
+          },
+          "Replace": {
+            "id": "ED39CDFB-C464-46F8-B08C-040B9C7EECA9"
+          }
+        }
+      },
+      "Handlebar": {
+        "null": {
+          "Adjust": {
+            "id": "0BF9FC3F-4D81-45A7-B272-C38EE77A1954"
+          },
+          "Replace": {
+            "id": "00E8F86D-AF9A-425B-8DAA-AD0E3BB895EA"
+          }
+        }
+      },
+      "Headset": {
+        "null": {
+          "Lubricate": {
+            "id": "F9A6F290-C311-480D-812C-C0F5BB71323D"
+          },
+          "Repair": {
+            "id": "CDCE718E-E0CF-4534-B915-5788A9671686"
+          },
+          "Replace": {
+            "id": "6707D47D-24BC-42AE-BAB7-94A991001952"
+          }
+        }
+      },
+      "Stem": {
+        "null": {
+          "Repair": {
+            "id": "1EEA71A7-D17F-4745-80A2-6AD3E0F8976C"
+          },
+          "Replace": {
+            "id": "A11E95CB-216C-43B0-BE1A-3457397F2F46"
+          }
+        }
+      },
+      "Throttle": {
+        "null": {
+          "Repair": {
+            "id": "9D779257-52CA-43B7-91CD-66E3C152461B"
+          },
+          "Replace": {
+            "id": "F3FC58FF-8ADF-4F8D-8FF6-D5FF00EABE3A"
+          }
+        }
+      },
+      "Throttle cable": {
+        "null": {
+          "Adjust": {
+            "id": "E2FA07D7-CC6F-4956-9DDB-206D9E4A8497"
+          },
+          "Replace": {
+            "id": "3E18358E-BDDA-4528-872C-CDD4E825A534"
+          }
+        }
+      }
+    },
+    "Light": {
+      "Brake light": {
+        "null": {
+          "Repair": {
+            "id": "ADAA193B-3679-4FED-BE74-42098B817DB1"
+          },
+          "Replace": {
+            "id": "5E4ABE5C-0631-46DA-B197-BA99D72913D6"
+          }
+        }
+      },
+      "Cable": {
+        "Front": {
+          "Repair": {
+            "id": "4FDB0984-CF9E-4F47-A320-22ADE91F2231"
+          },
+          "Replace": {
+            "id": "81AE5AF7-3FD3-41D3-8B33-2D0D6C0EDC56"
+          }
+        },
+        "Rear": {
+          "Repair": {
+            "id": "81E747E7-86DB-4073-B689-8345D93D8FD3"
+          },
+          "Replace": {
+            "id": "358C813A-2173-482D-A50F-085A7FA07AA8"
+          }
+        }
+      },
+      "Light": {
+        "Front": {
+          "Adjust": {
+            "id": "6D260C6D-9896-4179-BBA1-D2F7E2DE9850"
+          },
+          "Replace": {
+            "id": "3D6BCE0B-7788-4A04-8539-91A13381F047"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "5591A1C5-CF7C-4441-8260-7C916E637B9F"
+          },
+          "Replace": {
+            "id": "D3309C7D-C3B5-49C4-BBD6-33F6E61EC7AA"
+          }
+        }
+      },
+      "Reflector": {
+        "Rear": {
+          "Replace": {
+            "id": "03A2B99D-033D-4840-8E28-9D4A25FA02D9"
+          }
+        }
+      }
+    },
+    "Lock": {
+      "Chain lock": {
+        "null": {
+          "Lubricate": {
+            "id": "8C41B296-FA7C-49FB-81E8-9B2E9E820271"
+          },
+          "Repair": {
+            "id": "A3522261-2699-4E8E-A13A-922C04DC5352"
+          },
+          "Replace": {
+            "id": "B5CF4DB2-ED20-4AA4-921C-D65DC2A1DF42"
+          }
+        }
+      }
+    },
+    "Wheel": {
+      "Tire": {
+        "Front": {
+          "Pump": {
+            "id": "17525C02-1B51-4A58-8BD4-8B8F43C4A6D5"
+          },
+          "Repair": {
+            "id": "5EE9B45C-9198-4ABD-AFF5-B59F9B74FF35"
+          }
+        },
+        "Rear": {
+          "Pump": {
+            "id": "D9207131-99A9-4111-844D-2DCAB65052BA"
+          },
+          "Repair": {
+            "id": "75FA27E1-4EDA-4A98-A7C6-439C6A9BE01D"
+          }
+        }
+      },
+      "Valve": {
+        "Front": {
+          "Replace": {
+            "id": "5AF5E59A-4F56-4D96-A004-5EF6D20CB7D3"
+          },
+          "Tighten": {
+            "id": "FFB05258-E29B-44BF-BD45-FA2F2133E314"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "4C657E7D-8400-4268-8BC6-F2F2B643305C"
+          },
+          "Tighten": {
+            "id": "9371918A-8646-4DDF-A861-1C4C81E2432A"
+          }
+        }
+      },
+      "Wheel": {
+        "Front": {
+          "Replace": {
+            "id": "0D74E63A-F12A-43B2-BB82-5C719BBA9725"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "424E75F4-B5BA-485D-BDA9-C809EF83C738"
+          }
+        }
+      }
+    }
+  },
+  "e-Scooter": {
+    "Body & Panel": {
+      "Battery compartment": {
+        "null": {
+          "Replace": {
+            "id": "E7026DA3-4095-48BB-A751-4D96321E3F82"
+          }
+        }
+      },
+      "Battery cover": {
+        "null": {
+          "Replace": {
+            "id": "8C4A2488-F4CF-4CC1-B16E-C5D4A4F2253A"
+          }
+        }
+      },
+      "Body panel": {
+        "Left": {
+          "Replace": {
+            "id": "AFFBBF41-6C72-46E8-A4EE-8D1A4061A8DA"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "0224E5B4-0AE3-45FE-BD2D-63BC981EFD3B"
+          }
+        }
+      },
+      "End cap": {
+        "null": {
+          "Replace": {
+            "id": "FF8F43F6-8272-41E1-947C-EF1909271490"
+          }
+        }
+      },
+      "Footrest": {
+        "null": {
+          "Replace": {
+            "id": "571CF00D-EB9B-4EF5-A5F2-EC4C2C46A50A"
+          }
+        }
+      },
+      "Front wheel cover": {
+        "null": {
+          "Replace": {
+            "id": "544CB90B-D10A-41A8-9BFB-8F09E59EB3EF"
+          }
+        }
+      },
+      "Handrail": {
+        "Left": {
+          "Replace": {
+            "id": "A728513F-1968-4E3A-A1AD-1A1C0FB3ED09"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "ABC94933-33A9-4C5B-B7AD-B82F5E67A6B2"
+          }
+        }
+      },
+      "Helmet hook": {
+        "null": {
+          "Replace": {
+            "id": "995A1AC9-C0B8-40B6-BA6F-68B98CA3E0E9"
+          }
+        }
+      },
+      "Neck cover": {
+        "Front": {
+          "Replace": {
+            "id": "67B1A7E6-8F42-4F73-93DD-784E07BF3FAC"
+          }
+        }
+      },
+      "Panel": {
+        "Front": {
+          "Replace": {
+            "id": "7504EFEC-4F03-4F7E-9602-8B4962BC3023"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "DE650BF5-276F-469C-A914-DCF371605D3B"
+          }
+        }
+      },
+      "Side panel": {
+        "Left": {
+          "Replace": {
+            "id": "7578E1D5-1E14-43B2-8CBC-D4D0E37E4427"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "D61635BB-5C31-41CA-B342-F299B114325C"
+          }
+        }
+      },
+      "Windshield": {
+        "null": {
+          "Replace": {
+            "id": "2CEF7032-2935-4682-A6F1-AD51D0148555"
+          }
+        }
+      }
+    },
+    "Brakes": {
+      "Brake cable/hose": {
+        "Front": {
+          "Adjust": {
+            "id": "8FD0BB98-8286-41B2-AAD1-5AA1DA2883B9"
+          },
+          "Repair": {
+            "id": "4AE7A6C1-3F5A-4BC3-85B0-497927C3B68D"
+          },
+          "Replace": {
+            "id": "63843123-2241-4DD7-A310-7E4487E12692"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "95D2EBBE-3A55-4A99-BA99-0C3015AD5A67"
+          },
+          "Repair": {
+            "id": "C5EC1578-FE12-4C02-8088-6989AEFF7C48"
+          },
+          "Replace": {
+            "id": "F23ED72D-A2D3-43DC-8898-E99018596622"
+          }
+        }
+      },
+      "Brake disc": {
+        "Front": {
+          "Replace": {
+            "id": "5CF71992-6152-4F1C-AED5-ED5302655755"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "580544D7-C834-4CD1-B1B7-D4C7BF7FA767"
+          }
+        }
+      },
+      "Brake lever": {
+        "Front": {
+          "Repair": {
+            "id": "5AE5EA1E-8F16-4DF0-AAE7-966EBFA5C7CE"
+          },
+          "Replace": {
+            "id": "92DFBFFD-9FCB-43CF-8941-08C0678DD8C0"
+          }
+        },
+        "Rear": {
+          "Repair": {
+            "id": "061749AA-2231-46D1-A975-F47AD3576F14"
+          },
+          "Replace": {
+            "id": "B14A606E-492D-4979-82FB-DDADAC77DE93"
+          }
+        }
+      },
+      "Brake pads": {
+        "Front": {
+          "Replace": {
+            "id": "2ABE26DE-8936-492C-9B86-12F67F10CCCA"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "D4EA15C9-7A2A-4940-87A9-C164F7874D7C"
+          }
+        }
+      },
+      "Brake unit/caliper": {
+        "Front": {
+          "Grease": {
+            "id": "3E4B081D-2964-4AAC-9682-592335E26BF6"
+          },
+          "Replace": {
+            "id": "536E7BD5-25A8-47CD-9661-28D7F6798E40"
+          }
+        },
+        "Rear": {
+          "Grease": {
+            "id": "08E43E03-AEF6-4702-8364-A2B46F1EC0A1"
+          },
+          "Replace": {
+            "id": "2F079B37-194D-4DA6-9633-4EED6D4755EE"
+          }
+        }
+      }
+    },
+    "Electrics": {
+      "Alarm": {
+        "null": {
+          "Replace": {
+            "id": "FDEBDF6F-40D2-4C8D-AB75-037878C23B3D"
+          }
+        }
+      },
+      "Battery": {
+        "null": {
+          "Repair": {
+            "id": "9AAC1529-3BE7-4454-B0FC-DE451522127D"
+          },
+          "Replace": {
+            "id": "9D5202FB-E067-4164-9AD7-8CA7EA0D9043"
+          }
+        }
+      },
+      "Cable hall sensor": {
+        "null": {
+          "Replace": {
+            "id": "3B4CF13E-AAFE-4267-9480-26534BCA4519"
+          }
+        }
+      },
+      "Charger": {
+        "null": {
+          "Repair": {
+            "id": "15882175-F945-4DAE-8680-A42D7A831D54"
+          },
+          "Replace": {
+            "id": "68D34080-79B6-403C-90D8-4F573CE19A8B"
+          }
+        }
+      },
+      "DC-DC converter": {
+        "null": {
+          "Replace": {
+            "id": "712527C9-F061-41E2-9714-2ED117906236"
+          }
+        }
+      },
+      "Display": {
+        "null": {
+          "Repair": {
+            "id": "01865366-75C4-497A-BE85-B474A59311E7"
+          },
+          "Replace": {
+            "id": "CB8BE7A8-E9F8-40DC-AF63-24A917CC57BD"
+          }
+        }
+      },
+      "Display cable": {
+        "null": {
+          "Repair": {
+            "id": "665890AF-05C7-4C5F-80C3-7BC997A11D94"
+          },
+          "Replace": {
+            "id": "0F075D00-8156-4699-993B-4ADF6D48CA12"
+          }
+        }
+      },
+      "ECU": {
+        "null": {
+          "Replace": {
+            "id": "B2DEE112-0990-4109-9D00-C61815BEBB25"
+          }
+        }
+      },
+      "Engine power cable": {
+        "null": {
+          "Repair": {
+            "id": "4A30AFE7-4025-4A88-9233-39452AD913A4"
+          },
+          "Replace": {
+            "id": "AAD18F96-0E36-4A8A-90D6-8C497D7CC843"
+          }
+        }
+      },
+      "Flasher": {
+        "null": {
+          "Replace": {
+            "id": "E0C2A059-63CD-4054-8846-0EFDF1CC5A46"
+          }
+        }
+      },
+      "Horn": {
+        "null": {
+          "Replace": {
+            "id": "FC8EEDC3-5AA5-4474-87BF-E899A9C04B9B"
+          }
+        }
+      },
+      "Software": {
+        "null": {
+          "Repair": {
+            "id": "EB95BFD8-4C4D-4061-8C6E-02AB1250F149"
+          },
+          "Replace": {
+            "id": "E87D4C31-F1B4-486B-ACB0-F45ADAC97137"
+          }
+        }
+      }
+    },
+    "Fenders": {
+      "Fender": {
+        "Front": {
+          "Replace": {
+            "id": "A2002061-ECAF-4FC4-8B10-CB7843DD15E0"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "1916BEC5-2EFF-4D49-926C-3776224DE5E4"
+          }
+        }
+      }
+    },
+    "Frame": {
+      "Barcode": {
+        "null": {
+          "Replace": {
+            "id": "E0D5D222-5385-4C6C-9CD4-2D5FA0353373"
+          }
+        }
+      },
+      "Bottomplate downside": {
+        "null": {
+          "Repair": {
+            "id": "4B3DE211-B889-4CDC-952B-69EA10A61B25"
+          },
+          "Replace": {
+            "id": "CFCEBFC3-83E6-4B7A-A356-94A53415A21A"
+          }
+        }
+      },
+      "Foot pegs": {
+        "Left": {
+          "Replace": {
+            "id": "DA93A7E1-589C-4A3F-9616-C8B03F345D7E"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "7A041FDB-7AA6-4943-9B68-3A21A873B9A2"
+          }
+        }
+      },
+      "Frame/panel": {
+        "null": {
+          "Sticker": {
+            "id": "A27E8ABD-8F6E-4E59-B373-B089B38BFB54"
+          }
+        }
+      },
+      "Front fork": {
+        "null": {
+          "Replace": {
+            "id": "68D7ABD2-6E6F-4445-A5DE-E8D26646C091"
+          },
+          "Sticker": {
+            "id": "BCF9C66A-6417-41EA-8F81-615671DCD3C3"
+          }
+        }
+      },
+      "Kickstand": {
+        "null": {
+          "Adjust": {
+            "id": "FFC55D95-F297-4CEE-9A26-B4B9605DD3AA"
+          },
+          "Lubricate": {
+            "id": "EE978DB7-295C-4A8B-B811-7E6468788AEE"
+          },
+          "Replace": {
+            "id": "1BBD927B-E06D-4464-8E0D-A1797CB5B87D"
+          },
+          "Tighten": {
+            "id": "E54795FD-4852-41C5-A269-5EAEE542420D"
+          }
+        }
+      },
+      "Kickstand spring": {
+        "null": {
+          "Replace": {
+            "id": "981B48E8-B95D-438F-A42E-5F1AAF0F7949"
+          }
+        }
+      },
+      "Midstand": {
+        "null": {
+          "Lubricate": {
+            "id": "CE0A5B26-F136-4CC8-9C51-790291DBADA6"
+          },
+          "Replace": {
+            "id": "D5C4EB5C-9095-498D-91C5-E1DE88D6F048"
+          }
+        }
+      },
+      "Suspension": {
+        "Left": {
+          "Replace": {
+            "id": "108A452A-0936-4712-A5E7-C4398DE5E377"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "5290CE0D-9173-40BF-A8A7-123B1A4B2D67"
+          }
+        }
+      },
+      "Swing arm": {
+        "null": {
+          "Replace": {
+            "id": "325EFAA1-2407-4FEA-BE7A-FCE09A1582C4"
+          },
+          "Sticker": {
+            "id": "DFF52524-72AB-4C13-89FA-4608B83DDD67"
+          }
+        }
+      }
+    },
+    "Handlebar": {
+      "Combination switch": {
+        "Left": {
+          "Repair": {
+            "id": "D9F6B94B-2542-41E6-A9FB-64DEFF4B62CC"
+          },
+          "Replace": {
+            "id": "4C22FC2E-A6F0-4507-87D0-A849F895C622"
+          }
+        },
+        "Right": {
+          "Repair": {
+            "id": "B256DDF2-BB76-4746-9F97-A21B9ED83901"
+          },
+          "Replace": {
+            "id": "8332EA82-8637-4AF3-97EC-E138BA8CE7A5"
+          }
+        }
+      },
+      "Grips": {
+        "null": {
+          "Replace": {
+            "id": "5829492E-D727-40E2-A7A3-6E676FBAF1BE"
+          }
+        }
+      },
+      "Handlebar": {
+        "null": {
+          "Adjust": {
+            "id": "60D43463-9C9C-4F8E-90A6-724D0C05F3CC"
+          },
+          "Replace": {
+            "id": "E6C240EC-A397-4B7E-B2FB-8E18C11D9869"
+          }
+        }
+      },
+      "Headset": {
+        "null": {
+          "Lubricate": {
+            "id": "E4DE976D-A623-4A01-ACF1-37D205BE6BBD"
+          }
+        }
+      },
+      "Mirror": {
+        "null": {
+          "Replace": {
+            "id": "54A1D656-9271-483B-8E68-93DCFFA80746"
+          }
+        }
+      },
+      "Throttle": {
+        "null": {
+          "Repair": {
+            "id": "9270704C-01B9-4C80-98BC-BFE675672295"
+          },
+          "Replace": {
+            "id": "8E4308FD-4C56-45B8-A5CD-F447E1896B7F"
+          }
+        }
+      },
+      "Throttle cable": {
+        "null": {
+          "Adjust": {
+            "id": "BD9F5413-5E60-4221-AA80-AD2AD77D18FA"
+          },
+          "Replace": {
+            "id": "940E66BC-960E-4DA4-922E-D6A7D4C981E8"
+          }
+        }
+      }
+    },
+    "Light": {
+      "Brake light": {
+        "null": {
+          "Repair": {
+            "id": "EE51A108-1424-481F-AFE1-5614441EDB19"
+          },
+          "Replace": {
+            "id": "D5E754FA-AB94-416C-926F-551535746242"
+          }
+        }
+      },
+      "Cable": {
+        "Front": {
+          "Repair": {
+            "id": "7000005B-07C9-4773-9A7C-A83C6A621274"
+          },
+          "Replace": {
+            "id": "55C6C0A6-41F9-45F8-8C4F-BF089AD2D72B"
+          }
+        },
+        "Rear": {
+          "Repair": {
+            "id": "89C08D5D-3EC3-4C5C-897B-9F59188B4C33"
+          },
+          "Replace": {
+            "id": "91E337B0-3260-4B14-8585-B593CA9969EA"
+          }
+        }
+      },
+      "Light": {
+        "Front": {
+          "Adjust": {
+            "id": "731A98D3-F637-4FCB-B48B-CC8D7D77465E"
+          },
+          "Replace": {
+            "id": "BD7EDC6C-4C3A-49E3-A539-1172E1CE790C"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "C6368702-23BE-4D10-B39B-EB08897E3EE1"
+          },
+          "Replace": {
+            "id": "431B0362-75CB-4C65-95CA-4F07F408DE1C"
+          }
+        }
+      },
+      "Turn signal": {
+        "Left": {
+          "Repair": {
+            "id": "F9436EB7-4158-480A-B6E8-7F4512BC7C6A"
+          },
+          "Replace": {
+            "id": "FC5CA594-E348-49D3-83B5-9A3FAA756843"
+          }
+        },
+        "Right": {
+          "Repair": {
+            "id": "EA09787D-039E-4D36-8E24-F07D77C26037"
+          },
+          "Replace": {
+            "id": "58A87498-1157-40C8-ADC2-F1AA0BF270B1"
+          }
+        }
+      }
+    },
+    "Lock": {
+      "Battery lock": {
+        "null": {
+          "Lubricate": {
+            "id": "ECCEB1A5-4918-45D3-9074-BB56EB6BF1EE"
+          },
+          "Repair": {
+            "id": "02EDF575-7355-4B11-89AB-347954D1C7D3"
+          },
+          "Replace": {
+            "id": "CDCC2AEC-75E8-43C1-A745-2A52361290CA"
+          }
+        }
+      },
+      "Chain lock": {
+        "null": {
+          "Lubricate": {
+            "id": "723ECB68-60DD-43C9-8C2D-341E084E5DEC"
+          },
+          "Repair": {
+            "id": "A5641F0E-2BA1-4B38-BA90-BE760D4EC65F"
+          },
+          "Replace": {
+            "id": "89317250-A564-4A51-B3F9-6857D74B476E"
+          }
+        }
+      },
+      "Power lock": {
+        "null": {
+          "Lubricate": {
+            "id": "68A3B034-CEFE-49D9-8420-BCCC5DC50DB7"
+          },
+          "Repair": {
+            "id": "0F552C82-D896-486B-9803-10F55954F954"
+          },
+          "Replace": {
+            "id": "FE781DCD-950C-44B1-BA62-39484F54204B"
+          }
+        }
+      }
+    },
+    "Saddle": {
+      "Saddle": {
+        "null": {
+          "Adjust": {
+            "id": "368FD133-2B5B-45FE-8C7C-97E119739029"
+          },
+          "Repair": {
+            "id": "0387A8E2-05EA-4D85-B4BE-CF1BFEBD8301"
+          },
+          "Replace": {
+            "id": "84BF44A1-C698-4EFD-9A3F-30023BC16BD1"
+          }
+        }
+      }
+    },
+    "Wheel": {
+      "Tire": {
+        "Front": {
+          "Pump": {
+            "id": "4BBD8E5F-3795-4798-A1E2-D203968029C8"
+          },
+          "Repair": {
+            "id": "B5AB5F8F-45C5-43F8-A743-679854EDB961"
+          }
+        },
+        "Rear": {
+          "Pump": {
+            "id": "8D81D7E9-2BB2-4284-94D2-84DDFE6EB446"
+          },
+          "Repair": {
+            "id": "F795C2E8-2798-4776-9D8B-41F59CF735EE"
+          }
+        }
+      },
+      "Valve": {
+        "Front": {
+          "Replace": {
+            "id": "F08908D4-0F36-495F-A7F6-856250623A74"
+          },
+          "Tighten": {
+            "id": "41A94920-BC02-4B8D-A929-8025EDAD8999"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "8D1E4182-587D-4B37-946B-7EDAD26A3DCE"
+          },
+          "Tighten": {
+            "id": "24FD74E7-95F1-4B2F-A721-4E2C90BBFDD5"
+          }
+        }
+      },
+      "Wheel": {
+        "Front": {
+          "Replace": {
+            "id": "22FD8833-CC9A-4819-860D-27237D47E823"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "F7A123FB-EDEB-4336-8EF9-B24F64004A5B"
+          }
+        }
+      }
+    }
+  },
+  "Original 1": {
+    "Brakes": {
+      "Brake unit/caliper": {
+        "Rear": {
+          "Grease": {
+            "id": "37511285-BF0D-41E0-A472-7E0F2F9E380F"
+          }
+        }
+      }
+    },
+    "Drivetrain": {
+      "Bottom bracket": {
+        "null": {
+          "Repair": {
+            "id": "2935529D-D9E3-45BB-B8F0-99BC464FFD2A"
+          },
+          "Replace": {
+            "id": "6E9E2879-6FB5-4039-9038-BDD907FDEFA3"
+          }
+        }
+      },
+      "Chain": {
+        "null": {
+          "Lubricate": {
+            "id": "1E0A0173-BDEA-4DF6-A6E2-B8EFC9327857"
+          },
+          "Replace": {
+            "id": "732B05F7-2685-4553-8D21-E3258E5A6A48"
+          },
+          "Tension": {
+            "id": "3C2C9487-EF5F-40A8-83C0-5DAEECA4914C"
+          }
+        }
+      },
+      "Chainguard": {
+        "null": {
+          "Repair": {
+            "id": "670367BF-CD0B-4355-9F08-0C83F8224741"
+          },
+          "Replace": {
+            "id": "C440BFD0-6A1D-4D13-B6EB-39D6C80993F6"
+          }
+        }
+      },
+      "Crank": {
+        "Both/All": {
+          "Replace": {
+            "id": "9EAE6282-45E4-4D37-9CB3-47B473DFC738"
+          },
+          "Tighten": {
+            "id": "61FB6D9E-413C-4DD3-AC4F-7F81CB322228"
+          }
+        },
+        "Left": {
+          "Replace": {
+            "id": "DC9F31BF-A32C-4AB9-98A3-7DA4E6F5A2B3"
+          },
+          "Tighten": {
+            "id": "9455BFF2-49B7-45BD-A41E-0AEF5384A37B"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "BE0A6715-9839-4F6F-B7D3-D6579B64145F"
+          },
+          "Tighten": {
+            "id": "E2E2F682-42F8-4E54-84B1-F837BAA551E5"
+          }
+        }
+      },
+      "Pedals": {
+        "Both/All": {
+          "Replace": {
+            "id": "03B9BA3B-F544-4981-AA74-4220DD8CEC40"
+          }
+        },
+        "Left": {
+          "Replace": {
+            "id": "215DFC05-6922-446F-BED6-A4A34FE1CC10"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "B04BC240-5104-4AB3-AAF3-4C1C47E7CBBB"
+          }
+        }
+      },
+      "Sprocket": {
+        "null": {
+          "Replace": {
+            "id": "BC7E29EC-814D-4BFD-9850-C4654C5AC104"
+          }
+        }
+      }
+    },
+    "Fenders": {
+      "Fender": {
+        "Front": {
+          "Adjust": {
+            "id": "B7BA9C6F-114F-43B5-8250-3419BA309A4A"
+          },
+          "Replace": {
+            "id": "43825956-16D2-49C0-8EE8-D84877A1E5FC"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "4BD1D4B7-826C-4D96-ACF1-220B58DA61FE"
+          },
+          "Replace": {
+            "id": "38F3C26B-C05D-4224-84B6-B1850E31B528"
+          }
+        }
+      },
+      "Fender stay": {
+        "Front": {
+          "Adjust": {
+            "id": "83B650E8-DDDF-49C9-A1BD-9007C667E864"
+          },
+          "Replace": {
+            "id": "BE3C9D56-DD6E-4E6A-85BF-893C29C24DF6"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "1C888C36-E72B-4389-AADD-2AA42530BF56"
+          },
+          "Replace": {
+            "id": "2BF536E1-A138-4BDB-9CF4-4E8F0A05447C"
+          }
+        }
+      }
+    },
+    "Frame": {
+      "Barcode": {
+        "null": {
+          "Replace": {
+            "id": "D5A7A209-42C6-46BE-8877-77A753920B69"
+          }
+        }
+      },
+      "Carrier": {
+        "Front": {
+          "Replace": {
+            "id": "2B22A848-64F3-4036-B69B-52BB4BE5522C"
+          }
+        }
+      },
+      "Carrier bracket": {
+        "null": {
+          "Replace": {
+            "id": "A860D0DE-F2AC-49BD-8532-CE5C9FDDBB2C"
+          }
+        }
+      },
+      "Carrier bumper": {
+        "null": {
+          "Replace": {
+            "id": "4E7B70E3-2E8C-4410-BB1C-AF739B732897"
+          }
+        }
+      },
+      "Frame/panel": {
+        "null": {
+          "Sticker": {
+            "id": "A407E988-CA74-4200-A3A0-3F736A8F41A1"
+          }
+        }
+      },
+      "Front fork": {
+        "null": {
+          "Replace": {
+            "id": "5EE999AE-D3E5-41F4-9240-ECAACCAAB68E"
+          },
+          "Sticker": {
+            "id": "5AA0760B-A4C2-4CE0-BF3E-5E92921E3D3F"
+          }
+        }
+      },
+      "Kickstand": {
+        "null": {
+          "Adjust": {
+            "id": "DB9A39A5-BED4-4A4B-ACA5-47037917C2D7"
+          },
+          "Lubricate": {
+            "id": "C64ADA4E-1648-4CA9-9EB9-0DEF0FB28940"
+          },
+          "Replace": {
+            "id": "74014FCC-F244-4B11-A224-C41C2889B247"
+          },
+          "Tighten": {
+            "id": "A0494396-0645-4A94-918C-FE13945D1326"
+          }
+        }
+      },
+      "Kickstand foot": {
+        "null": {
+          "Replace": {
+            "id": "97125977-6575-4874-969C-2679FC7AF7AE"
+          }
+        }
+      }
+    },
+    "Handlebar": {
+      "Bell": {
+        "null": {
+          "Repair": {
+            "id": "C550692B-C2A4-4895-A848-355C43EE95AC"
+          },
+          "Replace": {
+            "id": "E615634F-629C-42D7-A295-CD487E5163A9"
+          }
+        }
+      },
+      "Grips": {
+        "null": {
+          "Adjust": {
+            "id": "2F20A1FE-F394-45DF-A0BD-329780CCC792"
+          },
+          "Replace": {
+            "id": "5B087EA8-EEC4-435F-8BA5-FD7E2CCA3B2D"
+          }
+        }
+      },
+      "Handlebar": {
+        "null": {
+          "Adjust": {
+            "id": "EE47E767-7228-4C29-BDBF-730E1A98F8FC"
+          },
+          "Replace": {
+            "id": "88F782A2-AAF6-4833-80A6-05A022DF7878"
+          }
+        }
+      },
+      "Headset": {
+        "null": {
+          "Adjust": {
+            "id": "C8739789-241E-4B8B-B784-82399F9BDD47"
+          },
+          "Lubricate": {
+            "id": "2DCF3A55-537C-4987-9E4D-DAF58598DB9B"
+          },
+          "Repair": {
+            "id": "39BDC080-A68F-444B-82C6-41A4C4D6BF8A"
+          },
+          "Replace": {
+            "id": "3FC482BE-B798-4317-AA68-48268776BED3"
+          }
+        }
+      },
+      "Headset cover": {
+        "null": {
+          "Replace": {
+            "id": "63557789-C30C-4007-BBD7-7B1BF02A7747"
+          }
+        }
+      },
+      "Stem": {
+        "null": {
+          "Grease": {
+            "id": "6236BB69-B3B6-4189-B3BA-4EF732841246"
+          },
+          "Repair": {
+            "id": "DB476503-8C85-403C-B2CE-54A997CDEF0C"
+          },
+          "Replace": {
+            "id": "DC99ACC4-0C83-4D0D-9015-27688B686FDF"
+          }
+        }
+      }
+    },
+    "Light": {
+      "Light": {
+        "Front": {
+          "Adjust": {
+            "id": "1931A9E3-9EB2-4A4C-A969-E0A6F44CBD8C"
+          },
+          "Replace": {
+            "id": "DB74E81F-E92E-4869-948C-E3BF31452DC7"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "BF2EF95C-521C-4494-B045-6758051F2A1B"
+          },
+          "Replace": {
+            "id": "6EF5C39D-6EC3-470F-8E7D-0BBD83C68141"
+          }
+        }
+      },
+      "Magnet": {
+        "Front": {
+          "Adjust": {
+            "id": "A85D2F83-089F-43AD-A766-E1EE7BB78DE9"
+          },
+          "Replace": {
+            "id": "56268E23-D7AD-44BF-BE35-B5CD84777392"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "0000B09E-9ECA-4A54-8A1F-D082E484416D"
+          },
+          "Replace": {
+            "id": "628F9693-B089-4301-9674-713D7FDBCAFD"
+          }
+        }
+      },
+      "Reflector": {
+        "Rear": {
+          "Replace": {
+            "id": "CC94505D-E365-4A61-9B5D-25C07381DB49"
+          }
+        }
+      }
+    },
+    "Lock": {
+      "Chain lock": {
+        "null": {
+          "Repair": {
+            "id": "A58BE1EB-F8B6-4054-9518-E1E649137A99"
+          },
+          "Replace": {
+            "id": "733E532C-E776-459D-BD34-9BCEBD661A46"
+          }
+        }
+      },
+      "Frame lock": {
+        "null": {
+          "Adjust": {
+            "id": "C42A9F4C-FEA9-4C87-A464-22B1DCF2201C"
+          },
+          "Lubricate": {
+            "id": "C98F4A9C-C979-4E70-8E36-4DD2D1CDEEC8"
+          },
+          "Repair": {
+            "id": "3458A542-A5EB-49DA-81C1-166CA0F48413"
+          },
+          "Replace": {
+            "id": "0FBC8229-9B88-40F5-A7AC-6FBF7FF4689A"
+          }
+        }
+      }
+    },
+    "Saddle": {
+      "Saddle": {
+        "null": {
+          "Adjust": {
+            "id": "4C8687AA-457E-4256-9BA6-F1261178F784"
+          },
+          "Repair": {
+            "id": "376F067F-BF85-447D-AD24-42CFD3BAC77D"
+          },
+          "Replace": {
+            "id": "467AA6CE-02AC-4670-B935-1A98B22308E2"
+          }
+        }
+      },
+      "Saddle clamp": {
+        "null": {
+          "Repair": {
+            "id": "25966DD7-6425-41FE-9016-09FCC0430185"
+          },
+          "Replace": {
+            "id": "F2C88915-B60C-4D71-A5AD-7015C5DEEC38"
+          }
+        }
+      },
+      "Seatpost": {
+        "null": {
+          "Grease": {
+            "id": "3D4E74C0-8EB7-4FF0-B956-F52F426EC53E"
+          },
+          "Repair": {
+            "id": "D50BF673-90C2-4587-AADD-8F86AFA9FD4D"
+          },
+          "Replace": {
+            "id": "D30B8F25-D75A-417A-A6D1-06DC85955B9D"
+          }
+        }
+      },
+      "Seatpost clamp": {
+        "null": {
+          "Repair": {
+            "id": "C1CAAD58-4C0F-461A-B62B-62DD626611CA"
+          },
+          "Replace": {
+            "id": "EB3B6646-8C48-41A5-99BD-9AB61523F400"
+          }
+        }
+      }
+    },
+    "Wheel": {
+      "Hub": {
+        "Front": {
+          "Adjust": {
+            "id": "9E49C9EF-DB86-4B5B-B45B-875446B140CC"
+          },
+          "Replace": {
+            "id": "DFE16D08-4750-4310-90D7-5F11CC8D9D9B"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "8A9BFB8E-7CCF-4F34-A65A-A553F3EC533B"
+          },
+          "Replace": {
+            "id": "79681FE6-DAF0-4420-8498-961C11E7A1C5"
+          }
+        }
+      },
+      "Innertube": {
+        "Both/All": {
+          "Pump": {
+            "id": "4A629398-C9DB-4417-9AC8-7859748A007E"
+          }
+        },
+        "Front": {
+          "Pump": {
+            "id": "C3B4D003-862E-45C1-A588-5F27421807C4"
+          },
+          "Replace": {
+            "id": "D8D181AE-79E9-464E-AAD1-E565228B5C61"
+          }
+        },
+        "Rear": {
+          "Pump": {
+            "id": "A9A183FA-5E8A-487D-BE49-8FC4F2FF3A72"
+          },
+          "Replace": {
+            "id": "62F182A9-2ADA-4DE9-8686-330363B83D1D"
+          }
+        }
+      },
+      "Rimtape": {
+        "Front": {
+          "Replace": {
+            "id": "06B7646A-FA78-4160-8018-4C6E37928131"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "B40B2F79-4ED7-4BDD-927D-1CFA809A1151"
+          }
+        }
+      },
+      "Spoke/nipple": {
+        "Front": {
+          "Replace": {
+            "id": "73C30564-7571-4CA7-AFC5-DEDE75F37427"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "78BC6272-6268-4297-A2E9-C3C0A10168FB"
+          }
+        }
+      },
+      "Tire": {
+        "Front": {
+          "Replace": {
+            "id": "838D3D6B-D10E-4C71-B564-61A085DE6B02"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "D4DFD2C0-4955-4F80-923B-8C5229931A9E"
+          }
+        }
+      },
+      "Valve": {
+        "Front": {
+          "Replace": {
+            "id": "871A5D51-0148-438C-A747-9567E7EC09CA"
+          },
+          "Tighten": {
+            "id": "A41816E5-0D72-434C-8A4D-FA4C8F198447"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "9F468F34-E4E7-4C6E-BAFB-CDE1E0F579F6"
+          },
+          "Tighten": {
+            "id": "512FC6CA-54CA-4633-912B-018F466C7DAF"
+          }
+        }
+      },
+      "Wheel": {
+        "Front": {
+          "Replace": {
+            "id": "2978B949-06D8-435C-A426-EB1251720032"
+          },
+          "True": {
+            "id": "08900CBE-97A4-4613-8768-159708C84BFE"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "1937F3A7-6A5B-4C57-8956-F717FDE9AC82"
+          },
+          "True": {
+            "id": "995FF74C-DE16-417B-8E9F-7E9DD65643F1"
+          }
+        }
+      }
+    }
+  },
+  "Original 1+": {
+    "Brakes": {
+      "Brake cable/hose": {
+        "Front": {
+          "Adjust": {
+            "id": "0263DCDC-D73C-4212-AB0A-04AC043F04AA"
+          },
+          "Repair": {
+            "id": "B3F947B6-D303-4FF0-99D0-FACAB275F175"
+          },
+          "Replace": {
+            "id": "3EBA28F7-D3C8-49B8-BD62-6146243C222B"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "2CCA094E-9F5C-423A-9140-7FEF6D9D62FA"
+          },
+          "Repair": {
+            "id": "A82EEAD9-1B92-47A3-BF95-A7554C05BA98"
+          },
+          "Replace": {
+            "id": "5ADCA4D0-E792-42CC-8778-0C9B5312EFF2"
+          }
+        }
+      },
+      "Brake lever": {
+        "Front": {
+          "Repair": {
+            "id": "AE8B6B0D-0FBA-4E55-8480-96CECCBF1613"
+          },
+          "Replace": {
+            "id": "E2F325D4-136B-4EB2-BC06-A47602A53A25"
+          }
+        },
+        "Rear": {
+          "Repair": {
+            "id": "75440361-B8E1-4CCB-A937-C1304E5952B3"
+          },
+          "Replace": {
+            "id": "07E70F83-5955-4C48-BC65-207A3EF106F5"
+          }
+        }
+      },
+      "Brake unit/caliper": {
+        "Front": {
+          "Grease": {
+            "id": "0BC3DBB4-0555-4FA6-B6FE-E58CAFE01C49"
+          },
+          "Replace": {
+            "id": "6BB91A0E-8A8B-48C6-A586-10ABEAE9F825"
+          }
+        },
+        "Rear": {
+          "Grease": {
+            "id": "84657B35-9FEA-4E04-BF6F-17EB51BE85C8"
+          }
+        }
+      }
+    },
+    "Drivetrain": {
+      "Bottom bracket": {
+        "null": {
+          "Repair": {
+            "id": "2E69423A-0752-4F7B-BCB9-2392C66D550C"
+          },
+          "Replace": {
+            "id": "1C6D9BCB-25E6-4299-890C-BC8C11716695"
+          }
+        }
+      },
+      "Chain": {
+        "null": {
+          "Lubricate": {
+            "id": "214870A6-3F45-44BD-9CD7-14C3E0923F38"
+          },
+          "Replace": {
+            "id": "6EDE2F92-9BE9-429C-BB49-5542A5DC94BB"
+          },
+          "Tension": {
+            "id": "D24587D9-1F07-43E9-A1AD-8921437AEDAA"
+          }
+        }
+      },
+      "Chain wheel": {
+        "null": {
+          "Replace": {
+            "id": "EA08A4FC-F802-4C9A-8062-F6EDDC19D18D"
+          }
+        }
+      },
+      "Chainguard": {
+        "null": {
+          "Repair": {
+            "id": "486042D9-789E-4A9A-966D-7CA055E60EA2"
+          },
+          "Replace": {
+            "id": "DBA836F6-B9F7-4E31-86E6-BF66697A4574"
+          }
+        }
+      },
+      "Crank": {
+        "Both/All": {
+          "Replace": {
+            "id": "2286DD06-5EE8-4017-BFD6-2A322B4DCAAA"
+          },
+          "Tighten": {
+            "id": "4145E2C9-21ED-49E4-8FCE-C224C12F78B6"
+          }
+        },
+        "Left": {
+          "Replace": {
+            "id": "141F37B3-CB70-4C5D-BE11-F534E91EB844"
+          },
+          "Tighten": {
+            "id": "E9ED501A-1FD2-4341-94DF-833F43D4C22A"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "6EC12FB1-AE14-4942-8890-103F862BF7F4"
+          },
+          "Tighten": {
+            "id": "23E07174-151B-436B-91DB-4936BFC18B82"
+          }
+        }
+      },
+      "Pedals": {
+        "Both/All": {
+          "Replace": {
+            "id": "49EAB5E1-3C59-4859-A573-14D99BEADD33"
+          }
+        },
+        "Left": {
+          "Replace": {
+            "id": "14908B47-9B5A-49E4-BB93-1A13B0EB29F0"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "5EF98F26-D999-4381-92F8-12D929172305"
+          }
+        }
+      },
+      "Sprocket": {
+        "null": {
+          "Replace": {
+            "id": "07EE73A4-29A1-41E8-85EC-E25233FAB231"
+          }
+        }
+      }
+    },
+    "Fenders": {
+      "Fender": {
+        "Front": {
+          "Adjust": {
+            "id": "32380CB5-278F-4634-ACD1-15217F1BF1CA"
+          },
+          "Replace": {
+            "id": "FD0B3F25-F60D-41C8-AA97-6CCE4153D24A"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "824DA432-B744-4644-80D4-3F2D9ACA8753"
+          },
+          "Replace": {
+            "id": "E486DEC8-DFF2-4C06-920C-9B5CD7893BD3"
+          }
+        }
+      },
+      "Fender stay": {
+        "Front": {
+          "Adjust": {
+            "id": "9D1E8DED-C484-49CA-95F7-5E104832D3B8"
+          },
+          "Replace": {
+            "id": "1F294D10-3606-4DA7-AADD-73174D9D14A4"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "BAD61500-0A2A-42F3-893D-0F6D395CE36A"
+          },
+          "Replace": {
+            "id": "92721C96-9B8E-4D7F-9A78-1118FF549513"
+          }
+        }
+      }
+    },
+    "Frame": {
+      "Barcode": {
+        "null": {
+          "Replace": {
+            "id": "CC5C0772-7BF7-45FD-91B0-4A4DDF7E44CD"
+          }
+        }
+      },
+      "Carrier": {
+        "Front": {
+          "Replace": {
+            "id": "D77C669D-D59E-4F4A-B717-D731B3635185"
+          }
+        }
+      },
+      "Carrier bracket": {
+        "null": {
+          "Replace": {
+            "id": "5A3377EB-7CFD-453B-B12A-1343443AD5C7"
+          }
+        }
+      },
+      "Carrier bumper": {
+        "null": {
+          "Replace": {
+            "id": "4664E09D-0A9D-4520-8BD8-BDF8D5A65161"
+          }
+        }
+      },
+      "Frame/panel": {
+        "null": {
+          "Sticker": {
+            "id": "66EC39A1-E8C0-4B28-BB63-FD2F0033BD54"
+          }
+        }
+      },
+      "Front fork": {
+        "null": {
+          "Replace": {
+            "id": "031C7678-7BC0-4B1E-87D7-CE58DA1DC853"
+          },
+          "Sticker": {
+            "id": "5723C6A7-8E4D-4D8A-9751-84693CA341AB"
+          }
+        }
+      },
+      "Kickstand": {
+        "null": {
+          "Adjust": {
+            "id": "F5C5DC09-A1BF-418B-B6D0-BFD652B683AB"
+          },
+          "Lubricate": {
+            "id": "2FD775C7-E861-4B77-B103-A56077A8E58D"
+          },
+          "Replace": {
+            "id": "1D235B69-418B-4900-B1EC-CD4AA679738E"
+          },
+          "Tighten": {
+            "id": "B1892D44-9C23-4A4A-BA1F-CAB54BD506F7"
+          }
+        }
+      },
+      "Kickstand foot": {
+        "null": {
+          "Replace": {
+            "id": "4A4AC66D-D297-4EAB-A7AE-3E0EE04D1EF5"
+          }
+        }
+      }
+    },
+    "Handlebar": {
+      "Bell": {
+        "null": {
+          "Repair": {
+            "id": "1BBA7957-6DBA-4AA5-BA46-3E10B23B1CD0"
+          },
+          "Replace": {
+            "id": "AE02066F-5610-471D-97D8-E7BE5639D9BA"
+          }
+        }
+      },
+      "Grips": {
+        "null": {
+          "Adjust": {
+            "id": "8E29B74F-9CF6-400F-AD11-5500DCE083D5"
+          },
+          "Replace": {
+            "id": "A683DB40-057F-4BE1-BBF6-BEDCE94C4D2D"
+          }
+        }
+      },
+      "Handlebar": {
+        "null": {
+          "Adjust": {
+            "id": "A72E4424-7AAE-4DFC-B76E-7F3A54AF151B"
+          },
+          "Replace": {
+            "id": "9E8DCF23-0DC8-462E-8FB7-49C32EB837BA"
+          }
+        }
+      },
+      "Headset": {
+        "null": {
+          "Adjust": {
+            "id": "645D03AD-1B37-4C27-8995-E85BBF3DF144"
+          },
+          "Lubricate": {
+            "id": "9FE376E2-57F4-43F6-88AF-BB5A503E532E"
+          },
+          "Repair": {
+            "id": "04108D4D-55EE-4370-9128-8DAEE340642A"
+          },
+          "Replace": {
+            "id": "C8A946E1-2E5B-49AC-B071-9AA7D220AFFC"
+          }
+        }
+      },
+      "Headset cover": {
+        "null": {
+          "Replace": {
+            "id": "D43A48B2-D885-45F1-A5B0-63CE2E2F7930"
+          }
+        }
+      },
+      "Stem": {
+        "null": {
+          "Grease": {
+            "id": "D9480F79-793F-4B3E-B553-2FA8BDF1C5E5"
+          },
+          "Repair": {
+            "id": "A70E57B2-9A05-49B2-87E0-997FDAFC4D22"
+          },
+          "Replace": {
+            "id": "C4722C0D-F205-49BA-B9F9-CCFC1BEC1605"
+          }
+        }
+      }
+    },
+    "Light": {
+      "Cable": {
+        "Front": {
+          "Repair": {
+            "id": "F43023C4-3FD2-40F4-B5C2-91F8D2967326"
+          },
+          "Replace": {
+            "id": "BB1F931B-86D8-4462-B9A2-115B821E23A6"
+          }
+        },
+        "Rear": {
+          "Repair": {
+            "id": "073F4EA3-328C-49A3-9E0D-FA8107D5C11B"
+          },
+          "Replace": {
+            "id": "5A6AF3F4-3102-4CCB-ADBB-4EC0E2EE0D54"
+          }
+        }
+      },
+      "Light": {
+        "Front": {
+          "Adjust": {
+            "id": "D654007D-6408-48F7-8EA0-D54CB051A299"
+          },
+          "Replace": {
+            "id": "C11EE3BB-1E53-4773-8B22-3E1CEC28A525"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "462C2891-B683-4281-99E1-BDD5DAF06780"
+          },
+          "Replace": {
+            "id": "24DA5278-9233-4C29-8B56-A84F619B930A"
+          }
+        }
+      }
+    },
+    "Lock": {
+      "Chain lock": {
+        "null": {
+          "Repair": {
+            "id": "0F663198-85C5-4FC9-AB88-E201BF154B62"
+          },
+          "Replace": {
+            "id": "BC8DA8FF-9BB9-41C1-A5F0-5CA3F421D6CC"
+          }
+        }
+      },
+      "Frame lock": {
+        "null": {
+          "Adjust": {
+            "id": "B10C0B04-1D3B-402C-9C57-5241A90FBEE1"
+          },
+          "Lubricate": {
+            "id": "B22A3DB5-443F-47D3-A3B4-3B6DD9358FBA"
+          },
+          "Repair": {
+            "id": "54DA16F8-D11A-41B3-B647-6810859CCF1D"
+          },
+          "Replace": {
+            "id": "49085068-5755-422D-AF6C-0CBA5F624EF7"
+          }
+        }
+      }
+    },
+    "Saddle": {
+      "Saddle": {
+        "null": {
+          "Adjust": {
+            "id": "CA908BB4-8F4F-4A1C-89D1-3C30D2F9E739"
+          },
+          "Repair": {
+            "id": "49652F6D-E409-47C5-8875-0EE3747BAF2C"
+          },
+          "Replace": {
+            "id": "0D0BB465-AED8-4DC6-93A0-540468FD5996"
+          }
+        }
+      },
+      "Seatpost": {
+        "null": {
+          "Grease": {
+            "id": "03276BAA-7FA5-4CEF-A402-2F906FAD0C73"
+          },
+          "Repair": {
+            "id": "28376C3E-48FB-4A14-899C-CB76CA676189"
+          },
+          "Replace": {
+            "id": "FB43F1EA-BB06-4DE7-ABA8-F2291E60AB9C"
+          }
+        }
+      },
+      "Seatpost clamp": {
+        "null": {
+          "Repair": {
+            "id": "E96698C6-A947-49B5-A1F8-9515F31553C2"
+          },
+          "Replace": {
+            "id": "EE83F1B9-D70A-41B6-AEC5-6DD08E5B97E4"
+          }
+        }
+      }
+    },
+    "Wheel": {
+      "Hub": {
+        "Front": {
+          "Adjust": {
+            "id": "BAFB9212-42D0-4191-B51E-DE99440983F5"
+          },
+          "Replace": {
+            "id": "40804AEC-6979-46DF-A899-4F0FECE7F99C"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "34262BC2-DC5D-4E9B-B199-063389298755"
+          },
+          "Replace": {
+            "id": "80F030D4-2304-4B42-BA30-F00A9D8AA18D"
+          }
+        }
+      },
+      "Innertube": {
+        "Both/All": {
+          "Pump": {
+            "id": "A72395BC-34B8-412B-91AD-17CC1F9708A9"
+          }
+        },
+        "Front": {
+          "Pump": {
+            "id": "20E5A271-45D8-45D9-8907-AB934D231DD3"
+          },
+          "Replace": {
+            "id": "23470171-C88D-433F-8BEA-A6847660B1E7"
+          }
+        },
+        "Rear": {
+          "Pump": {
+            "id": "A185264F-FCB8-47F1-B3FC-1F3D5656C549"
+          },
+          "Replace": {
+            "id": "B920768F-635D-4B9B-BB88-F7A7B7EBFC7F"
+          }
+        }
+      },
+      "Rimtape": {
+        "Front": {
+          "Replace": {
+            "id": "05220175-323C-4767-B5D9-EED4E61015E0"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "71E3AF64-93A5-4C6F-A72C-CB8E46D0413D"
+          }
+        }
+      },
+      "Spoke/nipple": {
+        "Front": {
+          "Replace": {
+            "id": "7C1F39D8-85CA-4483-8206-F21A961CEE1A"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "F7F23D88-2B83-41D7-B265-6C434A420A37"
+          }
+        }
+      },
+      "Tire": {
+        "Front": {
+          "Replace": {
+            "id": "1BCBE18D-4450-4500-A10F-648BEF9DBE1B"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "0EE2F9CA-7261-4645-9E5D-D6514055B6BD"
+          }
+        }
+      },
+      "Valve": {
+        "Front": {
+          "Replace": {
+            "id": "8B6F463F-41C0-4A96-9206-2371A32B67F3"
+          },
+          "Tighten": {
+            "id": "7CE11975-313D-42BD-9C90-1F3DF17A3566"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "34FEE5CF-B795-4F8E-8B10-4A06CE74E0E4"
+          },
+          "Tighten": {
+            "id": "1C3B6169-A068-4477-95CE-5990A14AEE9F"
+          }
+        }
+      },
+      "Wheel": {
+        "Front": {
+          "Replace": {
+            "id": "70E48DB8-44F4-4CAA-B50C-3C61F16A55ED"
+          },
+          "True": {
+            "id": "C2E88F40-E454-422E-9BC5-80520E337B31"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "A3C385D4-C581-4A1C-AC9C-15932D00BF3D"
+          },
+          "True": {
+            "id": "9B4C3025-EB7C-416B-86BB-58B05E52EAC4"
+          }
+        }
+      }
+    }
+  },
+  "Power 1": {
+    "Brakes": {
+      "Brake cable/hose": {
+        "Front": {
+          "Adjust": {
+            "id": "B79BBBD6-081D-47B6-9806-AAAB11F6C1B9"
+          },
+          "Repair": {
+            "id": "B72736A9-F3AF-43F7-BEE4-103A5DF893F7"
+          },
+          "Replace": {
+            "id": "F3856CA6-0165-4E24-9F62-514871399378"
+          }
+        }
+      },
+      "Brake lever": {
+        "Front": {
+          "Repair": {
+            "id": "C489D0C6-B3C8-4AA3-8580-83792E6B4FEF"
+          },
+          "Replace": {
+            "id": "48272D48-B007-4431-B068-C92660B3F5D4"
+          }
+        }
+      },
+      "Brake unit/caliper": {
+        "Front": {
+          "Grease": {
+            "id": "DC0F9C79-C36E-41ED-9941-11BC2B0501D6"
+          },
+          "Replace": {
+            "id": "06BD483E-A1C3-4376-A54F-A2AACFFDC9E2"
+          }
+        },
+        "Rear": {
+          "Grease": {
+            "id": "756AE1E2-76B8-4BF6-99FC-F3B39C2B151F"
+          }
+        }
+      }
+    },
+    "Drivetrain": {
+      "Chain": {
+        "null": {
+          "Lubricate": {
+            "id": "212B8E1F-3EDD-43A4-A0CF-A5A4DD9F9179"
+          },
+          "Replace": {
+            "id": "3F7796EA-DF89-4078-B3C2-7AB22AE0A0DA"
+          },
+          "Tension": {
+            "id": "6CDE70FD-0DC9-453D-A2EA-56702181E008"
+          }
+        }
+      },
+      "Chain wheel": {
+        "null": {
+          "Replace": {
+            "id": "E271191E-8632-4EE5-9380-CD691FCFFEAC"
+          }
+        }
+      },
+      "Chainguard": {
+        "null": {
+          "Repair": {
+            "id": "3757956B-C3F2-473F-8E76-1991DB7B277F"
+          },
+          "Replace": {
+            "id": "59C6110B-ED9F-4FB4-8CBA-A435DEF41DB8"
+          }
+        }
+      },
+      "Crank": {
+        "Both/All": {
+          "Replace": {
+            "id": "F91676F9-B607-449C-9AE8-48DCA3F8113B"
+          },
+          "Tighten": {
+            "id": "3ACC0EEC-DF2B-4473-862C-3ED34E2D9F7D"
+          }
+        },
+        "Left": {
+          "Replace": {
+            "id": "1FF85AC1-AFDA-4331-8514-1B6D3F6FEB96"
+          },
+          "Tighten": {
+            "id": "C76DBDA0-603A-4A03-97E0-FBD098AC03AA"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "67B1F98E-8555-4294-8492-FB5FAA6062B4"
+          },
+          "Tighten": {
+            "id": "2F7A6E97-2DCE-48E7-BAFF-25F148584416"
+          }
+        }
+      },
+      "Pedals": {
+        "Both/All": {
+          "Replace": {
+            "id": "207BC45E-254F-4A42-B6D8-DD109DA40FD2"
+          }
+        },
+        "Left": {
+          "Replace": {
+            "id": "29F83269-763E-45E6-B13F-DAD7A6E14F65"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "4B1F6CFB-DCA1-4E0C-8D71-3ADBC90F235D"
+          }
+        }
+      },
+      "Sprocket": {
+        "null": {
+          "Replace": {
+            "id": "AAEDAD9B-D191-4719-9FCE-85084289FA32"
+          }
+        }
+      }
+    },
+    "Electrics": {
+      "Battery": {
+        "null": {
+          "Repair": {
+            "id": "71063612-B845-416E-98E4-5F4330A135A7"
+          },
+          "Replace": {
+            "id": "6F5F8A7E-1BC7-43C7-8535-F5AE3BF4BF5C"
+          }
+        }
+      },
+      "Battery clip": {
+        "null": {
+          "Replace": {
+            "id": "6DC03D41-FF48-4E54-8F61-861F2042A411"
+          }
+        }
+      },
+      "Battery cover": {
+        "null": {
+          "Replace": {
+            "id": "20A59D2F-88A9-4E3D-96E1-AFD9F05CEADB"
+          }
+        }
+      },
+      "Charge port": {
+        "null": {
+          "Repair": {
+            "id": "C47FA2BB-DB7D-4587-B026-2B17A7475879"
+          },
+          "Replace": {
+            "id": "B4157A26-0251-4D6E-B8AE-ADC027627561"
+          }
+        }
+      },
+      "Charger": {
+        "null": {
+          "Repair": {
+            "id": "BB0BB9E5-A067-4A88-88A5-09B9A4A2C056"
+          },
+          "Replace": {
+            "id": "F6FFC6DA-91CE-4CB2-ABD9-7060A5A1DD81"
+          }
+        }
+      },
+      "Display": {
+        "null": {
+          "Repair": {
+            "id": "B5617C24-42CA-43DF-A13C-690D89376BB2"
+          },
+          "Replace": {
+            "id": "6250CF51-F728-47B9-B346-85D4BD3CCBF4"
+          }
+        }
+      },
+      "Display cable": {
+        "null": {
+          "Repair": {
+            "id": "A1D1D2BC-A779-4AB2-B209-66646C68B349"
+          },
+          "Replace": {
+            "id": "BB895196-A8A2-420E-A510-7028E49F00C9"
+          }
+        }
+      },
+      "Engine": {
+        "null": {
+          "Replace": {
+            "id": "29AC36B9-D9C1-4446-873F-7F201F5D647D"
+          }
+        }
+      },
+      "Engine power cable": {
+        "null": {
+          "Repair": {
+            "id": "E08508FE-2370-48B0-B1C3-7A22B09A0C48"
+          },
+          "Replace": {
+            "id": "4EFAD91F-DC78-4A65-A3FD-73CFAD8E5AF7"
+          }
+        }
+      },
+      "IOT Module": {
+        "null": {
+          "Add new": {
+            "id": "AB2E8D23-4733-4E81-8F50-1719EA0567A4"
+          },
+          "Replace": {
+            "id": "8C4524C1-2053-4C67-9657-96CC713AE7D6"
+          }
+        }
+      },
+      "Software": {
+        "null": {
+          "Repair": {
+            "id": "7F72EACA-F238-44E1-94F7-D2B05E182E2A"
+          },
+          "Replace": {
+            "id": "25C1DCBE-B782-47C4-96B7-80077F5688CC"
+          }
+        }
+      },
+      "Speed sensor": {
+        "null": {
+          "Replace": {
+            "id": "243D16E6-F16A-47F0-B1AF-C26F7EE349D3"
+          }
+        }
+      }
+    },
+    "Fenders": {
+      "Fender": {
+        "Front": {
+          "Adjust": {
+            "id": "EA340884-9E3D-4098-BF2A-C27307CF1440"
+          },
+          "Replace": {
+            "id": "3332C6E3-C4EE-4972-B8AA-72544CB8EB65"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "0B3156D1-8C1F-478B-9B70-87819FC3E11E"
+          }
+        }
+      },
+      "Fender stay": {
+        "Front": {
+          "Adjust": {
+            "id": "867B04B4-463C-4C84-A786-74E2E06E723A"
+          },
+          "Replace": {
+            "id": "984CEF65-2341-4F6B-A3D7-BB72FB97CC20"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "DABE3165-D58F-4964-93FF-3DB3C7F0CCB1"
+          },
+          "Replace": {
+            "id": "CD8D69D7-A886-4214-86A1-18068E638536"
+          }
+        }
+      }
+    },
+    "Frame": {
+      "Barcode": {
+        "null": {
+          "Replace": {
+            "id": "A0AD2D24-9AD6-40C4-AB79-31DB72A14FCF"
+          }
+        }
+      },
+      "Carrier": {
+        "Front": {
+          "Replace": {
+            "id": "4F74C88E-22B9-471B-8307-55C4928A2867"
+          }
+        }
+      },
+      "Carrier bracket": {
+        "null": {
+          "Replace": {
+            "id": "B00EAA22-2355-4A11-AD4A-811FB582BBFE"
+          }
+        }
+      },
+      "Carrier bumper": {
+        "null": {
+          "Replace": {
+            "id": "60282297-61AF-49BD-A264-1E7D0C003B77"
+          }
+        }
+      },
+      "Frame/panel": {
+        "null": {
+          "Sticker": {
+            "id": "6217AF90-7EF7-4A18-A8C1-56ECA79FAF7D"
+          }
+        }
+      },
+      "Front fork": {
+        "null": {
+          "Replace": {
+            "id": "53957E03-1A53-4991-BD94-AB5DA4FA2B5D"
+          },
+          "Sticker": {
+            "id": "5A25EB28-E2C5-4A32-82C0-20D6713A2F91"
+          }
+        }
+      },
+      "Kickstand": {
+        "null": {
+          "Adjust": {
+            "id": "1B7A871B-4A1A-47A8-A66A-2E722FBFAC1D"
+          },
+          "Lubricate": {
+            "id": "61AA76E3-9017-4EE6-9961-570759CE96A0"
+          },
+          "Replace": {
+            "id": "39C379B3-53B9-446D-AF79-F23919DBDB9F"
+          },
+          "Tighten": {
+            "id": "484CF7F3-3217-4F1D-9B5F-A0B80D1C7C94"
+          }
+        }
+      },
+      "Kickstand foot": {
+        "null": {
+          "Replace": {
+            "id": "E63A24A7-BDD0-4580-A062-CB94D1FA69CD"
+          }
+        }
+      }
+    },
+    "Handlebar": {
+      "Bell": {
+        "null": {
+          "Repair": {
+            "id": "45AFE1B8-E9F4-4DD5-B047-18BC851A75AB"
+          },
+          "Replace": {
+            "id": "D3AC7493-55D9-47C7-949A-02D2A7BD9425"
+          }
+        }
+      },
+      "Grips": {
+        "null": {
+          "Adjust": {
+            "id": "A0E683F8-7B6E-47C1-A72C-A234211448DC"
+          },
+          "Replace": {
+            "id": "A96D3116-D305-4413-AFC6-539D7EABA485"
+          }
+        }
+      },
+      "Handlebar": {
+        "null": {
+          "Adjust": {
+            "id": "5A27D063-4352-4E24-A3AC-AD92E99A5002"
+          },
+          "Replace": {
+            "id": "789BA888-D9DE-46D1-8414-5A8934BE03F2"
+          }
+        }
+      },
+      "Headset": {
+        "null": {
+          "Lubricate": {
+            "id": "2CBA2D90-8B99-4390-92FC-45A91947ED37"
+          },
+          "Repair": {
+            "id": "0C04D49E-A842-4656-A520-ADCF42A00D01"
+          },
+          "Replace": {
+            "id": "AB6301F8-3B8B-4606-8E5D-177A392DE2A3"
+          }
+        }
+      },
+      "Stem": {
+        "null": {
+          "Grease": {
+            "id": "8A23BD48-F04A-4D20-B809-6345D26D1B84"
+          },
+          "Repair": {
+            "id": "93964B09-956C-4293-A3EC-7F70FABA59DF"
+          },
+          "Replace": {
+            "id": "16A2017A-C4AD-4CE3-B2AB-B36EFD0C61F6"
+          }
+        }
+      }
+    },
+    "Light": {
+      "Cable": {
+        "Front": {
+          "Repair": {
+            "id": "974F26EE-6B9E-4DB6-B06A-3233F50394F2"
+          },
+          "Replace": {
+            "id": "3968F15B-EE18-4F92-908B-E9FE62616E58"
+          }
+        },
+        "Rear": {
+          "Repair": {
+            "id": "8999CCE2-B38A-4BD4-8BA7-07F77F4756E7"
+          },
+          "Replace": {
+            "id": "8E52C36E-50CA-4D00-A115-02FD7AF4C587"
+          }
+        }
+      },
+      "Light": {
+        "Front": {
+          "Adjust": {
+            "id": "AA274107-AF7A-4C57-A063-EDFDF255812E"
+          },
+          "Replace": {
+            "id": "2F3DD1B8-2D11-4FF6-A4E3-61BCC281C233"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "0C5A98D6-0018-4DB0-9005-5F02D1D3122B"
+          },
+          "Replace": {
+            "id": "65785DC9-2940-451C-AA13-574C33ECEE18"
+          }
+        }
+      }
+    },
+    "Lock": {
+      "Battery lock": {
+        "null": {
+          "Lubricate": {
+            "id": "E9ECED5B-14D5-480C-B4E1-396A31174FA2"
+          },
+          "Repair": {
+            "id": "381CC4D4-DA0D-453A-BAE0-21D2B9866C21"
+          },
+          "Replace": {
+            "id": "86A365E7-7AFA-4BE6-A7FB-8CEC78502AED"
+          }
+        }
+      },
+      "Chain lock": {
+        "null": {
+          "Repair": {
+            "id": "EB67F816-B45C-401E-AF33-BECEE4A13EC7"
+          },
+          "Replace": {
+            "id": "04D834D0-8657-4A99-B38C-8DBE1BA88628"
+          }
+        }
+      },
+      "Frame lock": {
+        "null": {
+          "Lubricate": {
+            "id": "7C749EAF-B187-4045-A317-85D53A67F3CC"
+          },
+          "Repair": {
+            "id": "11DBA52A-E925-41F8-82B0-500AD18B7423"
+          },
+          "Replace": {
+            "id": "CF3607E0-76D8-4EEC-9A72-088778FDA4E5"
+          }
+        }
+      }
+    },
+    "Saddle": {
+      "Saddle": {
+        "null": {
+          "Adjust": {
+            "id": "0B4BF99C-8CF0-4354-984C-A9E8E8137E16"
+          },
+          "Repair": {
+            "id": "50D7F678-4189-4449-9322-4FC663F03D1C"
+          },
+          "Replace": {
+            "id": "FCFCB23C-ED21-4DB8-A3B3-363E5CEE62E9"
+          }
+        }
+      },
+      "Seatpost": {
+        "null": {
+          "Grease": {
+            "id": "0D36711D-479E-417F-B368-DC43CC04FF32"
+          },
+          "Repair": {
+            "id": "49CFD065-80E0-4566-9FD4-63FD25B6D9C8"
+          },
+          "Replace": {
+            "id": "D148E529-78FD-494F-9AAB-F5BF08AD68E2"
+          }
+        }
+      },
+      "Seatpost clamp": {
+        "null": {
+          "Repair": {
+            "id": "619F8112-21E6-49F8-B93E-8A4FB3791A36"
+          },
+          "Replace": {
+            "id": "72BADCF5-5268-4606-AB46-F9DFE3A44A3F"
+          }
+        }
+      }
+    },
+    "Wheel": {
+      "Hub": {
+        "Front": {
+          "Adjust": {
+            "id": "B6EBFF43-65F4-499C-B173-151F38FA4EED"
+          },
+          "Replace": {
+            "id": "E6535AFD-F820-41F1-B909-EEBCEB29873F"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "7F82D574-13C5-4EA3-B53D-B9BCD0671C10"
+          },
+          "Replace": {
+            "id": "05F5918A-DBA6-4D6C-B8E5-369B9DC8D70E"
+          }
+        }
+      },
+      "Innertube": {
+        "Both/All": {
+          "Pump": {
+            "id": "B9797EBE-D998-4935-9420-7CFEFD2C52E8"
+          }
+        },
+        "Front": {
+          "Pump": {
+            "id": "BE97FC9B-E0E8-403B-82CA-32C35284EC5D"
+          },
+          "Replace": {
+            "id": "C28EB352-E2CF-43E0-8B56-2C3B57B62FC3"
+          }
+        },
+        "Rear": {
+          "Pump": {
+            "id": "7475DDF6-85A1-476E-8A9C-3C965979D828"
+          },
+          "Replace": {
+            "id": "45A0553B-3BB1-4930-B90D-228E5A240A92"
+          }
+        }
+      },
+      "Rimtape": {
+        "Front": {
+          "Replace": {
+            "id": "E90AD81C-937D-4635-94D0-92BF10E7DD3E"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "B29908F5-098E-4034-AB36-CF134A1EC65F"
+          }
+        }
+      },
+      "Spoke/nipple": {
+        "Front": {
+          "Replace": {
+            "id": "8DF08592-14BC-4C7C-847D-AE8AF0C93EF8"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "A2B6B283-CD43-4139-A24A-4A90641FF478"
+          }
+        }
+      },
+      "Tire": {
+        "Front": {
+          "Replace": {
+            "id": "F21D0BAB-FAEB-405C-B7EF-45355B7455E9"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "569AAD41-AAC7-4FA6-9771-6F365BABE637"
+          }
+        }
+      },
+      "Valve": {
+        "Front": {
+          "Replace": {
+            "id": "DA1B8E96-29CF-483C-87FD-06C2511FFA62"
+          },
+          "Tighten": {
+            "id": "DEA9E88C-36F1-4B7E-9A30-77707EE1E5EA"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "6F864E63-362F-4AD8-B445-F0BC15E67465"
+          },
+          "Tighten": {
+            "id": "B6741F02-AE04-4DA3-84B5-BFDB2F36A372"
+          }
+        }
+      },
+      "Wheel": {
+        "Front": {
+          "Replace": {
+            "id": "22A66AE7-927E-4696-89BC-2BEDC7FE3B70"
+          },
+          "True": {
+            "id": "1C3D050C-8F14-404D-91E1-47BA9820E2BE"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "5D91213F-19B7-4B16-A7F8-16FE6910CD64"
+          },
+          "True": {
+            "id": "ED8E9E32-5346-4060-AEE8-8C68900AB29A"
+          }
+        }
+      }
+    }
+  },
+  "Power 7": {
+    "Brakes": {
+      "Brake cable/hose": {
+        "Front": {
+          "Adjust": {
+            "id": "DA4DFF60-498D-4262-A16A-662C6592F0C1"
+          },
+          "Repair": {
+            "id": "198665C7-D638-48BD-A932-2AB657BDA6E6"
+          },
+          "Replace": {
+            "id": "327180A5-0C5C-4219-89B7-3DD18B11DB7A"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "68F69BF8-DE17-4A80-AF0D-E5BC0E9935D1"
+          },
+          "Repair": {
+            "id": "C5998982-D0D4-4531-95E7-75C59A5F95D3"
+          },
+          "Replace": {
+            "id": "2F03EC2A-C2F5-4BEF-85FB-38FFA8F7162F"
+          }
+        }
+      },
+      "Brake disc": {
+        "Front": {
+          "Replace": {
+            "id": "B74E2621-A0A5-441D-8C7A-035AC95D6F3C"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "A079513E-9084-4CE8-BF43-5AE5A4D416FE"
+          }
+        }
+      },
+      "Brake lever": {
+        "Front": {
+          "Repair": {
+            "id": "E83B26BE-041C-4C0E-B709-8ED1239CC9B9"
+          },
+          "Replace": {
+            "id": "33F35B04-EE8B-46B1-8EC0-47B86661D28C"
+          }
+        },
+        "Rear": {
+          "Repair": {
+            "id": "3BECC7C4-6178-4B33-9241-B88583EDD87B"
+          },
+          "Replace": {
+            "id": "E72D894E-EE74-4830-9F17-077360999693"
+          }
+        }
+      },
+      "Brake pads": {
+        "Front": {
+          "Replace": {
+            "id": "5DF2F1E2-AB57-4EB5-B83F-A4E07757FE49"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "507EC63A-B3BE-4275-BAC4-BF729EF05C74"
+          }
+        }
+      },
+      "Brake unit/caliper": {
+        "Front": {
+          "Grease": {
+            "id": "76563957-B5D9-45EA-825F-CC0195B95946"
+          },
+          "Replace": {
+            "id": "C8FD1583-F30C-489A-96D3-0694318C8CD5"
+          }
+        },
+        "Rear": {
+          "Grease": {
+            "id": "EC52E7A9-504D-42CA-ABE5-E8558AE52296"
+          }
+        }
+      }
+    },
+    "Drivetrain": {
+      "Chain": {
+        "null": {
+          "Lubricate": {
+            "id": "19499799-BEAB-4131-85F0-794F903FE7C1"
+          },
+          "Replace": {
+            "id": "7812FCB8-F5FC-45B4-A1DE-767ECC09E26E"
+          },
+          "Tension": {
+            "id": "83A25CAA-9510-436F-94A2-13BE3BEC4846"
+          }
+        }
+      },
+      "Chain wheel": {
+        "null": {
+          "Replace": {
+            "id": "DF110A4E-A08A-4994-88F4-A90A27C37375"
+          }
+        }
+      },
+      "Chainguard": {
+        "null": {
+          "Repair": {
+            "id": "F9FDD505-11E3-467B-A80E-DF931023EA57"
+          },
+          "Replace": {
+            "id": "9B409368-4818-493B-AF01-3F79C18EFCD3"
+          }
+        }
+      },
+      "Crank": {
+        "Both/All": {
+          "Replace": {
+            "id": "7448E6E9-5BCB-4716-B9BB-3408D6E1374E"
+          },
+          "Tighten": {
+            "id": "79F0C12B-E6EC-4B89-BF51-3F7AD2D5A3D9"
+          }
+        },
+        "Left": {
+          "Replace": {
+            "id": "337EA227-A2E1-417C-8570-08795AB5B9F8"
+          },
+          "Tighten": {
+            "id": "D983FD88-F8DC-4B14-BB47-559FC0F5C1F9"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "774C9103-809B-4CC0-B267-3361A5955FCA"
+          },
+          "Tighten": {
+            "id": "585635D1-1D3F-478E-9DB6-37B634A675E4"
+          }
+        }
+      },
+      "Pedals": {
+        "Both/All": {
+          "Replace": {
+            "id": "25CFB579-4D00-492B-9A0B-0CFDEB46B827"
+          }
+        },
+        "Left": {
+          "Replace": {
+            "id": "7D92342F-8CE0-477D-B76D-351B51B18112"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "9F068D90-00DD-4841-9F7B-9140F850B1BF"
+          }
+        }
+      },
+      "Sprocket": {
+        "null": {
+          "Replace": {
+            "id": "D251F148-58F1-47ED-B1B2-2C6D2E5EBA7A"
+          }
+        }
+      }
+    },
+    "Electrics": {
+      "Battery": {
+        "null": {
+          "Repair": {
+            "id": "AE1B92C8-AF0E-4AC8-B073-A5F1A1E46C20"
+          },
+          "Replace": {
+            "id": "85B7342F-0FCA-4125-A6DA-D6AF9D36F56B"
+          }
+        }
+      },
+      "Battery clip": {
+        "null": {
+          "Replace": {
+            "id": "833303D2-7038-4744-A916-A637AE5CFEB7"
+          }
+        }
+      },
+      "Battery cover": {
+        "null": {
+          "Replace": {
+            "id": "D1D6A25F-0E8B-4A6B-900A-04131163B6AA"
+          }
+        }
+      },
+      "Charge port": {
+        "null": {
+          "Repair": {
+            "id": "C505F328-52DA-4DC1-BEFC-022416F9F0FC"
+          },
+          "Replace": {
+            "id": "7E5D6964-8BDE-44FA-BDC7-134CB9719990"
+          }
+        }
+      },
+      "Charger": {
+        "null": {
+          "Repair": {
+            "id": "AB4222A7-34DA-4DB4-8BBA-AF6ADC2477F1"
+          },
+          "Replace": {
+            "id": "429B38EF-337B-44C3-B29D-31EF0E5F618E"
+          }
+        }
+      },
+      "Display": {
+        "null": {
+          "Repair": {
+            "id": "614D9341-0892-4ADF-8698-B7C264DA7A9A"
+          },
+          "Replace": {
+            "id": "17AC7AEA-9D1D-4BBE-8B34-473AA9560692"
+          }
+        }
+      },
+      "Display cable": {
+        "null": {
+          "Repair": {
+            "id": "A34EC3AC-B8E9-4FBE-8E44-409D78843D1A"
+          },
+          "Replace": {
+            "id": "23408CD5-1544-4708-9148-59DB99E06BCF"
+          }
+        }
+      },
+      "Engine": {
+        "null": {
+          "Replace": {
+            "id": "D4A7E022-DF67-40FA-8612-3109C2541EFC"
+          }
+        }
+      },
+      "Engine power cable": {
+        "null": {
+          "Repair": {
+            "id": "593550FD-EF3D-4CF3-BF3D-978070AB393C"
+          },
+          "Replace": {
+            "id": "986BDACB-CDFD-41E4-99CF-188F0862B1E3"
+          }
+        }
+      },
+      "IOT Module": {
+        "null": {
+          "Add new": {
+            "id": "B18F00CA-02CC-4858-A4BD-3F8DE559283A"
+          },
+          "Replace": {
+            "id": "A91412B7-8508-4256-B04F-1ECE01C806AB"
+          }
+        }
+      },
+      "Power button": {
+        "null": {
+          "Repair": {
+            "id": "A1E22C37-5EE1-4E27-9A8D-671DA8FF8E00"
+          },
+          "Replace": {
+            "id": "263D4CCA-2B7D-48F9-8691-B89F30742565"
+          }
+        }
+      },
+      "Software": {
+        "null": {
+          "Repair": {
+            "id": "CF3A3F66-857F-48E9-98DF-4B2D80E1F5E0"
+          },
+          "Replace": {
+            "id": "8C2A1326-8484-47F4-8328-EC8287FCB6F0"
+          }
+        }
+      },
+      "Speed sensor": {
+        "null": {
+          "Replace": {
+            "id": "3836D8FA-F0C2-4076-91E2-85EE0278FECA"
+          }
+        }
+      }
+    },
+    "Fenders": {
+      "Fender": {
+        "Front": {
+          "Adjust": {
+            "id": "9D562E89-C5B5-4E16-83F1-2102B71AA2EF"
+          },
+          "Replace": {
+            "id": "6455E4CD-5D0A-4533-92CA-E6DE494A6D90"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "5977C17E-2C94-4AB2-B07B-9B60CD025F4A"
+          }
+        }
+      },
+      "Fender stay": {
+        "Front": {
+          "Adjust": {
+            "id": "45DB1BEE-50FA-418C-A1B0-CA6E3FABD2B3"
+          },
+          "Replace": {
+            "id": "5E30A34C-95C9-4069-A221-585F9C8C1898"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "FEEF8691-77BC-43B1-9642-B7CA57AE8D0A"
+          },
+          "Replace": {
+            "id": "24520358-F313-4F99-965C-F7FFB43D61CB"
+          }
+        }
+      }
+    },
+    "Frame": {
+      "Barcode": {
+        "null": {
+          "Replace": {
+            "id": "D3395DB0-81DB-4E46-AB35-ABDFB1FA729F"
+          }
+        }
+      },
+      "Carrier": {
+        "Front": {
+          "Replace": {
+            "id": "61FB607A-1F11-41CB-A1FB-C9BD7D822087"
+          }
+        }
+      },
+      "Carrier bracket": {
+        "null": {
+          "Replace": {
+            "id": "B3B9DDB4-5A06-4D93-9749-41D6D18E7EF7"
+          }
+        }
+      },
+      "Carrier bumper": {
+        "null": {
+          "Replace": {
+            "id": "742E0E78-7D6F-471A-A54B-9925889F1CBF"
+          }
+        }
+      },
+      "Frame/panel": {
+        "null": {
+          "Sticker": {
+            "id": "E434D7B4-467E-47FC-940C-4D8C177FBD0C"
+          }
+        }
+      },
+      "Front fork": {
+        "null": {
+          "Replace": {
+            "id": "90C7E2EE-B112-4A8A-949C-EE6DEDDD1A7F"
+          },
+          "Sticker": {
+            "id": "EDAFD848-4C60-48D9-825B-1B98CF19DEEA"
+          }
+        }
+      },
+      "Kickstand": {
+        "null": {
+          "Adjust": {
+            "id": "D494254B-D563-46F8-AAA1-5C73623C606D"
+          },
+          "Lubricate": {
+            "id": "EE20F1C1-AAB7-4EAA-99D1-FE34C22A2B42"
+          },
+          "Replace": {
+            "id": "A4EAA3AE-DF3E-456A-BB6F-C962E3229756"
+          },
+          "Tighten": {
+            "id": "CD3B7D43-FEAD-49E2-8E88-0F41DDF6DC72"
+          }
+        }
+      },
+      "Kickstand foot": {
+        "null": {
+          "Replace": {
+            "id": "AE233BBC-4054-4F5C-BA95-299C6C46BF6B"
+          }
+        }
+      }
+    },
+    "Gears": {
+      "Cassette-joint": {
+        "null": {
+          "Repair": {
+            "id": "2CECF2B3-96EE-4F7A-9AC7-89C4DA978A0F"
+          },
+          "Replace": {
+            "id": "A518BCC1-D21E-433D-89A4-074F932413D1"
+          }
+        }
+      },
+      "Gears": {
+        "null": {
+          "Adjust": {
+            "id": "3D33811A-DB15-4CF8-A6DB-735A972439C7"
+          }
+        }
+      },
+      "Shifter": {
+        "null": {
+          "Repair": {
+            "id": "C0E20004-4F95-4115-8AC5-71151D4F8230"
+          },
+          "Replace": {
+            "id": "51501906-909D-4CA6-B419-B45C9784007B"
+          }
+        }
+      },
+      "Shifter cable": {
+        "null": {
+          "Repair": {
+            "id": "6F96293C-2395-4C15-97F9-9C742BF816AA"
+          },
+          "Replace": {
+            "id": "6C6E196D-4F44-43B1-969E-DFD4EB04E4B4"
+          }
+        }
+      }
+    },
+    "Handlebar": {
+      "Bell": {
+        "null": {
+          "Repair": {
+            "id": "50B514C2-088D-41FD-9DBC-D142625BFA48"
+          },
+          "Replace": {
+            "id": "08DAC4A1-F4CD-47D2-BA01-2FC5C725FC4D"
+          }
+        }
+      },
+      "Grips": {
+        "null": {
+          "Adjust": {
+            "id": "57BDFBDC-5ACA-4D4C-86EC-46536B1AA20E"
+          },
+          "Replace": {
+            "id": "D11AA604-11F1-4D5B-A890-ACCC44211267"
+          }
+        }
+      },
+      "Handlebar": {
+        "null": {
+          "Adjust": {
+            "id": "44474932-2A1D-409D-B151-FC462589ADC6"
+          },
+          "Replace": {
+            "id": "BD99CA38-CBD1-4DFB-B4C5-3A9D7A162E03"
+          }
+        }
+      },
+      "Headset": {
+        "null": {
+          "Lubricate": {
+            "id": "2F7F3ACB-D41D-4C21-8F2C-72B922825687"
+          },
+          "Repair": {
+            "id": "B1CB149E-5378-4133-A072-D0E5E75E7CF4"
+          },
+          "Replace": {
+            "id": "EC12968D-4EB5-4717-8452-C2C072C1C753"
+          }
+        }
+      },
+      "Headset cover": {
+        "null": {
+          "Replace": {
+            "id": "F8B0E440-8BCB-4FBA-B9E4-24A6E8BFABC8"
+          }
+        }
+      },
+      "Stem": {
+        "null": {
+          "Grease": {
+            "id": "7E604402-FD3F-4ABB-B80C-A144D9247A80"
+          },
+          "Repair": {
+            "id": "E35B7953-A01F-498F-9037-259464C3424C"
+          },
+          "Replace": {
+            "id": "1E972A05-35D6-436F-AC12-A0E3E3AA9DCD"
+          }
+        }
+      }
+    },
+    "Light": {
+      "Cable": {
+        "Front": {
+          "Repair": {
+            "id": "1B9C3600-B332-4821-ABEE-7EFFC495D712"
+          },
+          "Replace": {
+            "id": "B66BAC97-4373-49F0-B673-0724B4A7D559"
+          }
+        },
+        "Rear": {
+          "Repair": {
+            "id": "7B445491-E0F0-4814-8298-724529E48A6B"
+          },
+          "Replace": {
+            "id": "95FE16B3-708A-4D86-900C-32C99E0C0C72"
+          }
+        }
+      },
+      "Light": {
+        "Front": {
+          "Adjust": {
+            "id": "625EBB74-AF1F-40A8-B9B7-113327B7CBE2"
+          },
+          "Replace": {
+            "id": "B457BA10-6020-44F9-BDDE-71C15012EC8B"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "309DE755-255F-40EE-9137-B801DB929F2C"
+          },
+          "Replace": {
+            "id": "1396425E-B69A-4AD9-8F3B-68E92E8768B7"
+          }
+        }
+      }
+    },
+    "Lock": {
+      "Battery lock": {
+        "null": {
+          "Lubricate": {
+            "id": "C0BCAD98-DE10-4F82-BB14-8F2A8F69316E"
+          },
+          "Repair": {
+            "id": "1328F186-5089-4870-B736-CAEDE362BB8C"
+          },
+          "Replace": {
+            "id": "FC84893B-B603-413E-9058-26772C1F8989"
+          }
+        }
+      },
+      "Chain lock": {
+        "null": {
+          "Repair": {
+            "id": "3BB0E845-5357-4495-BAE3-2A95D1E091B7"
+          },
+          "Replace": {
+            "id": "A83249C4-548E-4220-AED0-924C18E1D8FD"
+          }
+        }
+      },
+      "Frame lock": {
+        "null": {
+          "Lubricate": {
+            "id": "2ED69B26-E1A4-44B6-92DC-7ED409781AFB"
+          },
+          "Repair": {
+            "id": "8C8638E9-2235-49FB-A226-48385CE5F85E"
+          },
+          "Replace": {
+            "id": "542B863E-0DCF-4407-97AA-D03CC3354996"
+          }
+        }
+      }
+    },
+    "Saddle": {
+      "Saddle": {
+        "null": {
+          "Adjust": {
+            "id": "0744617B-1734-43E6-AF07-849CA789BA44"
+          },
+          "Repair": {
+            "id": "93C3606B-4D3F-48EC-BE41-371CBC17C471"
+          },
+          "Replace": {
+            "id": "733216E7-3AC3-48C3-85AD-A680CF110874"
+          }
+        }
+      },
+      "Seatpost": {
+        "null": {
+          "Grease": {
+            "id": "E43A3A22-2ED5-465C-A158-069959CD828F"
+          },
+          "Repair": {
+            "id": "F237D4B1-0347-4310-A0D2-40071353C2D6"
+          },
+          "Replace": {
+            "id": "BE314181-E0D3-492C-96AD-00D2318B5F01"
+          }
+        }
+      },
+      "Seatpost clamp": {
+        "null": {
+          "Repair": {
+            "id": "FB80AEA0-DB2A-4F25-9B7C-E30BF5D2C353"
+          },
+          "Replace": {
+            "id": "CD53973A-D298-4B85-9E3B-BF933B5433F7"
+          }
+        }
+      }
+    },
+    "Wheel": {
+      "Hub": {
+        "Front": {
+          "Adjust": {
+            "id": "6C941370-5E43-4174-8B39-DEFEA752778D"
+          },
+          "Replace": {
+            "id": "257CCAAB-AD69-4474-853E-62AC00602686"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "86DF3CFC-6956-4B9E-B144-C79FD12FF985"
+          },
+          "Replace": {
+            "id": "1CF6998B-7B1D-4B5B-803F-EBD32D711C44"
+          }
+        }
+      },
+      "Innertube": {
+        "Both/All": {
+          "Pump": {
+            "id": "41BB279E-1DF0-4BCD-A555-3BD242C27029"
+          }
+        },
+        "Front": {
+          "Pump": {
+            "id": "22653665-F39E-4810-9383-376B3F399C1C"
+          },
+          "Replace": {
+            "id": "E4E07C35-7B4A-41D0-8C48-0527A60CEB5B"
+          }
+        },
+        "Rear": {
+          "Pump": {
+            "id": "899FC7CC-345B-4F4F-9DD4-E2B6D9460076"
+          },
+          "Replace": {
+            "id": "7B7D7065-EE8B-4A92-8A0E-60337CB2ECAE"
+          }
+        }
+      },
+      "Rimtape": {
+        "Front": {
+          "Replace": {
+            "id": "8B6205D1-20ED-465F-A5DD-5898A0784F37"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "C03B8505-FA57-4A42-9545-5CDC31335288"
+          }
+        }
+      },
+      "Spoke/nipple": {
+        "Front": {
+          "Replace": {
+            "id": "168FAD18-4A14-40C5-9FAE-85D27D10BE3B"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "A83393DD-415B-4EBA-BB41-7761A78FA26C"
+          }
+        }
+      },
+      "Tire": {
+        "Front": {
+          "Replace": {
+            "id": "669C5EE2-DC42-4E9A-A45A-550172CCC640"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "DBA6F8A4-BB94-406F-8082-8F0717F8E03F"
+          }
+        }
+      },
+      "Valve": {
+        "Front": {
+          "Replace": {
+            "id": "636A7C71-1EBA-4AF7-BE27-9ACA7FBB799E"
+          },
+          "Tighten": {
+            "id": "B94A0645-8281-411D-9E6F-B42542A26FBA"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "F5E3E005-E9E4-47EA-AC41-B91D316CD31A"
+          },
+          "Tighten": {
+            "id": "48F18319-A13A-4F4E-A011-AB19976CB240"
+          }
+        }
+      },
+      "Wheel": {
+        "Front": {
+          "Replace": {
+            "id": "F805F712-1C11-4F3F-98E7-5B0F08B1E3F8"
+          },
+          "True": {
+            "id": "94ABED84-6778-463C-B4D0-7C26E394B1AE"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "CF4D2D50-42F6-4F7E-915C-EF51FB64ADD1"
+          },
+          "True": {
+            "id": "F6A26A5D-498A-41BB-9F20-0ABE57ED09EB"
+          }
+        }
+      }
+    }
+  },
+  "Power Plus": {
+    "Brakes": {
+      "Brake cable/hose": {
+        "Front": {
+          "Replace": {
+            "id": "4F4282EE-CE37-4018-BF2B-0EE8161B5201"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "D7C4C6B6-5C8A-45ED-9D48-8A72104B1953"
+          }
+        }
+      },
+      "Brake disc": {
+        "Front": {
+          "Replace": {
+            "id": "A194ADC6-E298-433D-BFBC-809BAF8D9089"
+          },
+          "Tighten": {
+            "id": "DDF598FD-B00D-4B44-B743-E07510E1199A"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "C07E4E65-6103-4FD1-B6E1-2471EE019090"
+          },
+          "Tighten": {
+            "id": "18E4EE8E-0238-4965-8991-2D172D3389DB"
+          }
+        }
+      },
+      "Brake lever": {
+        "Front": {
+          "Replace": {
+            "id": "FAB09A4C-E60B-4C3D-A67E-0847C8EBF90E"
+          },
+          "Tighten": {
+            "id": "7072A85B-C7A4-4BE4-B0EF-EBE7E1075E57"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "AD4F0F68-3BD4-4491-B153-0B967D002B11"
+          },
+          "Tighten": {
+            "id": "84CD47FF-0538-4878-91E3-40A7B27CBABB"
+          }
+        }
+      },
+      "Brake pads": {
+        "Front": {
+          "Replace": {
+            "id": "AA8E18CF-AA1B-4138-BFE1-921B3DC7766A"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "288534F1-A4A1-438C-95DC-FB6F8B520654"
+          }
+        }
+      },
+      "Brake unit/caliper": {
+        "Front": {
+          "Replace": {
+            "id": "9F52F310-9E88-403A-A00B-B1587A348AEC"
+          },
+          "Tighten": {
+            "id": "C9F6D924-EBFB-4AAD-AB03-1DFE85F9ACD3"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "D0E82D8B-FDA2-46E1-B7FA-71EEF695FE83"
+          },
+          "Tighten": {
+            "id": "ACCAD993-5CCB-4056-B9DC-0B4481108C99"
+          }
+        }
+      },
+      "Complete system": {
+        "Front": {
+          "Bleed": {
+            "id": "D1E347F6-7015-4F4C-B0D7-CC88D5A58E75"
+          },
+          "Replace": {
+            "id": "319263D1-9E31-4F57-8C55-EF7A707F9C45"
+          }
+        },
+        "Rear": {
+          "Bleed": {
+            "id": "1E0D165F-5560-4723-9BF8-DECE1409FE8E"
+          },
+          "Replace": {
+            "id": "7828D515-C1A9-443F-AE13-8980415D4FA4"
+          }
+        }
+      }
+    },
+    "Drivetrain": {
+      "Chain": {
+        "null": {
+          "Lubricate": {
+            "id": "FB0FD6D5-5C9C-4BF6-A428-689661C99016"
+          },
+          "Replace": {
+            "id": "DFA22A47-71FE-4550-B1C8-4C12CF58A75E"
+          },
+          "Tighten": {
+            "id": "1BC86E33-36E3-4B87-A11F-460A9A2B9D58"
+          }
+        }
+      },
+      "Chain wheel": {
+        "null": {
+          "Replace": {
+            "id": "B0CD4BBC-88AA-452A-B9CA-4930AEC896F0"
+          }
+        }
+      },
+      "Chain wheel protector": {
+        "null": {
+          "Replace": {
+            "id": "CBC8BDF7-C4CA-4DAA-95A9-79ABC30DAF9D"
+          },
+          "Tighten": {
+            "id": "A60F7B1A-99F8-46A0-8DFF-B6C546CB1B37"
+          }
+        }
+      },
+      "Chainguard": {
+        "Left": {
+          "Replace": {
+            "id": "94DFFBFA-1D17-4335-BD83-092FACEA4171"
+          },
+          "Tighten": {
+            "id": "433E8CD9-A103-4720-9D9A-E2A793E996D7"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "12070321-67D4-4F00-9C08-B4DC88E6AFF6"
+          },
+          "Tighten": {
+            "id": "8F56567D-BA23-4430-96FA-560A0A080D20"
+          }
+        }
+      },
+      "Crank": {
+        "Both/All": {
+          "Replace": {
+            "id": "EFD1CB81-87E8-4569-92AC-1112C1609C0A"
+          },
+          "Tighten": {
+            "id": "645A1A7D-0FDC-49A9-B03A-52EABD311144"
+          }
+        },
+        "Left": {
+          "Replace": {
+            "id": "B95A24C2-AE66-4153-9C2D-F12252EDF20C"
+          },
+          "Tighten": {
+            "id": "EEA3BA98-73FF-4E1C-BF87-B06AA6E8FD9B"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "1CCA12B4-9741-491A-8AB5-5C6595229E2D"
+          },
+          "Tighten": {
+            "id": "1DF5736A-A055-43B9-94EB-D203F62E7819"
+          }
+        }
+      },
+      "Pedals": {
+        "Both/All": {
+          "Replace": {
+            "id": "C1E6D542-F659-4F6C-9FCD-AD030718E397"
+          }
+        },
+        "Left": {
+          "Replace": {
+            "id": "87F91187-39EA-4F14-BD6B-E63F76B33920"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "A45D6A88-0A61-4479-86CE-FBB4312C0FB5"
+          }
+        }
+      },
+      "Sprocket": {
+        "null": {
+          "Replace": {
+            "id": "64CA5899-AE21-4510-B85D-8E675DA6DBAF"
+          },
+          "Tighten": {
+            "id": "87E02C37-BE8B-4596-8827-2A7BA8974533"
+          }
+        }
+      },
+      "Tensioner": {
+        "null": {
+          "Repair": {
+            "id": "A26DCF1F-A508-4DC5-AEFF-938A85E55943"
+          },
+          "Replace": {
+            "id": "1BB67549-9ECA-4121-98F5-1EACF9A6EC3D"
+          },
+          "Tighten": {
+            "id": "36707492-9409-4A20-BD0E-AEF1731E51DF"
+          }
+        }
+      }
+    },
+    "Electrics": {
+      "Battery": {
+        "null": {
+          "Repair": {
+            "id": "83E2A270-37E0-461C-91FA-36E24A436177"
+          },
+          "Replace": {
+            "id": "2BB9FC21-572B-451E-BC95-9DF82682615E"
+          }
+        }
+      },
+      "Charge port": {
+        "null": {
+          "Repair": {
+            "id": "058B4B1C-B273-4E5E-BC51-006C46EA4BE3"
+          },
+          "Replace": {
+            "id": "9C68612D-2FA4-43F2-A947-C07108F6A796"
+          }
+        }
+      },
+      "Charger": {
+        "null": {
+          "Repair": {
+            "id": "9681EBAD-3FBE-416D-980A-25E2750FCBCE"
+          },
+          "Replace": {
+            "id": "50807926-A78C-4210-A757-4E4BD0B437DA"
+          }
+        }
+      },
+      "Display": {
+        "null": {
+          "Repair": {
+            "id": "AAA636C0-5034-4893-8016-5B3A17C0DFC7"
+          },
+          "Replace": {
+            "id": "306924B0-9EF2-43D7-A3F8-58E1178B46F4"
+          }
+        }
+      },
+      "Display cable": {
+        "null": {
+          "Repair": {
+            "id": "4D5D912C-025E-40B5-B835-AD848DD6191B"
+          },
+          "Replace": {
+            "id": "55D931B7-0CBF-4004-8DA1-FE3F69032401"
+          }
+        }
+      },
+      "Engine": {
+        "null": {
+          "Replace": {
+            "id": "98F8C68A-41DC-4A96-A659-AF0FD5CC49A9"
+          },
+          "Tighten": {
+            "id": "8DD10906-F9E1-427E-8255-F63FF7EE5DB1"
+          }
+        }
+      },
+      "Engine bracket": {
+        "Left": {
+          "Replace": {
+            "id": "AB4AAF40-8075-4216-A6EF-C507C70FE1AA"
+          },
+          "Tighten": {
+            "id": "3EE6C591-20FE-4F3F-9787-459BFC14BCFF"
+          }
+        },
+        "Right": {
+          "Replace": {
+            "id": "C88C8116-4235-414E-9059-160B993299F9"
+          },
+          "Tighten": {
+            "id": "A4CA98C4-999B-4B17-A7AA-68C24E3A4117"
+          }
+        }
+      },
+      "Engine power cable": {
+        "null": {
+          "Repair": {
+            "id": "387B5619-198E-433F-9B2A-1AF604F3FC59"
+          },
+          "Replace": {
+            "id": "853D36C1-AF56-434B-B180-0602220C4DF0"
+          }
+        }
+      },
+      "IOT CAN cable": {
+        "null": {
+          "Replace": {
+            "id": "DAE710F2-7546-4F30-B9D3-40FEBCF0B493"
+          }
+        }
+      },
+      "IOT Module": {
+        "null": {
+          "Add new": {
+            "id": "39A24248-1983-4537-BB1F-9E22F5C70183"
+          },
+          "Replace": {
+            "id": "45537365-1F56-4A7A-99E5-655C483D7EAE"
+          }
+        }
+      },
+      "Software": {
+        "null": {
+          "Repair": {
+            "id": "78B32D30-5C44-4F80-9F4B-6187C3D420E4"
+          },
+          "Replace": {
+            "id": "D74B9ABA-925B-4F6E-B553-D84AA9EEA4A1"
+          }
+        }
+      },
+      "Speed sensor": {
+        "null": {
+          "Replace": {
+            "id": "DE8AD351-12FA-40CB-AD3E-3AAB480FA249"
+          }
+        }
+      },
+      "USB charger": {
+        "null": {
+          "Repair": {
+            "id": "C26BC2E0-D249-47D2-AE24-F98B8D4F5AF4"
+          },
+          "Replace": {
+            "id": "B4D8C215-629A-4F63-9BEC-B5048BCB9157"
+          }
+        }
+      }
+    },
+    "Fenders": {
+      "Fender": {
+        "Front": {
+          "Adjust": {
+            "id": "2DC2C935-EB51-411F-BA79-5EBB47D58447"
+          },
+          "Replace": {
+            "id": "17DC3CC6-70F3-41B3-B8A1-A6BB7E08D4E4"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "F452D915-170B-4DA4-8FC6-47C1847579F5"
+          }
+        }
+      },
+      "Fender stay": {
+        "Front": {
+          "Replace": {
+            "id": "903A3881-8609-4B5F-93B0-0F5CF737B4FB"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "0133FFF2-6DBE-44F2-8CB6-EFC5E8A1DDCD"
+          },
+          "Replace": {
+            "id": "858A3FD4-77BD-470C-8D2E-9A5509D8BD90"
+          }
+        }
+      }
+    },
+    "Frame": {
+      "Barcode": {
+        "null": {
+          "Replace": {
+            "id": "A807441F-9A35-4036-9BA5-2A7262CFF1C9"
+          }
+        }
+      },
+      "Carrier": {
+        "Front": {
+          "Replace": {
+            "id": "6DC94E8B-BB66-47FF-B4E4-00B340B885C5"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "C1F1B926-6596-478F-9BCC-8B54E99B467A"
+          }
+        }
+      },
+      "Carrier bumper": {
+        "null": {
+          "Replace": {
+            "id": "079667EA-4D52-4207-AFE8-B2A33C24F38A"
+          }
+        }
+      },
+      "Carrier strip": {
+        "Front": {
+          "Replace": {
+            "id": "62BD7A3C-711A-4C7D-AB9A-7C6BE1089192"
+          }
+        }
+      },
+      "Frame/panel": {
+        "null": {
+          "Sticker": {
+            "id": "14D32363-E43A-45FA-ABF4-003538F7991E"
+          }
+        }
+      },
+      "Front fork": {
+        "null": {
+          "Replace": {
+            "id": "8F75FCC2-D9F7-495B-91AD-19E69B5DCD3A"
+          },
+          "Sticker": {
+            "id": "CDE59E65-5B0F-4A22-898B-D9ACA48F59EF"
+          }
+        }
+      },
+      "Kickstand": {
+        "null": {
+          "Adjust": {
+            "id": "281CEF09-3E08-47C3-BA62-3111455AC149"
+          },
+          "Lubricate": {
+            "id": "3AC7FF68-BF26-4440-B4E3-CE58DC7F034C"
+          },
+          "Replace": {
+            "id": "1243B061-0994-44F2-B2C4-8C6525E153FF"
+          },
+          "Tighten": {
+            "id": "65F31C34-3D48-4DC8-80C7-424D2E994D80"
+          }
+        }
+      },
+      "Kickstand foot": {
+        "null": {
+          "Replace": {
+            "id": "DC62AFC0-A899-45AE-B2EF-CCACC6C7BFC5"
+          }
+        }
+      },
+      "Midstand": {
+        "null": {
+          "Adjust": {
+            "id": "DD297491-E330-4DBB-93E7-E0075D270D59"
+          },
+          "Lubricate": {
+            "id": "B43BD55E-3552-43DC-A925-DE9E20CB5C6B"
+          },
+          "Replace": {
+            "id": "0CE94582-F712-4F3C-A867-D49B5798A857"
+          },
+          "Tighten": {
+            "id": "448DD579-EFFD-4961-AB4B-A755EE2A4666"
+          }
+        }
+      },
+      "Shimmy damper": {
+        "null": {
+          "Replace": {
+            "id": "79920308-CD9E-4B52-8B3F-3303E125D923"
+          }
+        }
+      }
+    },
+    "Handlebar": {
+      "Bell": {
+        "null": {
+          "Repair": {
+            "id": "21C3C818-540A-4677-A63D-2E33CF58320A"
+          },
+          "Replace": {
+            "id": "A1782599-D00A-464C-8342-94E1DBCFD318"
+          }
+        }
+      },
+      "Grips": {
+        "null": {
+          "Adjust": {
+            "id": "99057742-5C1B-42E2-96B6-6639AF53F3D6"
+          },
+          "Replace": {
+            "id": "A6B21698-B2FF-464C-B727-1B0581F0CA86"
+          }
+        }
+      },
+      "Handlebar": {
+        "null": {
+          "Replace": {
+            "id": "0B02134C-623B-4513-8DA7-2DC4177C6A4D"
+          }
+        }
+      },
+      "Headset": {
+        "null": {
+          "Adjust": {
+            "id": "13071A6A-3C01-4039-8C43-DDBCCF00189B"
+          },
+          "Lubricate": {
+            "id": "3EA9CB25-F796-4E3E-B250-CC17EE5808B2"
+          },
+          "Replace": {
+            "id": "8B58BE0D-DBB8-40F0-BAC1-5B77B8402060"
+          }
+        }
+      },
+      "Headset cover": {
+        "null": {
+          "Replace": {
+            "id": "24591D6A-64F1-4CEC-BAEE-9ABCD018FC6F"
+          }
+        }
+      },
+      "SP mount": {
+        "null": {
+          "Replace": {
+            "id": "D29990CE-D1C8-4509-BC50-A54FBDC465D1"
+          }
+        }
+      }
+    },
+    "Light": {
+      "Cable": {
+        "Front": {
+          "Repair": {
+            "id": "8E2527BD-94E2-439B-B7AC-6F8A253CE53B"
+          },
+          "Replace": {
+            "id": "3BE89431-D74A-40C1-AE46-99016836F088"
+          }
+        },
+        "Rear left": {
+          "Repair": {
+            "id": "DE90B1E2-CB1F-48E9-9247-33151B95321D"
+          },
+          "Replace": {
+            "id": "DFC82C29-A448-4A71-9A32-56E341B04DC6"
+          }
+        },
+        "Rear right": {
+          "Repair": {
+            "id": "0EACD00B-A1DE-44B8-9DEA-FCB3471F3D04"
+          },
+          "Replace": {
+            "id": "2F28D21D-D40B-4FC2-9BD0-F6E33B2E78DC"
+          }
+        }
+      },
+      "Light": {
+        "Front": {
+          "Adjust": {
+            "id": "3A54CBDD-D938-4FD9-B2E6-983DBEB76539"
+          },
+          "Replace": {
+            "id": "1F590F7C-1D83-44E5-9E8A-4DF81C12462E"
+          }
+        },
+        "Rear left": {
+          "Replace": {
+            "id": "BB4BA415-13AB-4A59-886A-E4DA933C1CA6"
+          }
+        },
+        "Rear right": {
+          "Replace": {
+            "id": "A127D76B-9804-4B3E-BA1D-A082CE54C28D"
+          }
+        }
+      },
+      "Protector": {
+        "Left": {
+          "Replace": {
+            "id": "242A3DEF-F101-4EB0-AC58-BEB078071953"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "CBD30A6F-1A32-4B01-827A-38A0B988A181"
+          }
+        }
+      }
+    },
+    "Lock": {
+      "Battery lock": {
+        "null": {
+          "Lubricate": {
+            "id": "186659A2-4073-43C9-A565-AD3DF3DC3A3E"
+          },
+          "Repair": {
+            "id": "8761F5B2-A8D3-4BBF-ADBD-3013AD27103C"
+          },
+          "Replace": {
+            "id": "C136408B-F4B0-43F9-83A3-E74DFC309E14"
+          }
+        }
+      },
+      "Chain lock": {
+        "null": {
+          "Repair": {
+            "id": "03BC630F-406F-4D67-BFF5-F583A287C9C6"
+          },
+          "Replace": {
+            "id": "21CA5476-3555-40E9-A641-9C703F5CABB8"
+          }
+        }
+      },
+      "Frame lock": {
+        "null": {
+          "Lubricate": {
+            "id": "4FFD2EFC-EBF4-4A18-8D76-F3095620B873"
+          },
+          "Repair": {
+            "id": "242DF3E8-44A3-47FA-8C41-5777D91C5BD4"
+          },
+          "Replace": {
+            "id": "727E9ED6-65DB-40B6-B9B8-7C4621F91F1E"
+          }
+        }
+      }
+    },
+    "Saddle": {
+      "Saddle": {
+        "null": {
+          "Adjust": {
+            "id": "84FED3EB-2BEA-4655-89F6-693111A75D0C"
+          },
+          "Repair": {
+            "id": "30AEFA36-FB1D-4EFF-A54B-D5F74CA9DAD5"
+          },
+          "Replace": {
+            "id": "02EEAAE7-86A2-4A41-A6D8-C9C2FDAD52C6"
+          }
+        }
+      },
+      "Seatpost": {
+        "null": {
+          "Grease": {
+            "id": "177BAB47-26D3-49AD-9B59-EAF29218ABEA"
+          },
+          "Replace": {
+            "id": "EAD6316E-ED72-44C1-B873-A0E21ED132E5"
+          },
+          "Tighten": {
+            "id": "855E778A-91C2-40F3-8E81-A1F71E08B231"
+          }
+        }
+      },
+      "Seatpost clamp": {
+        "null": {
+          "Repair": {
+            "id": "119E83A7-3D0F-4B5F-9DD9-B7CFC336C261"
+          },
+          "Replace": {
+            "id": "6B152206-E888-47CA-84BC-14B0CA341C05"
+          }
+        }
+      }
+    },
+    "Wheel": {
+      "Hub": {
+        "Front": {
+          "Adjust": {
+            "id": "AF3731EF-6510-42E1-9E3E-0B09456A30E9"
+          },
+          "Repair": {
+            "id": "6E4FACB7-0BD6-45B9-8DE1-D6F5C19450E0"
+          },
+          "Replace": {
+            "id": "8C4EFE4E-CE00-4BF6-A521-1BA1AEBF2130"
+          }
+        },
+        "Rear": {
+          "Adjust": {
+            "id": "15D2F965-580E-499A-9DB8-6C864D9C0373"
+          },
+          "Repair": {
+            "id": "1D6C1DDF-BFA5-4816-A54B-5FEEC6361858"
+          },
+          "Replace": {
+            "id": "C9902494-9985-4EE8-BF4F-E8DD9AA82254"
+          }
+        }
+      },
+      "Innertube": {
+        "Both/All": {
+          "Pump": {
+            "id": "B862E425-126E-4B99-9625-754872A2C2E2"
+          }
+        },
+        "Front": {
+          "Pump": {
+            "id": "79ECA14D-B983-4A04-ACE2-5C606604434F"
+          },
+          "Replace": {
+            "id": "F81C9724-07E8-47D6-B239-4BDE4E8EB8BD"
+          }
+        },
+        "Rear": {
+          "Pump": {
+            "id": "2C244AA6-8522-4A09-8EFC-9224DA628B52"
+          },
+          "Replace": {
+            "id": "F086BE33-1CC4-4332-9DA2-2DD01BA9C76E"
+          }
+        }
+      },
+      "Rimtape": {
+        "Front": {
+          "Replace": {
+            "id": "9AC1A077-4020-497B-BE71-A064059EEC1E"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "51D0A5FB-5F2B-4425-9687-21D2B25C3DAD"
+          }
+        }
+      },
+      "Spoke/nipple": {
+        "Front": {
+          "Replace": {
+            "id": "053ADFD0-4198-44C5-AD8A-6B925FAC1C76"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "CE87752C-5A49-4E81-B5EC-DBA0A1FFF1B6"
+          }
+        }
+      },
+      "Tire": {
+        "Front": {
+          "Replace": {
+            "id": "BB7A49AA-5B07-41C2-9FA9-39FF702BBFD6"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "119C8089-EC96-4521-BEE3-D21848967216"
+          }
+        }
+      },
+      "Valve": {
+        "Front": {
+          "Replace": {
+            "id": "EA0323A9-3F0D-44B2-8822-F973909A09DD"
+          },
+          "Tighten": {
+            "id": "D2E7440B-0848-44DE-9113-1BEB561128DA"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "C9DCE46E-4068-4949-845E-BDC25BCAAED9"
+          },
+          "Tighten": {
+            "id": "5487760D-F130-4EED-9633-02E70CD8713E"
+          }
+        }
+      },
+      "Wheel": {
+        "Front": {
+          "Replace": {
+            "id": "9B8B4F62-8A3D-4FB6-8A4F-596BC34D6E6C"
+          },
+          "True": {
+            "id": "8760A08F-3993-44AA-A254-6472A391943B"
+          }
+        },
+        "Rear": {
+          "Replace": {
+            "id": "A34102AA-ADD3-47EC-9351-929C746FD076"
+          },
+          "True": {
+            "id": "A93ACABB-2559-46D7-97C0-2539485E3831"
+          }
+        }
+      }
+    }
+  }
+}
