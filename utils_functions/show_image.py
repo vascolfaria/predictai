@@ -1,8 +1,7 @@
 import json
-import os
 import base64
 
-PARTS_FILE = "./data/parts.json"
+PARTS_FILE = "./parts.json"
 
 def encode_image(image_path):
     with open(image_path, "rb") as img_file:
