@@ -11,7 +11,6 @@ from langchain.output_parsers import PydanticOutputParser
 from utils_functions.audio_tools import record_audio_to_wav
 from langgraph.checkpoint.memory import MemorySaver
 from pydantic import BaseModel
-import random
 
 from openai import OpenAI
 
@@ -91,367 +90,6 @@ client = OpenAI()
 sys_msg = SystemMessage(
     content="You are a helpful assistant trying to understand what is wrong with the member's bike. "
             "Listen carefully as they may describe multiple issues at once, and extract all problems mentioned.")
-
-
-def intro_prompt_node(state: dict) -> dict:
-    """Generate a varied intro message to ask the user what's wrong with their bike."""
-    prompts = [
-        "🚲 Hey there! What's going on with your bike today?",
-        "🛠️ Let’s get your bike back in shape. Can you tell me what seems to be the problem?",
-        "🎤 I'm all ears! What's wrong with your bike?",
-        "👋 Hi! Could you describe the issue you're having with your bike?",
-        "🔧 Tell me what’s not working as it should — I’ll do my best to help.",
-        "💬 Let’s start with what’s bugging you about the bike.",
-        "📣 Go ahead and describe the issue — I’ll take it from there.",
-        "❓What seems off with your bike? Share the details, big or small!",
-        "🚴‍♂️ Something not right? Let me know what’s wrong with the bike.",
-        "🧰 Okay, ready when you are — what’s going on with the bike?"
-    ]
-    intro_message = random.choice(prompts)
-    return {
-        **state,
-        "messages": state["messages"] + [AIMessage(content=intro_message)]
-    }
-
-
-def generate_specific_feedback(user_input, previous_info, round_number):
-    """
-    Generate specific feedback based on what we could understand from user input
-    """
-    user_lower = user_input.lower()
-
-    # Try to detect what they might be talking about
-    detected_parts = []
-    if any(word in user_lower for word in ['chain', 'chains']):
-        detected_parts.append('chain')
-    if any(word in user_lower for word in ['brake', 'brakes', 'braking']):
-        detected_parts.append('brakes')
-    if any(word in user_lower for word in ['light', 'lights', 'lamp']):
-        detected_parts.append('lights')
-    if any(word in user_lower for word in ['wheel', 'tire', 'rim']):
-        detected_parts.append('wheel')
-    if any(word in user_lower for word in ['gear', 'gears', 'shifting']):
-        detected_parts.append('gears')
-    if any(word in user_lower for word in ['pedal', 'pedals']):
-        detected_parts.append('pedals')
-
-    # Detect bike types mentioned
-    detected_bikes = []
-    for bike_type in POSSIBLE_VALUES.get('bike_type', []):
-        if bike_type.lower() in user_lower:
-            detected_bikes.append(bike_type)
-
-    if round_number == 1:
-        if detected_parts and detected_bikes:
-            return (f"I can hear you mentioned your **{detected_bikes[0]}** has issues with the "
-                    f"**{', '.join(detected_parts)}**. Could you be more specific about what exactly is wrong? "
-                    f"For example: 'the chain is loose' or 'the front brake squeaks'?")
-        elif detected_parts:
-            return (f"I understand there's something wrong with the **{', '.join(detected_parts)}**. "
-                    f"What type of bike do you have, and what exactly is the problem? "
-                    f"Try saying something like: 'My Deluxe 7 chain is broken'")
-        elif detected_bikes:
-            return (f"Got it, you have a **{detected_bikes[0]}**! What specific parts are having problems? "
-                    f"Tell me which components need attention and what's wrong with them.")
-        else:
-            return ("I want to help but I'm having trouble understanding the specific issues. "
-                    "Could you tell me: What type of bike you have and which part is broken? "
-                    "For example: 'My Deluxe 7 front brake doesn't work'")
-    else:
-        return ("Let me try again - could you clearly state: your bike model and what's broken? "
-                "Example: 'Classic 3 rear wheel is wobbly and chain skips'")
-
-
-def generate_bike_type_feedback(user_input, previous_info, round_number):
-    """
-    Generate feedback when bike type is missing or unclear
-    """
-    user_lower = user_input.lower()
-
-    # Check if they mentioned any bike-related words but not the specific type
-    has_bike_context = any(word in user_lower for word in ['bike', 'bicycle', 'cycle'])
-
-    available_bikes = POSSIBLE_VALUES.get('bike_type', [])
-    bike_examples = ', '.join(available_bikes[:3]) if available_bikes else "Deluxe 7, Classic 3"
-
-    if has_bike_context:
-        return (f"I can see you're describing bike problems, but I need to know which bike model you have. "
-                f"Is it a **{bike_examples}**, or another type? "
-                f"Please say something like: 'I have a {available_bikes[0] if available_bikes else 'Deluxe 7'} and...'")
-    else:
-        return (f"I need to know your bike model first. Do you have a **{bike_examples}** or a different type? "
-                f"Once I know the model, tell me what's wrong with it.")
-
-
-def generate_detailed_issue_feedback(bike_type, complete_issues, incomplete_issues, round_number):
-    """
-    Generate detailed feedback acknowledging what we know and asking for what's missing
-    Can handle multiple incomplete issues simultaneously
-    """
-    feedback_parts = []
-
-    # Acknowledge the bike type
-    feedback_parts.append(f"Perfect! I've got your **{bike_type}** identified.")
-
-    # Acknowledge complete issues
-    if complete_issues:
-        if len(complete_issues) == 1:
-            issue = complete_issues[0]['issue']
-            feedback_parts.append(
-                f"✅ **Issue {complete_issues[0]['number']}:** {issue.get('part_name')} problem - got it!")
-        else:
-            feedback_parts.append(f"✅ I've identified **{len(complete_issues)} issues** clearly.")
-
-    # Handle multiple incomplete issues simultaneously
-    if len(incomplete_issues) == 1:
-        # Single incomplete issue - detailed approach
-        issue_info = incomplete_issues[0]
-        issue = issue_info['issue']
-        missing = issue_info['missing']
-
-        # Get what we do know about this issue
-        known_parts = []
-        if issue.get('part_name') and issue.get('part_name') != 'NULL':
-            known_parts.append(f"it's the {issue.get('part_name')}")
-        if issue.get('part_category') and issue.get('part_category') != 'NULL':
-            known_parts.append(f"it's a {issue.get('part_category')} component")
-
-        if known_parts:
-            feedback_parts.append(f"For the other issue, I know {' and '.join(known_parts)}.")
-
-        # Ask specifically for what's missing
-        if 'likely_service' in missing:
-            feedback_parts.append("What exactly is wrong with it? Is it broken, loose, not working, making noise?")
-        elif 'part_name' in missing:
-            feedback_parts.append("Which specific part has the problem? Like 'chain', 'brake', 'light', etc.?")
-        elif 'part_category' in missing:
-            feedback_parts.append("What type of component is having issues?")
-
-    elif len(incomplete_issues) <= 3:
-        # Multiple incomplete issues - ask about them simultaneously
-        feedback_parts.append(f"I need more details about **{len(incomplete_issues)} other issues** you mentioned.")
-
-        # Create specific questions for each incomplete issue
-        issue_questions = []
-        for i, issue_info in enumerate(incomplete_issues):
-            issue_num = issue_info['number']
-            issue = issue_info['issue']
-            missing = issue_info['missing']
-
-            # Build what we know about this issue
-            known_info = []
-            if issue.get('part_name') and issue.get('part_name') != 'NULL':
-                known_info.append(issue.get('part_name'))
-            if issue.get('part_category') and issue.get('part_category') != 'NULL':
-                known_info.append(f"({issue.get('part_category')})")
-
-            # Build the question based on what's missing
-            if 'part_name' in missing and 'likely_service' in missing:
-                if known_info:
-                    question = f"**Issue {issue_num}** ({' '.join(known_info)}): which part and what's wrong?"
-                else:
-                    question = f"**Issue {issue_num}**: which part has a problem and what's wrong with it?"
-            elif 'part_name' in missing:
-                question = f"**Issue {issue_num}**: which specific part has the problem?"
-            elif 'likely_service' in missing:
-                if known_info:
-                    question = f"**Issue {issue_num}** ({' '.join(known_info)}): what exactly is wrong?"
-                else:
-                    question = f"**Issue {issue_num}**: what exactly is the problem?"
-            elif 'part_category' in missing:
-                question = f"**Issue {issue_num}**: what type of component is this?"
-            else:
-                question = f"**Issue {issue_num}**: need more details"
-
-            issue_questions.append(question)
-
-        # Combine all questions
-        if len(issue_questions) == 2:
-            feedback_parts.append(f"{issue_questions[0]} And {issue_questions[1].lower()}")
-        else:
-            feedback_parts.append(f"{'; '.join(issue_questions)}.")
-
-        # Add helpful example
-        feedback_parts.append("For example: 'Issue 1 is front brake squeaking, Issue 2 is chain loose'")
-
-    else:
-        # Too many incomplete issues - simplify the approach
-        feedback_parts.append(f"I detected **{len(incomplete_issues)} issues** but need clearer details.")
-        feedback_parts.append("Could you list them clearly? For example:")
-        feedback_parts.append(
-            "'First issue: front brake squeaks. Second issue: chain is loose. Third issue: rear light broken.'")
-
-    return " ".join(feedback_parts)
-
-
-def generate_specific_feedback(user_input, previous_info, round_number):
-    """
-    Generate specific feedback based on what we could understand from user input
-    """
-    user_lower = user_input.lower()
-
-    # Try to detect what they might be talking about
-    detected_parts = []
-    if any(word in user_lower for word in ['chain', 'chains']):
-        detected_parts.append('chain')
-    if any(word in user_lower for word in ['brake', 'brakes', 'braking']):
-        detected_parts.append('brakes')
-    if any(word in user_lower for word in ['light', 'lights', 'lamp']):
-        detected_parts.append('lights')
-    if any(word in user_lower for word in ['wheel', 'tire', 'rim']):
-        detected_parts.append('wheel')
-    if any(word in user_lower for word in ['gear', 'gears', 'shifting']):
-        detected_parts.append('gears')
-    if any(word in user_lower for word in ['pedal', 'pedals']):
-        detected_parts.append('pedals')
-
-    # Detect bike types mentioned
-    detected_bikes = []
-    for bike_type in POSSIBLE_VALUES.get('bike_type', []):
-        if bike_type.lower() in user_lower:
-            detected_bikes.append(bike_type)
-
-    if round_number == 1:
-        if detected_parts and detected_bikes:
-            return (f"I can hear you mentioned your **{detected_bikes[0]}** has issues with the "
-                    f"**{', '.join(detected_parts)}**. Could you be more specific about what exactly is wrong? "
-                    f"For example: 'the chain is loose' or 'the front brake squeaks'?")
-        elif detected_parts:
-            return (f"I understand there's something wrong with the **{', '.join(detected_parts)}**. "
-                    f"What type of bike do you have, and what exactly is the problem? "
-                    f"Try saying something like: 'My Deluxe 7 chain is broken'")
-        elif detected_bikes:
-            return (f"Got it, you have a **{detected_bikes[0]}**! What specific parts are having problems? "
-                    f"Tell me which components need attention and what's wrong with them.")
-        else:
-            return ("I want to help but I'm having trouble understanding the specific issues. "
-                    "Could you tell me: What type of bike you have and which part is broken? "
-                    "For example: 'My Deluxe 7 front brake doesn't work'")
-    else:
-        return ("Let me try again - could you clearly state: your bike model and what's broken? "
-                "Example: 'Classic 3 rear wheel is wobbly and chain skips'")
-
-
-def generate_bike_type_feedback(user_input, previous_info, round_number):
-    """
-    Generate feedback when bike type is missing or unclear
-    """
-    user_lower = user_input.lower()
-
-    # Check if they mentioned any bike-related words but not the specific type
-    has_bike_context = any(word in user_lower for word in ['bike', 'bicycle', 'cycle'])
-
-    available_bikes = POSSIBLE_VALUES.get('bike_type', [])
-    bike_examples = ', '.join(available_bikes[:3]) if available_bikes else "Deluxe 7, Classic 3"
-
-    if has_bike_context:
-        return (f"I can see you're describing bike problems, but I need to know which bike model you have. "
-                f"Is it a **{bike_examples}**, or another type? "
-                f"Please say something like: 'I have a {available_bikes[0] if available_bikes else 'Deluxe 7'} and...'")
-    else:
-        return (f"I need to know your bike model first. Do you have a **{bike_examples}** or a different type? "
-                f"Once I know the model, tell me what's wrong with it.")
-
-
-def generate_detailed_issue_feedback(bike_type, complete_issues, incomplete_issues, round_number):
-    """
-    Generate detailed feedback acknowledging what we know and asking for what's missing
-    Can handle multiple incomplete issues simultaneously
-    """
-    feedback_parts = []
-
-    # Acknowledge the bike type
-    feedback_parts.append(f"Perfect! I've got your **{bike_type}** identified.")
-
-    # Acknowledge complete issues
-    if complete_issues:
-        if len(complete_issues) == 1:
-            issue = complete_issues[0]['issue']
-            feedback_parts.append(
-                f"✅ **Issue {complete_issues[0]['number']}:** {issue.get('part_name')} problem - got it!")
-        else:
-            feedback_parts.append(f"✅ I've identified **{len(complete_issues)} issues** clearly.")
-
-    # Handle multiple incomplete issues simultaneously
-    if len(incomplete_issues) == 1:
-        # Single incomplete issue - detailed approach
-        issue_info = incomplete_issues[0]
-        issue = issue_info['issue']
-        missing = issue_info['missing']
-
-        # Get what we do know about this issue
-        known_parts = []
-        if issue.get('part_name') and issue.get('part_name') != 'NULL':
-            known_parts.append(f"it's the {issue.get('part_name')}")
-        if issue.get('part_category') and issue.get('part_category') != 'NULL':
-            known_parts.append(f"it's a {issue.get('part_category')} component")
-
-        if known_parts:
-            feedback_parts.append(f"For the other issue, I know {' and '.join(known_parts)}.")
-
-        # Ask specifically for what's missing
-        if 'likely_service' in missing:
-            feedback_parts.append("What exactly is wrong with it? Is it broken, loose, not working, making noise?")
-        elif 'part_name' in missing:
-            feedback_parts.append("Which specific part has the problem? Like 'chain', 'brake', 'light', etc.?")
-        elif 'part_category' in missing:
-            feedback_parts.append("What type of component is having issues?")
-
-    elif len(incomplete_issues) <= 3:
-        # Multiple incomplete issues - ask about them simultaneously
-        feedback_parts.append(f"I need more details about **{len(incomplete_issues)} other issues** you mentioned.")
-
-        # Create specific questions for each incomplete issue
-        issue_questions = []
-        for i, issue_info in enumerate(incomplete_issues):
-            issue_num = issue_info['number']
-            issue = issue_info['issue']
-            missing = issue_info['missing']
-
-            # Build what we know about this issue
-            known_info = []
-            if issue.get('part_name') and issue.get('part_name') != 'NULL':
-                known_info.append(issue.get('part_name'))
-            if issue.get('part_category') and issue.get('part_category') != 'NULL':
-                known_info.append(f"({issue.get('part_category')})")
-
-            # Build the question based on what's missing
-            if 'part_name' in missing and 'likely_service' in missing:
-                if known_info:
-                    question = f"**Issue {issue_num}** ({' '.join(known_info)}): which part and what's wrong?"
-                else:
-                    question = f"**Issue {issue_num}**: which part has a problem and what's wrong with it?"
-            elif 'part_name' in missing:
-                question = f"**Issue {issue_num}**: which specific part has the problem?"
-            elif 'likely_service' in missing:
-                if known_info:
-                    question = f"**Issue {issue_num}** ({' '.join(known_info)}): what exactly is wrong?"
-                else:
-                    question = f"**Issue {issue_num}**: what exactly is the problem?"
-            elif 'part_category' in missing:
-                question = f"**Issue {issue_num}**: what type of component is this?"
-            else:
-                question = f"**Issue {issue_num}**: need more details"
-
-            issue_questions.append(question)
-
-        # Combine all questions
-        if len(issue_questions) == 2:
-            feedback_parts.append(f"{issue_questions[0]} And {issue_questions[1].lower()}")
-        else:
-            feedback_parts.append(f"{'; '.join(issue_questions)}.")
-
-        # Add helpful example
-        feedback_parts.append("For example: 'Issue 1 is front brake squeaking, Issue 2 is chain loose'")
-
-    else:
-        # Too many incomplete issues - simplify the approach
-        feedback_parts.append(f"I detected **{len(incomplete_issues)} issues** but need clearer details.")
-        feedback_parts.append("Could you list them clearly? For example:")
-        feedback_parts.append(
-            "'First issue: front brake squeaks. Second issue: chain is loose. Third issue: rear light broken.'")
-
-    return " ".join(feedback_parts)
 
 
 def suggest_closest_value(invalid_value, valid_options):
@@ -668,27 +306,12 @@ def repair_assessment_node(state: State) -> State:
         "messages": state["messages"] + [assessment_msg]
     }
 
-def confirm_issues_node(state: State) -> State:
-    confirm_msg = AIMessage(content="✅ Does this look correct? (yes / no)")
-    return {
-        **state,
-        "messages": state["messages"] + [confirm_msg]
-    }
-
-
-def handle_confirmation_node(state: State) -> str:
-    last_human = next((msg.content for msg in reversed(state["messages"]) if isinstance(msg, HumanMessage)), "").lower()
-    if "yes" in last_human:
-        return "repair_assessment"  # if positive
-    elif "clarification" in last_human:
-        return "clarification_node" #if negative
-    return "success_node"  # success forever
 
 def audio_intro_node(state: dict) -> dict:
     return {
         **state,
         "messages": state["messages"] + [AIMessage(
-            content="🎙️ Recording for 10 seconds...")]
+            content="🎙️ Please describe all the issues you're experiencing with your bike. Recording for 10 seconds...")]
     }
 
 
@@ -839,17 +462,21 @@ def issue_classifier_node(state: State) -> State:
 
     except Exception as e:
         print(f"[DEBUG] Multi-issue classification failed: {str(e)}")
-        # Generate specific feedback based on what we could understand
+        # FIXED: Don't set collected_info when we need more info
+        # This ensures route_from_issue_classifier will route back to audio_intro
         new_round = state.get("conversation_round", 0) + 1
-
-        # Try to extract any partial information from the user's message
-        feedback_msg = generate_specific_feedback(combined_info, previous_info, new_round)
-
         return {
             **state,
             "conversation_round": new_round,
-            "messages": state["messages"] + [AIMessage(content=feedback_msg)],
-            "current_agent": "audio_intro"
+            "messages": state["messages"] + [
+                AIMessage(
+                    content="I need a bit more information to help you properly. Could you tell me:\n"
+                            "1. What type of bike you have\n"
+                            "2. Which specific parts have problems\n"
+                            "3. What exactly is wrong with each part?")
+            ]
+            # REMOVED: "collected_info": None,  # Keep existing info
+            # REMOVED: "current_agent": "audio_intro"  # This is ignored anyway
         }
 
     # Check if we have enough information
@@ -858,44 +485,35 @@ def issue_classifier_node(state: State) -> State:
 
     if not bike_type or bike_type == 'NULL' or not issues:
         new_round = state.get("conversation_round", 0) + 1
-        feedback_msg = generate_bike_type_feedback(combined_info, previous_info, new_round)
         return {
             **state,
             "conversation_round": new_round,
-            "messages": state["messages"] + [AIMessage(content=feedback_msg)],
-            "current_agent": "audio_intro"
+            "messages": state["messages"] + [
+                AIMessage(
+                    content="Thanks! I still need more details about your bike type and the specific issues. Can you provide more information?")
+            ]
+            # FIXED: Don't set collected_info here either
         }
 
-    # Check if individual issues are complete and generate specific feedback
+    # Check if individual issues are complete
     incomplete_issues = []
-    complete_issues = []
-
     for i, issue in enumerate(issues):
         required_fields = ["part_category", "part_name", "likely_service"]
         missing = [field for field in required_fields if issue.get(field) in [None, "null", "", "NULL"]]
-
         if missing:
-            incomplete_issues.append({
-                "number": i + 1,
-                "issue": issue,
-                "missing": missing
-            })
-        else:
-            complete_issues.append({
-                "number": i + 1,
-                "issue": issue
-            })
+            incomplete_issues.append(f"Issue {i + 1}: {', '.join(missing)}")
 
     if incomplete_issues:
         new_round = state.get("conversation_round", 0) + 1
-        feedback_msg = generate_detailed_issue_feedback(
-            bike_type, complete_issues, incomplete_issues, new_round
-        )
+        missing_info = "; ".join(incomplete_issues)
         return {
             **state,
             "conversation_round": new_round,
-            "messages": state["messages"] + [AIMessage(content=feedback_msg)],
-            "current_agent": "audio_intro"
+            "messages": state["messages"] + [
+                AIMessage(
+                    content=f"Great start! I still need some details: {missing_info}. Can you provide more information about these specific problems?")
+            ]
+            # FIXED: Don't set collected_info here either
         }
 
     # Success! Create summary message
@@ -913,6 +531,7 @@ def issue_classifier_node(state: State) -> State:
                 f"\n\nLet me assess what we can do about {'these issues' if issue_count > 1 else 'this issue'}! 🚴‍♂️"
     )
 
+    # FIXED: Only set collected_info when we have complete information
     return {
         **state,
         "collected_info": structured_dict,
@@ -925,124 +544,35 @@ def route_from_issue_classifier(state: State) -> str:
     bike_type = collected.get("bike_type")
     issues = collected.get("issues", [])
 
-    # If no data collected at all, continue gathering
-    if not collected or not bike_type or not issues:
+    if not bike_type or not issues:
         return "audio_intro"
 
-    # Check if bike_type is valid
-    if bike_type == "NULL" or bike_type not in POSSIBLE_VALUES.get('bike_type', []):
-        return "audio_intro"
-
-    # Check if ALL issues are complete
-    all_issues_complete = True
+    # Check if all issues have required fields
     for issue in issues:
         required_fields = ["part_category", "part_name", "likely_service"]
         if any(issue.get(field) in [None, "null", "", "NULL"] for field in required_fields):
-            all_issues_complete = False
-            break
+            return "audio_intro"
 
-    # Only proceed to repair assessment if everything is complete
-    if all_issues_complete:
-        print(f"[DEBUG] All information complete. Proceeding to repair assessment.")
-        return "repair_assessment"
-    else:
-        print(f"[DEBUG] Incomplete information detected. Requesting more details.")
-        return "audio_intro"
+    return "repair_assessment"
 
 
 def wait_for_human_node(state: State) -> State:
     return state
 
 
-def needs_more_info(state: State) -> bool:
-    last_ai_msg = next(
-        (msg for msg in reversed(state["messages"]) if isinstance(msg, AIMessage)),
-        None
-    )
-
-    if not last_ai_msg:
-        return True  # No AI response = not enough info
-
-    try:
-        structured = parser.parse(last_ai_msg.content)
-    except Exception:
-        return True  # Parsing failed = not valid info
-
-    return any(
-        getattr(structured, field) in (None, "null", "")
-        for field in ["bike_type", "part_category", "part_name", "likely_service"]
-    )
-
-def clarification_node(state: dict) -> dict:
-    """Ask the user to clarify the issue and loop back to the audio prompt."""
-    prompts = [
-        "🤔 Hmm, I’m not quite sure I understood that. Could you tell me again what's wrong with your bike?",
-        "🧐 Could you clarify the issue a bit more? I'm ready to listen again.",
-        "🔁 I didn’t catch enough to understand the problem. Let’s try once more — what's going on with your bike?",
-        "🙋‍♀️ Mind repeating that for me? I need a bit more detail to help you out.",
-        "🎧 I want to make sure I get it right — can you describe the issue again?"
-    ]
-    clarification_msg = random.choice(prompts)
-    return {
-        **state,
-        "messages": state["messages"] + [AIMessage(content=clarification_msg)]
-    }
-
-def success_node(state: dict) -> dict:
-    """Say goodbye after the repair assessment is done."""
-    farewells = [
-        "✅ All set! Thanks for letting us know — we’ll take it from here 🚲",
-        "👍 Got it! We’ll get on this right away. Have a great ride!",
-        "👋 That’s everything I need for now. Thanks and take care!",
-        "🚴 Your request is confirmed — enjoy your ride!",
-        "🛠️ We’ve logged your issue. Thanks for your patience and trust!",
-        "✨ Thanks! We’ll make sure your bike is in tip-top shape.",
-        "🔧 All done! A swapper will be on it soon.",
-        "📦 Thanks for the details. We’ll take it from here.",
-        "🥳 That’s it! You’re all set.",
-        "👊 Nice work — we’ve got everything we need now."
-    ]
-    goodbye_message = random.choice(farewells)
-    return {
-        **state,
-        "messages": state["messages"] + [AIMessage(content=goodbye_message)]
-    }
-
-def route_from_issue_classifier(state: State) -> str:
-    collected = state.get("collected_info", {})
-    required_fields = ["bike_type", "part_category", "part_name", "likely_service"]
-
-    has_all_info = all(
-        collected.get(field) not in [None, "null", ""]
-        for field in required_fields
-    )
-
-    return "render_issues" if has_all_info else "audio_intro"
-
-def handle_confirmation_node(state: State) -> str:
-    """Dummy function for testing - always proceeds to repair assessment"""
-    print("[DEBUG] In handle_confirmation_node - proceeding to repair assessment")
-    return "repair_assessment"
-
-
-# 5. Build LangGraph
+# Build LangGraph - back to original structure
 graph = StateGraph(State)
 
 # Add nodes
-graph.add_node("intro_prompt_node", intro_prompt_node)
 graph.add_node("audio_intro", audio_intro_node)
 graph.add_node("audio_record", audio_record_node)
 graph.add_node("audio_process", audio_process_node)
 graph.add_node("issue_classifier", issue_classifier_node)
 graph.add_node("wait_for_human", wait_for_human_node)
-graph.add_node("confirm_issues", confirm_issues_node)
-graph.add_node("clarification_node", clarification_node)
 graph.add_node("repair_assessment", repair_assessment_node)
-graph.add_node("success_node", success_node)
 
 # Add edges - simplified back to original flow
-graph.set_entry_point("intro_prompt_node")
-graph.add_edge("intro_prompt_node", "audio_intro")
+graph.set_entry_point("audio_intro")
 graph.add_edge("audio_intro", "audio_record")
 graph.add_edge("audio_record", "audio_process")
 graph.add_edge("audio_process", "issue_classifier")
@@ -1051,20 +581,10 @@ graph.add_conditional_edges(
     route_from_issue_classifier,
     {
         "audio_intro": "audio_intro",
-        "confirm_issues": "confirm_issues"
+        "repair_assessment": "repair_assessment"
     }
 )
-
-# Route from confirm_issues
-graph.add_conditional_edges("confirm_issues", handle_confirmation_node, {
-    "repair_assessment": "repair_assessment",  # positive
-    "clarification_node": "clarification_node"    # negative
-})
-
-graph.add_edge("clarification_node", "audio_intro")
-
-graph.add_edge("repair_assessment", "success_node")
-graph.add_edge("success_node", END)  # End after success
+graph.add_edge("repair_assessment", END)
 
 # Compile the graph
 app = graph.compile(checkpointer=memory)
