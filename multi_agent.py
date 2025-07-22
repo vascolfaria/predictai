@@ -5,20 +5,16 @@ import os
 import sys
 from typing import Literal
 from dotenv import load_dotenv
-
-# Add the parent directory to the path so we can import the utils package
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 from utils.model_utils import init_chat_model
+from utils.speech_to_text_tool import SpeechToTextTool
+from utils.issue_classifier import IssueClassification
 from langgraph.graph import StateGraph, END, MessagesState
-from langchain.tools import BaseTool
-from langgraph.graph.message import add_messages
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
-from langchain_core.tools import tool
 from langchain_openai import ChatOpenAI
-from pydantic import BaseModel
-from typing import Optional
+
 import openai
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Load environment variables
 load_dotenv()
@@ -35,35 +31,9 @@ class State(MessagesState):
     ]
 
 
-# 2. Tool: Speech-to-text using Whisper
-
-# Define tools and agents
-class SpeechToTextTool(BaseTool):
-    name: str = "speech_to_text"
-    description: str = "Transcribes an audio file to text using Whisper."
-
-    def _run(self, file_path: str) -> str:
-        with open(file_path, "rb") as audio_file:
-            response = openai.Audio.transcribe("whisper-1", audio_file)
-        return response["text"]
-
-    async def _arun(self, file_path: str) -> str:
-        return self._run(file_path)
-
 speech_to_text_tool = SpeechToTextTool()
 
-# Model initialization
 llm = ChatOpenAI(model="gpt-4")
-
-# Pydantic schema for classification
-class IssueClassification(BaseModel):
-    bike_type: Optional[str]
-    part_category: Optional[str]
-    part_name: Optional[str]
-    position: Optional[str]
-    issue: Optional[str]
-    likely_service: Optional[str]
-
 
 # 3. Node: Speech-to-text agent
 
@@ -86,8 +56,8 @@ def issue_classifier_node(state: State) -> State:
 
     prompt = f"""
     You are an expert mechanic at Swapfiets. Extract the following attributes from the problem described:
-    - bike_type
-    - part_category
+    - bike_type: it needs to be one of these - Deluxe 7, Original 1, Original 1+, Power 1, Power 7 or Power Plus
+    - part_category: it needs to be one of these - 
     - part_name
     - position (front, rear, left, right, or null)
     - issue
@@ -149,13 +119,11 @@ def router(state: State) -> State:
 
     return State(messages=state.messages, current_agent=agent)
 
-
 # 5. Build LangGraph
 
 graph = StateGraph(State)
 
 # Add nodes
-graph.add_node("router", router)
 graph.add_node("speech_to_text", speech_to_text_node)
 graph.add_node("issue_classifier", issue_classifier_node)
 
@@ -165,8 +133,7 @@ graph.add_node("issue_classifier", issue_classifier_node)
 # graph.add_node("repair_vs_replace", repair_vs_replace_node)
 
 # Add edges
-graph.set_entry_point("router")
-graph.add_edge("router", "speech_to_text")
+graph.set_entry_point("speech_to_text")
 graph.add_edge("speech_to_text", "issue_classifier")
 graph.add_edge("issue_classifier", END)
 
