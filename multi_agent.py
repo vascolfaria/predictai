@@ -53,7 +53,7 @@ def update_issues_node(state: State) -> State:
 
 
 
-def render_issues_node(state: State) -> State:
+def render_issues_node(state: dict) -> dict:
     # Parse structured issue(s) from last AI message
     last_msg = next((msg.content for msg in reversed(state["messages"]) if isinstance(msg, AIMessage)), None)
     if not last_msg:
@@ -303,7 +303,7 @@ graph.add_conditional_edges(
         "render_issues": "render_issues"
     }
 )
-graph.add_edge("render_issues", "confirm_issues")
+graph.add_edge("render_issues", END)
 # Route directly from confirm_issues using handle_confirmation_node
 graph.add_conditional_edges("confirm_issues", handle_confirmation_node, {
     "next_agent": "next_agent",
