@@ -33,7 +33,7 @@ def load_repair_menu():
 
 
 def extract_possible_values(repair_menu_data):
-    """Extract all possible values for each field from the repair menu"""
+    """Extract all possible values for each field from the repair menu (original case)"""
     unique_values = {
         'bike_type': set(),
         'part_category': set(),
@@ -82,7 +82,63 @@ sys_msg = SystemMessage(
     content="You are a helpful assistant trying to understand what is wrong with the member's bike. If the issue_classifier_node does not have enough information, ask the member for more feedback")
 
 
-def normalize_field_value(value):
+def suggest_closest_value(invalid_value, valid_options):
+    """Suggest the closest valid option for an invalid value"""
+    invalid_lower = invalid_value.lower()
+
+    # First try exact case-insensitive match
+    for option in valid_options:
+        if option.lower() == invalid_lower:
+            return option
+
+    # Then try partial matches
+    matches = []
+    for option in valid_options:
+        if invalid_lower in option.lower() or option.lower() in invalid_lower:
+            matches.append(option)
+
+    return matches[0] if matches else None
+
+
+def validate_and_correct_classification(structured_dict):
+    """
+    Validate and attempt to auto-correct classification values
+    Returns (corrected_dict, was_corrected, errors)
+    """
+    corrected = structured_dict.copy()
+    errors = []
+    was_corrected = False
+
+    for field, value in structured_dict.items():
+        if field in POSSIBLE_VALUES and value not in POSSIBLE_VALUES[field]:
+            # Try to find a close match
+            suggestion = suggest_closest_value(value, POSSIBLE_VALUES[field])
+            if suggestion:
+                corrected[field] = suggestion
+                was_corrected = True
+                print(f"[DEBUG] Auto-corrected {field}: '{value}' -> '{suggestion}'")
+            else:
+                errors.append(f"Invalid {field}: '{value}'. Must be one of: {POSSIBLE_VALUES[field]}")
+
+    return corrected, was_corrected, errors
+
+
+def safe_lower(value):
+    """Safely convert value to lowercase, handling None and NULL cases"""
+    if not value or value == 'NULL':
+        return value
+    return value.lower() if isinstance(value, str) else str(value).lower()
+
+
+def extract_issue_details_lowercase(collected_info):
+    """Extract and convert issue details to lowercase for comparison"""
+    return {
+        'bike_type': safe_lower(collected_info.get('bike_type')),
+        'part_category': safe_lower(collected_info.get('part_category')),
+        'part_name': safe_lower(collected_info.get('part_name')),
+        'position': safe_lower(collected_info.get('position')),
+        'likely_service': safe_lower(collected_info.get('likely_service'))
+    }
     """Normalize field values for comparison"""
     if value is None:
         return "NULL"
@@ -98,19 +154,26 @@ def find_repair_option(bike_type, part_category, part_name, position, likely_ser
     Find matching repair option in the repair menu
     Returns the repair option dict if found, None otherwise
     """
-    # Normalize inputs
-    bike_type = normalize_field_value(bike_type)
-    part_category = normalize_field_value(part_category)
-    part_name = normalize_field_value(part_name)
-    position = normalize_field_value(position)
-    likely_service = normalize_field_value(likely_service)
+    # Simple lowercase conversion for comparison
+    search_values = {
+        'bike_type': safe_lower(bike_type),
+        'part_category': safe_lower(part_category),
+        'part_name': safe_lower(part_name),
+        'position': safe_lower(position),
+        'likely_service': safe_lower(likely_service)
+    }
 
     for option in repair_menu:
-        if (normalize_field_value(option.get('bike_type')) == bike_type and
-                normalize_field_value(option.get('part_category')) == part_category and
-                normalize_field_value(option.get('part_name')) == part_name and
-                normalize_field_value(option.get('position')) == position and
-                normalize_field_value(option.get('likely_service')) == likely_service):
+        # Convert menu values to lowercase for comparison
+        menu_values = {
+            'bike_type': safe_lower(option.get('bike_type')),
+            'part_category': safe_lower(option.get('part_category')),
+            'part_name': safe_lower(option.get('part_name')),
+            'position': safe_lower(option.get('position')),
+            'likely_service': safe_lower(option.get('likely_service'))
+        }
+
+        if all(search_values[key] == menu_values[key] for key in search_values):
             return option
 
     return None
@@ -131,11 +194,11 @@ def repair_assessment_node(state: State) -> State:
         }
 
     # Extract issue details
-    bike_type = collected_info.get('bike_type', '').lower() if collected_info.get('bike_type') else ''
-    part_category = collected_info.get('part_category').lower() if collected_info.get('part_category') else ''
-    part_name = collected_info.get('part_name').lower() if collected_info.get('part_name') else ''
-    position = collected_info.get('position').lower() if collected_info.get('position') else ''
-    likely_service = collected_info.get('likely_service').lower() if collected_info.get('likely_service') else ''
+    bike_type = collected_info.get('bike_type')
+    part_category = collected_info.get('part_category')
+    part_name = collected_info.get('part_name')
+    position = collected_info.get('position')
+    likely_service = collected_info.get('likely_service')
 
     # Find matching repair option
     repair_option = find_repair_option(bike_type, part_category, part_name, position, likely_service)
@@ -307,36 +370,48 @@ def issue_classifier_node(state: State) -> State:
     combined_info = " ".join(user_messages)
     previous_info = state.get("collected_info", {})
 
+    # Generate dynamic prompt with exact possible values from repair menu
+    bike_types = ", ".join(POSSIBLE_VALUES.get('bike_type', []))
+    part_categories = ", ".join(POSSIBLE_VALUES.get('part_category', []))
+    part_names = ", ".join(POSSIBLE_VALUES.get('part_name', []))
+    positions = ", ".join(POSSIBLE_VALUES.get('position', []))
+    likely_services = ", ".join(POSSIBLE_VALUES.get('likely_service', []))
+
     prompt = f"""
     You are a technical classification assistant. Your job is to extract structured information from a customer's natural language description of a bike problem.
-    You need to translate the text of the customer into categories. If you are not 100% sure of what it is but confident enough, try to guess.
+    You need to translate the text of the customer into categories. You MUST only use the exact values listed below - no variations or alternatives allowed.
 
     Previous information provided by the user: {previous_info if previous_info else "There is no information provided yet"}
     The new information provided by the user: {combined_info}
 
-    If you do not know the value for a field, output null.
+    IMPORTANT: You must only use the EXACT values listed below. Use exact capitalization as shown. If you cannot determine a field with confidence, use "NULL".
 
-    More than one problem can be reported by the member. The bike type will always be the same.
+    EXACT POSSIBLE VALUES (use these ONLY):
 
-    Here are the fields you need to extract and the possible values of each one based on the text given by the member:
-    - bike_type: Deluxe 7, Original 1, Original 1+, Power 1, Power 7 or Power Plus
-    - part_category: Brakes, Drivetrain, Fenders, Frame, Gears, Handlebar, Light, Lock, Saddle, Wheel, Electrics, Folding, Body & Panel
-    - part_name: Brake cable/hose, Brake lever, Brake pads, Brake unit/caliper, Bottom bracket, Chain, Chain wheel, Chainguard, Crank, Pedals, Sprocket, Fender, Fender stay, Barcode, Carrier, Carrier bracket, Carrier bumper, Frame/panel, Front fork, Kickstand, Kickstand foot, Cassette-joint, Gears, Shifter, Shifter cable, Bell, Grips, Handlebar, Headset, Headset cover, Stem, Bye bye battery, Cable, Light, Magnet, Reflector, Chain lock, Frame lock, Saddle, Saddle clamp, Seatpost, Seatpost clamp, Hub, Innertube, Rimtape, Spoke/nipple, Tire, Valve, Wheel, Battery, Charge port, Charger, Controller, Display, Display cable, Engine power cable, Software, Front hinge, Hook on handlebar post, Spring mechanism, Bottomplate downside, Gripstop, Throttle, Throttle cable, Brake light, Battery compartment, Battery cover, Body panel, End cap, Footrest, Front wheel cover, Handrail, Helmet hook, Neck cover, Panel, Side panel, Windshield, Brake disc, Alarm, Cable hall sensor, DC-DC converter, ECU, Flasher, Horn, Foot pegs, Kickstand spring, Midstand, Suspension, Swing arm, Combination switch, Mirror, Turn signal, Battery lock, Power lock, Battery clip, Engine, IOT Module, Speed sensor, Power button, Complete system, Chain wheel protector, Tensioner, Engine bracket, IOT CAN cable, USB charger, Carrier strip, Shimmy damper, SP mount, Protector
-    - position: front, rear, left, right, or null (when it's not applicable)
-    - likely_service: Adjust, Repair, Replace, Grease, Lubricate, Tension, Tighten, Sticker, Pump, True, Add new, Bleed
+    bike_type (choose exactly one): {bike_types}
 
-    Respond in JSON format, like this as an example:
+    part_category (choose exactly one): {part_categories}
+
+    part_name (choose exactly one): {part_names}
+
+    position (choose exactly one): {positions}
+
+    likely_service (choose exactly one): {likely_services}
+
+    RULES:
+    1. Use EXACT spelling and capitalization as shown above
+    2. If unsure about a value, use "NULL" rather than guessing incorrectly
+    3. Position should be "NULL" when location is not applicable to the part
+    4. Choose the most specific part_name that matches the user's description
+
+    Example response format:
     {{
         "bike_type": "Deluxe 7",
-        "part_category": "Drivetrain",
-        "part_name": "chain",
-        "position": "null",
-        "likely_service": "replace"
+        "part_category": "Drivetrain", 
+        "part_name": "Chain",
+        "position": "NULL",
+        "likely_service": "Replace"
     }}
-
-    The name of this JSON is reported_problems.
-
-    The reported_problems can be more than one dict if more than one problem is being reported by the member.
 
     Respond in this format:
     {parser.get_format_instructions()}
@@ -350,7 +425,22 @@ def issue_classifier_node(state: State) -> State:
     try:
         structured = parser.parse(result.content)
         structured_dict = structured.model_dump()
-    except Exception:
+
+        # Validate and attempt to auto-correct values
+        corrected_dict, was_corrected, validation_errors = validate_and_correct_classification(structured_dict)
+
+        if validation_errors:
+            print(f"[DEBUG] Validation errors after correction: {validation_errors}")
+            raise ValueError(f"Invalid classification values: {validation_errors}")
+
+        if was_corrected:
+            print(f"[DEBUG] Auto-corrected classification values")
+
+        # Use the corrected dictionary
+        structured_dict = corrected_dict
+
+    except Exception as e:
+        print(f"[DEBUG] Classification parsing/validation failed: {str(e)}")
         # Increment attempt counter
         new_round = state.get("conversation_round", 0) + 1
         return {
@@ -387,9 +477,40 @@ def issue_classifier_node(state: State) -> State:
             "current_agent": "audio_intro"
         }
 
-    # We have all the information we need!
+    # We have all the information we need! Create an engaging summary
+    bike_type = updated_info.get('bike_type', 'Unknown')
+    part_name = updated_info.get('part_name', 'Unknown part')
+    part_category = updated_info.get('part_category', '')
+    position = updated_info.get('position', '')
+    likely_service = updated_info.get('likely_service', 'service')
+
+    # Format position nicely
+    position_text = ""
+    if position and position.lower() not in ['null', 'none', '']:
+        position_text = f" {position.lower()}"
+
+    # Format part description
+    part_description = f"{position_text} {part_name.lower()}" if position_text else part_name.lower()
+
+    # Make service description more natural
+    service_descriptions = {
+        'replace': 'needs to be replaced',
+        'repair': 'needs to be repaired',
+        'adjust': 'needs adjustment',
+        'lubricate': 'needs lubrication',
+        'tighten': 'needs to be tightened',
+        'grease': 'needs greasing',
+        'pump': 'needs to be pumped up',
+        'tension': 'needs tension adjustment'
+    }
+
+    service_text = service_descriptions.get(likely_service.lower(), f"needs {likely_service.lower()}")
+
     success_msg = AIMessage(
-        content=f"Perfect! I identified the problem: {updated_info}. Let me show you something."
+        content=f"🔧 **Got it!** I've identified the issue with your **{bike_type}**.\n\n"
+                f"**Problem Summary:**\n"
+                f"• Your{part_description} ({part_category.lower()}) {service_text}\n\n"
+                f"Let me show you the details and check what we can do about it! 🚴‍♂️"
     )
     return {
         **state,
