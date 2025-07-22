@@ -87,7 +87,7 @@
     {
         "name": "Crank",
         "description": "A lever that connects the pedals to the bottom bracket, converting pedaling force into rotational motion.",
-        "image_url": "images/crank.png"
+        "image_url": ".images/crank.png"
     },
     {
         "name": "Fender",

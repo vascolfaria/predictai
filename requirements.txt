@@ -153,3 +153,4 @@ pure_eval~=0.2.3
 prometheus_client~=0.22.1
 jupyter_server_terminals~=0.5.3
 mypy_extensions~=1.1.0
+unstructured
