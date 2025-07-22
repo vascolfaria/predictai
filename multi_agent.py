@@ -10,7 +10,8 @@ from langchain_openai import ChatOpenAI
 from langchain.output_parsers import PydanticOutputParser
 from utils_functions.audio_tools import record_audio_to_wav
 from langgraph.checkpoint.memory import MemorySaver
-from utils_functions.show_image import display_issues
+
+import random
 
 from openai import OpenAI
 
@@ -81,6 +82,26 @@ client = OpenAI()
 sys_msg = SystemMessage(
     content="You are a helpful assistant trying to understand what is wrong with the member's bike. If the issue_classifier_node does not have enough information, ask the member for more feedback")
 
+
+def intro_prompt_node(state: dict) -> dict:
+    """Generate a varied intro message to ask the user what's wrong with their bike."""
+    prompts = [
+        "🚲 Hey there! What's going on with your bike today?",
+        "🛠️ Let’s get your bike back in shape. Can you tell me what seems to be the problem?",
+        "🎤 I'm all ears! What's wrong with your bike?",
+        "👋 Hi! Could you describe the issue you're having with your bike?",
+        "🔧 Tell me what’s not working as it should — I’ll do my best to help.",
+        "💬 Let’s start with what’s bugging you about the bike.",
+        "📣 Go ahead and describe the issue — I’ll take it from there.",
+        "❓What seems off with your bike? Share the details, big or small!",
+        "🚴‍♂️ Something not right? Let me know what’s wrong with the bike.",
+        "🧰 Okay, ready when you are — what’s going on with the bike?"
+    ]
+    intro_message = random.choice(prompts)
+    return {
+        **state,
+        "messages": state["messages"] + [AIMessage(content=intro_message)]
+    }
 
 def suggest_closest_value(invalid_value, valid_options):
     """Suggest the closest valid option for an invalid value"""
@@ -262,54 +283,9 @@ def repair_assessment_node(state: State) -> State:
     }
 
 
-def update_issues_node(state: State) -> State:
-    return {
-        **state,
-        "messages": state["messages"] + [
-            AIMessage(content="🔁 Okay, please tell me which parts need to be updated.")
-        ]
-    }
-
-
-def render_issues_node(state: dict) -> dict:
-    """Render issues with images based on collected information"""
-    
-    # Get the collected information from the state
-    collected_info = state.get("collected_info", {})
-    
-    if not collected_info:
-        return {
-            **state,
-            "messages": state["messages"] + [
-                AIMessage(content="❌ No issue information available to display.")
-            ]
-        }
-    
-    # Convert single issue to list format expected by display_issues
-    issues = [collected_info] if isinstance(collected_info, dict) else collected_info
-    
-    try:
-        # Generate markdown with images
-        markdown_output = display_issues(issues)
-        image_message = AIMessage(content=markdown_output)
-        
-        print(f"[DEBUG] Generated markdown output: {len(markdown_output)} characters")
-        
-        return {
-            **state,
-            "messages": state["messages"] + [image_message]
-        }
-    except Exception as e:
-        print(f"[ERROR] Failed to render issues: {e}")
-        return {
-            **state,
-            "messages": state["messages"] + [
-                AIMessage(content=f"❌ Error displaying part information: {str(e)}")
-            ]
-        }
 
 def confirm_issues_node(state: State) -> State:
-    confirm_msg = AIMessage(content="✅ Does this look correct? (yes / no / partially)")
+    confirm_msg = AIMessage(content="✅ Does this look correct? (yes / no)")
     return {
         **state,
         "messages": state["messages"] + [confirm_msg]
@@ -319,12 +295,10 @@ def confirm_issues_node(state: State) -> State:
 def handle_confirmation_node(state: State) -> str:
     last_human = next((msg.content for msg in reversed(state["messages"]) if isinstance(msg, HumanMessage)), "").lower()
     if "yes" in last_human:
-        return "repair_assessment"  # Changed from "next_agent" to "repair_assessment"
-    elif "partial" in last_human:
-        return "update_issues_node"
-    elif "no" in last_human:
-        return "clarification"
-    return "confirm_issues"  # fallback loop
+        return "repair_assessment"  # if positive
+    elif "clarification" in last_human:
+        return "clarification_node" #if negative
+    return "success_node"  # success forever
 
 
 def audio_intro_node(state: dict) -> dict:
@@ -343,6 +317,7 @@ def audio_record_node(state: dict) -> dict:
         "audio_path": audio_path,
         "messages": state["messages"] + [AIMessage(content="🔴 Recording finished, transcribing..")]
     }
+
 
 
 def audio_process_node(state: dict) -> dict:
@@ -556,6 +531,40 @@ def needs_more_info(state: State) -> bool:
         for field in ["bike_type", "part_category", "part_name", "likely_service"]
     )
 
+def clarification_node(state: dict) -> dict:
+    """Ask the user to clarify the issue and loop back to the audio prompt."""
+    prompts = [
+        "🤔 Hmm, I’m not quite sure I understood that. Could you tell me again what's wrong with your bike?",
+        "🧐 Could you clarify the issue a bit more? I'm ready to listen again.",
+        "🔁 I didn’t catch enough to understand the problem. Let’s try once more — what's going on with your bike?",
+        "🙋‍♀️ Mind repeating that for me? I need a bit more detail to help you out.",
+        "🎧 I want to make sure I get it right — can you describe the issue again?"
+    ]
+    clarification_msg = random.choice(prompts)
+    return {
+        **state,
+        "messages": state["messages"] + [AIMessage(content=clarification_msg)]
+    }
+
+def success_node(state: dict) -> dict:
+    """Say goodbye after the repair assessment is done."""
+    farewells = [
+        "✅ All set! Thanks for letting us know — we’ll take it from here 🚲",
+        "👍 Got it! We’ll get on this right away. Have a great ride!",
+        "👋 That’s everything I need for now. Thanks and take care!",
+        "🚴 Your request is confirmed — enjoy your ride!",
+        "🛠️ We’ve logged your issue. Thanks for your patience and trust!",
+        "✨ Thanks! We’ll make sure your bike is in tip-top shape.",
+        "🔧 All done! A swapper will be on it soon.",
+        "📦 Thanks for the details. We’ll take it from here.",
+        "🥳 That’s it! You’re all set.",
+        "👊 Nice work — we’ve got everything we need now."
+    ]
+    goodbye_message = random.choice(farewells)
+    return {
+        **state,
+        "messages": state["messages"] + [AIMessage(content=goodbye_message)]
+    }
 
 def route_from_issue_classifier(state: State) -> str:
     collected = state.get("collected_info", {})
@@ -573,19 +582,20 @@ def route_from_issue_classifier(state: State) -> str:
 graph = StateGraph(State)
 
 # Add nodes
+graph.add_node("intro_prompt_node", intro_prompt_node)
 graph.add_node("audio_intro", audio_intro_node)
 graph.add_node("audio_record", audio_record_node)
 graph.add_node("audio_process", audio_process_node)
 graph.add_node("issue_classifier", issue_classifier_node)
 graph.add_node("wait_for_human", wait_for_human_node)
-graph.add_node("render_issues", render_issues_node)
 graph.add_node("confirm_issues", confirm_issues_node)
-graph.add_node("update_issues_node", wait_for_human_node)
-graph.add_node("clarification", wait_for_human_node)
-graph.add_node("repair_assessment", repair_assessment_node)  # New node
+graph.add_node("clarification_node", clarification_node)
+graph.add_node("repair_assessment", repair_assessment_node)
+graph.add_node("success_node", success_node)
 
 # Add edges
-graph.set_entry_point("audio_intro")
+graph.set_entry_point("intro_prompt_node")
+graph.add_edge("intro_prompt_node", "audio_intro")
 graph.add_edge("audio_intro", "audio_record")
 graph.add_edge("audio_record", "audio_process")
 graph.add_edge("audio_process", "issue_classifier")
@@ -594,21 +604,20 @@ graph.add_conditional_edges(
     route_from_issue_classifier,
     {
         "audio_intro": "audio_intro",
-        "render_issues": "render_issues"
+        "confirm_issues": "confirm_issues"
     }
 )
-graph.add_edge("render_issues", "confirm_issues")
 
 # Route from confirm_issues
 graph.add_conditional_edges("confirm_issues", handle_confirmation_node, {
-    "repair_assessment": "repair_assessment",  # Changed from "next_agent"
-    "clarification": "clarification",
-    "update_issues_node": "update_issues_node",
-    "confirm_issues": "confirm_issues"
+    "repair_assessment": "repair_assessment",  # positive
+    "clarification_node": "clarification_node"    # negative
 })
 
-graph.add_edge("update_issues_node", "render_issues")
-graph.add_edge("repair_assessment", END)  # End after repair assessment
+graph.add_edge("clarification_node", "audio_intro")
+
+graph.add_edge("repair_assessment", "success_node")
+graph.add_edge("success_node", END)  # End after success
 
 # Terminate at placeholder for now
 app = graph.compile(checkpointer=memory)
