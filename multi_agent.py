@@ -1,6 +1,6 @@
 import os
 import sys
-from typing import Literal
+from typing import Literal, Optional
 from dotenv import load_dotenv
 from utils_functions.issue_classifier import IssueClassification
 from langgraph.graph import StateGraph, END, MessagesState
@@ -24,8 +24,10 @@ class State(MessagesState):
         "audio_record_node",
         "audio_process_node",
         "issue_classifier",
-        "repair_diagnostics",
+        "repair_diagnostics"
     ]
+    audio_path: Optional[str] = None
+    transcription: Optional[str] = None
 
 
 parser = PydanticOutputParser(pydantic_object=IssueClassification)
@@ -44,31 +46,37 @@ def audio_intro_node(state: dict) -> dict:
     }
 
 def audio_record_node(state: dict) -> dict:
-    audio_path = record_audio_to_wav(duration=10)
+    print("[DEBUG] Running audio_record_node")
+    audio_path = record_audio_to_wav(duration=3)
+    print("[DEBUG] Audio path recorded:", audio_path)
     return {
         **state,
         "audio_path": audio_path,
         "messages": state["messages"] + [AIMessage(content="🔴 Recording finished, transcribing..")]
     }
 
-def audio_process_node(state: dict) -> dict:
-    with open(state["audio_path"], "rb") as f:
-        transcript = client.audio.transcriptions.create(model="whisper-1", file=f)
-    transcription_text = transcript.text
 
+def audio_process_node(state: dict) -> dict:
+    print(state)
+    audio_path = state.get("audio_path")
+    if not audio_path:
+        raise ValueError("Missing audio_path. Did you skip audio_record_node?")
+
+    with open(audio_path, "rb") as f:
+        transcript = client.audio.transcriptions.create(model="whisper-1", file=f)
+
+    transcription_text = transcript.text
     return {
         **state,
         "transcription": transcription_text,
-        "messages": state["messages"] + [
-            HumanMessage(content=transcription_text)
-        ]
+        "messages": state["messages"] + [HumanMessage(content=transcription_text)]
     }
 
 # Agent: Issue classifier
 def issue_classifier_node(state: State) -> State:
     # Grab the last AI message (from audio_process_node)
     last_msg = next(
-        (msg.content for msg in reversed(state["messages"]) if isinstance(msg, AIMessage)),
+        (msg.content for msg in reversed(state["messages"]) if isinstance(msg, HumanMessage)),
         None
     )
 
@@ -110,14 +118,13 @@ def issue_classifier_node(state: State) -> State:
     try:
         structured = parser.parse(result.content)
     except Exception:
-        # Force fallback to 'incomplete' behavior
-        followup_msg = AIMessage(
-            content="Thanks! I need a bit more info to help — could you tell me which part of the bike this affects, and what kind of bike you have?"
-        )
         return {
             **state,
-            "messages": state["messages"] + [followup_msg],
-            "current_agent": "audio_record_node"
+            "messages": state["messages"] + [
+                AIMessage(
+                    content="Thanks! I need a bit more info to help — could you tell me which part of the bike this affects, and what kind of bike you have?")
+            ],
+            "current_agent": "wait_for_human"
         }
 
     # Check for incomplete fields
@@ -202,8 +209,15 @@ graph.add_edge("audio_intro", "audio_record")
 graph.add_edge("audio_record", "audio_process")
 graph.add_edge("audio_process", "issue_classifier")
 graph.add_edge("wait_for_human", "audio_record")
-graph.add_edge("issue_classifier", END)
-graph.add_conditional_edges("issue_classifier", lambda state: ...)
+graph.add_conditional_edges(
+    "issue_classifier",
+    route_from_issue_classifier,
+    {
+        "wait_for_human": "wait_for_human",
+        "repair_diagnostics": "repair_diagnostics"
+    }
+)
+graph.add_edge("repair_diagnostics", END)
 
 
 # Terminate at placeholder for now
