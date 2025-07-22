@@ -43,6 +43,16 @@ client = OpenAI()
 
 sys_msg = SystemMessage(content="You are a helpful assistant trying to understand what is wrong with the member's bike. If the issue_classifier_node does not have enough information, ask the member for more feedback")
 
+def update_issues_node(state: State) -> State:
+    return {
+        **state,
+        "messages": state["messages"] + [
+            AIMessage(content="🔁 Okay, please tell me which parts need to be updated.")
+        ]
+    }
+
+
+
 def render_issues_node(state: State) -> State:
     # Parse structured issue(s) from last AI message
     last_msg = next((msg.content for msg in reversed(state["messages"]) if isinstance(msg, AIMessage)), None)
@@ -287,12 +297,13 @@ graph.add_node("wait_for_human", wait_for_human_node)
 graph.add_node("render_issues", render_issues_node)
 graph.add_node("confirm_issues", confirm_issues_node)
 graph.add_node("handle_confirmation", handle_confirmation_node)
+graph.add_node("update_issues_node", wait_for_human_node)  # placeholder
+graph.add_node("clarification", wait_for_human_node) #placeholder
+graph.add_node("next_agent", repair_diagnostics_node) #placeholder
+
 
 # Future nodes would go here:
-# graph.add_node("clarification", clarification_node)
 # graph.add_node("repair_vs_replace", repair_vs_replace_node)
-# graph.add_node("update_issues_node", wait_for_human_node)  # placeholder
-# graph.add_node("clarification", wait_for_human_node)       # placeholder
 # graph.add_node("next_agent", repair_diagnostics_node)
 
 
@@ -313,11 +324,11 @@ graph.add_edge("repair_diagnostics", END)
 graph.add_edge("issue_classifier", "render_issues")
 graph.add_edge("render_issues", "confirm_issues")
 graph.add_edge("confirm_issues", "handle_confirmation")
-graph.add_conditional_edges("handle_confirmation", {
+graph.add_conditional_edges("handle_confirmation", handle_confirmation_node, {
     "next_agent": "next_agent",
     "clarification": "clarification",
     "update_issues_node": "update_issues_node",
-    "confirm_issues": "confirm_issues"  # fallback
+    "confirm_issues": "confirm_issues"
 })
 graph.add_edge("update_issues_node", "render_issues")
 
