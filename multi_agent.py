@@ -1041,7 +1041,8 @@ graph.add_node("repair_assessment", repair_assessment_node)
 graph.add_node("success_node", success_node)
 
 # Add edges - simplified back to original flow
-graph.set_entry_point("audio_intro")
+graph.set_entry_point("intro_prompt_node")
+graph.add_edge("intro_prompt_node", "audio_intro")
 graph.add_edge("audio_intro", "audio_record")
 graph.add_edge("audio_record", "audio_process")
 graph.add_edge("audio_process", "issue_classifier")
