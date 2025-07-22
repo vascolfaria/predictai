@@ -350,7 +350,7 @@ def audio_intro_node(state: dict) -> dict:
     return {
         **state,
         "messages": state["messages"] + [AIMessage(
-            content="🎙️ Please describe all the issues you're experiencing with your bike. Recording for 10 seconds...")]
+            content="🎙️ Recording for 10 seconds...")]
     }
 
 
