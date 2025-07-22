@@ -143,6 +143,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+predictai-venv
 
 # Spyder project settings
 .spyderproject
