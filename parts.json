@@ -1,0 +1,247 @@
+[
+    {
+        "name": "Barcode",
+        "description": "A label used for tracking or identification, typically scanned during assembly or maintenance.",
+        "image_url": "images/barcode.png"
+    },
+    {
+        "name": "Bell",
+        "description": "A small audible device mounted on the handlebar used to alert pedestrians or other riders.",
+        "image_url": "images/bell.png"
+    },
+    {
+        "name": "Bottom bracket",
+        "description": "The bearing assembly that connects the crankset to the frame and allows it to rotate.",
+        "image_url": "images/bottom_bracket.png"
+    },
+    {
+        "name": "Brake cable/hose",
+        "description": "The conduit\u2014mechanical cable or hydraulic hose\u2014that transmits force from the brake lever to the brake unit.",
+        "image_url": "images/brake_cable_hose.png"
+    },
+    {
+        "name": "Brake lever",
+        "description": "A hand-operated control mounted on the handlebar that actuates the brake system via cable or hydraulic pressure.",
+        "image_url": "images/brake_lever.png"
+    },
+    {
+        "name": "Brake pads",
+        "description": "Friction material that presses against the rim or disc to slow the bike.",
+        "image_url": "images/brake_pads.png"
+    },
+    {
+        "name": "Brake unit/caliper",
+        "description": "The braking mechanism that clamps onto the rim or brake disc, applying friction to slow down or stop the bike.",
+        "image_url": "images/brake_unit_caliper.png"
+    },
+    {
+        "name": "Bye bye battery",
+        "description": "Likely a placeholder or label referring to the battery component or cover.",
+        "image_url": "images/bye_bye_battery.png"
+    },
+    {
+        "name": "Cable",
+        "description": "A generic term for wiring used throughout the bike for brakes, gears, or electronics.",
+        "image_url": "images/cable.png"
+    },
+    {
+        "name": "Carrier",
+        "description": "A rear-mounted platform used for carrying cargo or bags.",
+        "image_url": "images/carrier.png"
+    },
+    {
+        "name": "Carrier bracket",
+        "description": "A mounting support used to attach the carrier to the frame.",
+        "image_url": "images/carrier_bracket.png"
+    },
+    {
+        "name": "Carrier bumper",
+        "description": "A protective piece attached to the carrier to prevent damage to items or surfaces.",
+        "image_url": "images/carrier_bumper.png"
+    },
+    {
+        "name": "Cassette-joint",
+        "description": "A component involved in torque transfer, especially in internal gear hubs.",
+        "image_url": "images/cassette-joint.png"
+    },
+    {
+        "name": "Chain",
+        "description": "A loop of linked metal segments that transfers pedaling force from the chain wheel to the rear sprocket, propelling the bike forward.",
+        "image_url": "images/chain.png"
+    },
+    {
+        "name": "Chain lock",
+        "description": "A lock made of metal links used to secure the bicycle.",
+        "image_url": "images/chain_lock.png"
+    },
+    {
+        "name": "Chain wheel",
+        "description": "The front gear that the chain wraps around, attached to the crank.",
+        "image_url": "images/chain_wheel.png"
+    },
+    {
+        "name": "Chainguard",
+        "description": "A protective cover over the chain to prevent clothing from getting caught or dirty.",
+        "image_url": "images/chainguard.png"
+    },
+    {
+        "name": "Crank",
+        "description": "A lever that connects the pedals to the bottom bracket, converting pedaling force into rotational motion.",
+        "image_url": "images/crank.png"
+    },
+    {
+        "name": "Fender",
+        "description": "A curved cover that sits above the wheel to block water and debris.",
+        "image_url": "images/fender.png"
+    },
+    {
+        "name": "Fender stay",
+        "description": "A metal support that secures the fender to the bicycle frame.",
+        "image_url": "images/fender_stay.png"
+    },
+    {
+        "name": "Frame lock",
+        "description": "A lock mounted to the frame that immobilizes the rear wheel.",
+        "image_url": "images/frame_lock.png"
+    },
+    {
+        "name": "Frame/panel",
+        "description": "The main structural part of the bicycle, connecting all components together.",
+        "image_url": "images/frame_panel.png"
+    },
+    {
+        "name": "Front fork",
+        "description": "The part of the frame that holds the front wheel and allows it to pivot for steering.",
+        "image_url": "images/front_fork.png"
+    },
+    {
+        "name": "Gears",
+        "description": "Mechanisms that change the speed-torque ratio transmitted to the wheels.",
+        "image_url": "images/gears.png"
+    },
+    {
+        "name": "Grips",
+        "description": "Rubber or foam sleeves on the handlebars for rider comfort and control.",
+        "image_url": "images/grips.png"
+    },
+    {
+        "name": "Handlebar",
+        "description": "The component used by the rider to steer and control the bicycle, typically equipped with grips and controls.",
+        "image_url": "images/handlebar.png"
+    },
+    {
+        "name": "Headset",
+        "description": "The bearing assembly that connects the front fork to the frame and allows steering.",
+        "image_url": "images/headset.png"
+    },
+    {
+        "name": "Headset cover",
+        "description": "A top cap that protects the headset assembly from dirt and moisture.",
+        "image_url": "images/headset_cover.png"
+    },
+    {
+        "name": "Hub",
+        "description": "The central part of a wheel where the axle connects, allowing rotation.",
+        "image_url": "images/hub.png"
+    },
+    {
+        "name": "Innertube",
+        "description": "An inflatable tube inside the tire that holds air.",
+        "image_url": "images/innertube.png"
+    },
+    {
+        "name": "Kickstand",
+        "description": "A folding support that lets the bike stand upright when not in use.",
+        "image_url": "images/kickstand.png"
+    },
+    {
+        "name": "Kickstand foot",
+        "description": "The end part of the kickstand that contacts the ground for stability.",
+        "image_url": "images/kickstand_foot.png"
+    },
+    {
+        "name": "Light",
+        "description": "Front or rear lighting for visibility and safety.",
+        "image_url": "images/light.png"
+    },
+    {
+        "name": "Magnet",
+        "description": "A small magnetic sensor component used in speed detection or other systems.",
+        "image_url": "images/magnet.png"
+    },
+    {
+        "name": "Pedals",
+        "description": "Foot platforms attached to the cranks that the rider pushes to propel the bike.",
+        "image_url": "images/pedals.png"
+    },
+    {
+        "name": "Reflector",
+        "description": "A passive safety device that reflects light to make the bike visible in low light.",
+        "image_url": "images/reflector.png"
+    },
+    {
+        "name": "Rimtape",
+        "description": "A strip that protects the innertube from spoke holes in the rim.",
+        "image_url": "images/rimtape.png"
+    },
+    {
+        "name": "Saddle",
+        "description": "The bike's seat, designed for rider support and comfort during use.",
+        "image_url": "images/saddle.png"
+    },
+    {
+        "name": "Saddle clamp",
+        "description": "The mechanism that attaches the saddle to the seatpost.",
+        "image_url": "images/saddle_clamp.png"
+    },
+    {
+        "name": "Seatpost",
+        "description": "The tube that supports the saddle and adjusts for rider height.",
+        "image_url": "images/seatpost.png"
+    },
+    {
+        "name": "Seatpost clamp",
+        "description": "A clamp that secures the seatpost in place within the bike frame.",
+        "image_url": "images/seatpost_clamp.png"
+    },
+    {
+        "name": "Shifter",
+        "description": "A control lever on the handlebars used to change gears.",
+        "image_url": "images/shifter.png"
+    },
+    {
+        "name": "Shifter cable",
+        "description": "The cable that connects the shifter to the derailleur or internal gear hub.",
+        "image_url": "images/shifter_cable.png"
+    },
+    {
+        "name": "Spoke/nipple",
+        "description": "Spokes connect the hub to the rim; nipples secure them and adjust tension.",
+        "image_url": "images/spoke_nipple.png"
+    },
+    {
+        "name": "Sprocket",
+        "description": "A toothed wheel that engages with the chain, typically part of the rear drivetrain.",
+        "image_url": "images/sprocket.png"
+    },
+    {
+        "name": "Stem",
+        "description": "The component that connects the handlebars to the steerer tube of the fork.",
+        "image_url": "images/stem.png"
+    },
+    {
+        "name": "Tire",
+        "description": "The rubber outer layer mounted on the wheel that provides traction and absorbs road impact.",
+        "image_url": "images/tire.png"
+    },
+    {
+        "name": "Valve",
+        "description": "The mechanism through which air is added to or released from an innertube or tire.",
+        "image_url": "images/valve.png"
+    },
+    {
+        "name": "Wheel",
+        "description": "A complete rotating assembly including hub, spokes, and rim; supports the tire and allows movement.",
+        "image_url": "images/wheel.png"
+    }
+]

@@ -9,6 +9,8 @@ from langchain_openai import ChatOpenAI
 from langchain.output_parsers import PydanticOutputParser
 from utils_functions.audio_tools import record_audio_to_wav
 from langgraph.checkpoint.memory import MemorySaver
+from utils_functions.show_image import display_issues
+
 
 from openai import OpenAI
 
@@ -40,6 +42,42 @@ llm = ChatOpenAI(model="gpt-4")
 client = OpenAI()
 
 sys_msg = SystemMessage(content="You are a helpful assistant trying to understand what is wrong with the member's bike. If the issue_classifier_node does not have enough information, ask the member for more feedback")
+
+def render_issues_node(state: State) -> State:
+    # Parse structured issue(s) from last AI message
+    last_msg = next((msg.content for msg in reversed(state["messages"]) if isinstance(msg, AIMessage)), None)
+    if not last_msg:
+        return state
+
+    try:
+        issues = [parser.parse(last_msg).model_dump()]
+    except Exception:
+        issues = []
+
+    markdown_output = display_issues(issues)
+    image_message = AIMessage(content=markdown_output)
+
+    return {
+        **state,
+        "messages": state["messages"] + [image_message]
+    }
+
+def confirm_issues_node(state: State) -> State:
+    confirm_msg = AIMessage(content="✅ Does this look correct? (yes / no / partially)")
+    return {
+        **state,
+        "messages": state["messages"] + [confirm_msg]
+    }
+
+def handle_confirmation_node(state: State) -> str:
+    last_human = next((msg.content for msg in reversed(state["messages"]) if isinstance(msg, HumanMessage)), "").lower()
+    if "yes" in last_human:
+        return "next_agent"
+    elif "partial" in last_human:
+        return "update_issues_node"
+    elif "no" in last_human:
+        return "clarification"
+    return "confirm_issues"  # fallback loop
 
 
 def audio_intro_node(state: dict) -> dict:
@@ -246,10 +284,17 @@ graph.add_node("audio_process", audio_process_node)
 graph.add_node("issue_classifier", issue_classifier_node)
 graph.add_node("repair_diagnostics", repair_diagnostics_node)
 graph.add_node("wait_for_human", wait_for_human_node)
+graph.add_node("render_issues", render_issues_node)
+graph.add_node("confirm_issues", confirm_issues_node)
+graph.add_node("handle_confirmation", handle_confirmation_node)
 
 # Future nodes would go here:
 # graph.add_node("clarification", clarification_node)
 # graph.add_node("repair_vs_replace", repair_vs_replace_node)
+# graph.add_node("update_issues_node", wait_for_human_node)  # placeholder
+# graph.add_node("clarification", wait_for_human_node)       # placeholder
+# graph.add_node("next_agent", repair_diagnostics_node)
+
 
 # Add edges
 graph.set_entry_point("audio_intro")
@@ -265,6 +310,16 @@ graph.add_conditional_edges(
     }
 )
 graph.add_edge("repair_diagnostics", END)
+graph.add_edge("issue_classifier", "render_issues")
+graph.add_edge("render_issues", "confirm_issues")
+graph.add_edge("confirm_issues", "handle_confirmation")
+graph.add_conditional_edges("handle_confirmation", {
+    "next_agent": "next_agent",
+    "clarification": "clarification",
+    "update_issues_node": "update_issues_node",
+    "confirm_issues": "confirm_issues"  # fallback
+})
+graph.add_edge("update_issues_node", "render_issues")
 
 
 # Terminate at placeholder for now
