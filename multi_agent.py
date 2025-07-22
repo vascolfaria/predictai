@@ -8,6 +8,7 @@ from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 from langchain.output_parsers import PydanticOutputParser
 from utils_functions.audio_tools import record_audio_to_wav
+from langgraph.checkpoint.memory import MemorySaver
 
 from openai import OpenAI
 
@@ -15,6 +16,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # Load environment variables
 load_dotenv()
+memory = MemorySaver()
 
 
 # 1. State definition
@@ -28,7 +30,8 @@ class State(MessagesState):
     ]
     audio_path: Optional[str] = None
     transcription: Optional[str] = None
-
+    collected_info: Optional[dict] = None
+    conversation_round: int = 0
 
 parser = PydanticOutputParser(pydantic_object=IssueClassification)
 
@@ -47,7 +50,7 @@ def audio_intro_node(state: dict) -> dict:
 
 def audio_record_node(state: dict) -> dict:
     print("[DEBUG] Running audio_record_node")
-    audio_path = record_audio_to_wav(duration=3)
+    audio_path = record_audio_to_wav(duration=10)
     print("[DEBUG] Audio path recorded:", audio_path)
     return {
         **state,
@@ -74,25 +77,47 @@ def audio_process_node(state: dict) -> dict:
 
 # Agent: Issue classifier
 def issue_classifier_node(state: State) -> State:
-    # Grab the last AI message (from audio_process_node)
-    last_msg = next(
-        (msg.content for msg in reversed(state["messages"]) if isinstance(msg, HumanMessage)),
-        None
-    )
 
-    if not last_msg:
-        raise ValueError("No message found for issue classification")
+    def extract_content(msg) -> str:
+        content = msg.content
+        if isinstance(content, str):
+            return content
+        elif isinstance(content, list):
+            return " ".join(str(item) for item in content if item)
+        elif isinstance(content, dict):
+            return str(content.get('text', content.get('content', str(content))))
+        else:
+            return str(content)
+
+    user_messages = [
+        extract_content(msg) for msg in state["messages"]
+        if isinstance(msg, HumanMessage)
+    ]
+
+    if not user_messages:
+        raise ValueError("No user messages found for classification")
+
+    user_messages = [msg for msg in user_messages if msg.strip()]
+
+    combined_info = " ".join(user_messages)
+
+    previous_info = state.get("collected_info", {})
 
 
     prompt = f"""
     You are a technical classification assistant. Your job is to extract structured information from a customer's natural language description of a bike problem.
-    You need to translate the text of the customer into categories. If you are not 100% sure of what it is, try to guess.
+    You need to translate the text of the customer into categories. If you are not 100% sure of what it is but confident enough, try to guess.
+    
+    Previous information provided by the user: {previous_info if previous_info else "There is no information provided yet"}
+    The new information provided by the user: {combined_info}
     
     If you do not know the value for a field, output null.
+    
+    More than one problem can be reported by the member. The bike type will always be the same. Each part name 
 
     Here are the fields you need to extract and the possible values of each one based on the text given by the member:
     - bike_type: Deluxe 7, Original 1, Original 1+, Power 1, Power 7 or Power Plus
-    - part_category: Brakes, Drivetrain, Fenders, Frame, Gears, Handlebar, Light, Lock, Saddle, Wheel, Electrics, Folding, Body & Panel
+        - part_category: Brakes, Drivetrain, Fenders, Frame, Gears, Handlebar, Light, Lock, Saddle, Wheel, Electrics, Folding, Body & Panel
     - part_name: Brake cable/hose, Brake lever, Brake pads, Brake unit/caliper, Bottom bracket, Chain, Chain wheel, Chainguard, Crank, Pedals, Sprocket, Fender, Fender stay, Barcode, Carrier, Carrier bracket, Carrier bumper, Frame/panel, Front fork, Kickstand, Kickstand foot, Cassette-joint, Gears, Shifter, Shifter cable, Bell, Grips, Handlebar, Headset, Headset cover, Stem, Bye bye battery, Cable, Light, Magnet, Reflector, Chain lock, Frame lock, Saddle, Saddle clamp, Seatpost, Seatpost clamp, Hub, Innertube, Rimtape, Spoke/nipple, Tire, Valve, Wheel, Battery, Charge port, Charger, Controller, Display, Display cable, Engine power cable, Software, Front hinge, Hook on handlebar post, Spring mechanism, Bottomplate downside, Gripstop, Throttle, Throttle cable, Brake light, Battery compartment, Battery cover, Body panel, End cap, Footrest, Front wheel cover, Handrail, Helmet hook, Neck cover, Panel, Side panel, Windshield, Brake disc, Alarm, Cable hall sensor, DC-DC converter, ECU, Flasher, Horn, Foot pegs, Kickstand spring, Midstand, Suspension, Swing arm, Combination switch, Mirror, Turn signal, Battery lock, Power lock, Battery clip, Engine, IOT Module, Speed sensor, Power button, Complete system, Chain wheel protector, Tensioner, Engine bracket, IOT CAN cable, USB charger, Carrier strip, Shimmy damper, SP mount, Protector
     - position: front, rear, left, right, or null (when it's not applicable)
     - likely_service: Adjust, Repair, Replace, Grease, Lubricate, Tension, Tighten, Sticker, Pump, True, Add new, Bleed
@@ -112,42 +137,57 @@ def issue_classifier_node(state: State) -> State:
 
     result = llm.invoke([
         SystemMessage(content=prompt),
-        HumanMessage(content=last_msg)
+        HumanMessage(content=combined_info)
     ])
 
     try:
         structured = parser.parse(result.content)
+        structured_dict = structured.model_dump()
     except Exception:
+        # Incrementar contador de tentativas
+        new_round = state.get("conversation_round", 0) + 1
         return {
             **state,
+            "conversation_round": new_round,
             "messages": state["messages"] + [
                 AIMessage(
                     content="Thanks! I need a bit more info to help — could you tell me which part of the bike this affects, and what kind of bike you have?")
             ],
-            "current_agent": "wait_for_human"
+            "current_agent": "audio_intro"
         }
+
+    updated_info = {**previous_info, **structured_dict}
 
     # Check for incomplete fields
-    incomplete = any(
-        getattr(structured, field) is None
-        for field in ["bike_type", "part_category", "part_name", "likely_service"]
-    )
+    required_fields = ["bike_type", "part_category", "part_name", "likely_service"]
+    incomplete_fields = [
+        field for field in required_fields
+        if updated_info.get(field) in [None, "null", ""]
+    ]
 
-    if incomplete:
+    if incomplete_fields:
+        # Gerar pergunta específica baseada no que falta
+        missing_info = ", ".join(incomplete_fields)
         followup_msg = AIMessage(
-            content="Thanks! I need a bit more info to help — could you tell me which part of the bike this affects, and what kind of bike you have?"
+            content=f"Great! I still need some more information: {missing_info}. Can you give me any more details about it?"
         )
+        new_round = state.get("conversation_round", 0) + 1
         return {
             **state,
+            "collected_info": updated_info,
+            "conversation_round": new_round,
             "messages": state["messages"] + [followup_msg],
-            "current_agent": "audio_record_node"
+            "current_agent": "audio_intro"
         }
 
-    # We're good to go
-    new_msg = AIMessage(content=str(structured.model_dump()))
+    # Temos tudo que precisamos!
+    success_msg = AIMessage(
+        content=f"Perfect! I identified the problem: {updated_info}. I'll process the diagnostics"
+    )
     return {
         **state,
-        "messages": state["messages"] + [new_msg],
+        "collected_info": updated_info,
+        "messages": state["messages"] + [success_msg],
         "current_agent": "repair_diagnostics"
     }
 
@@ -184,7 +224,15 @@ def repair_diagnostics_node(state: dict) -> dict:
 
 
 def route_from_issue_classifier(state: State) -> str:
-    return "wait_for_human" if needs_more_info(state) else "repair_diagnostics"
+    collected = state.get("collected_info", {})
+    required_fields = ["bike_type", "part_category", "part_name", "likely_service"]
+
+    has_all_info = all(
+        collected.get(field) not in [None, "null", ""]
+        for field in required_fields
+    )
+
+    return "repair_diagnostics" if has_all_info else "audio_intro"
 
 
 # 5. Build LangGraph
@@ -208,12 +256,11 @@ graph.set_entry_point("audio_intro")
 graph.add_edge("audio_intro", "audio_record")
 graph.add_edge("audio_record", "audio_process")
 graph.add_edge("audio_process", "issue_classifier")
-graph.add_edge("wait_for_human", "audio_record")
 graph.add_conditional_edges(
     "issue_classifier",
     route_from_issue_classifier,
     {
-        "wait_for_human": "wait_for_human",
+        "audio_intro": "audio_intro",
         "repair_diagnostics": "repair_diagnostics"
     }
 )
@@ -223,4 +270,4 @@ graph.add_edge("repair_diagnostics", END)
 # Terminate at placeholder for now
 # graph.add_edge("repair_diagnostics", END)
 
-app = graph.compile()
+app = graph.compile(checkpointer=memory)
