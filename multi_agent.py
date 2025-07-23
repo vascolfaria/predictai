@@ -12,6 +12,8 @@ from utils_functions.audio_tools import record_audio_to_wav
 from langgraph.checkpoint.memory import MemorySaver
 from pydantic import BaseModel
 
+import random
+
 from openai import OpenAI
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -169,6 +171,42 @@ def find_repair_option(bike_type, part_category, part_name, position, likely_ser
 
     return None
 
+def intent_classifier_node(state: State) -> State:
+    last_human_msg = next((m for m in reversed(state["messages"]) if isinstance(m, HumanMessage)), None)
+    if not last_human_msg:
+        return state  # No human input to classify
+
+    prompt = """
+    You are an assistant classifying user intent after being asked whether to proceed.
+    Based on the user response, classify the intent into one of the following categories:
+
+    - confirm: the user agrees to proceed (e.g., "yes", "go ahead", "sure", "please do")
+    - decline: the user does not want to proceed (e.g., "no", "not now", "wait")
+    - unclear: the message is ambiguous or doesn’t answer the question directly
+
+    Respond with only the intent category: confirm, decline, or unclear.
+
+    User response: "{}"
+    """.format(last_human_msg.content.strip())
+
+    response = llm.invoke([SystemMessage(content=prompt)])
+    intent = response.content.strip().lower()
+
+    return {
+        **state,
+        "current_intent": intent,
+        "messages": state["messages"] + [AIMessage(content=f"🤖 Intent detected: `{intent}`")]
+    }
+
+def route_from_intent_classifier(state: State) -> str:
+    intent = state.get("current_intent", "unclear")
+    if intent == "confirm":
+        return "success"
+    elif intent == "decline":
+        return "audio_intro"
+    else:
+        return "wait_for_human"
+
 
 def repair_assessment_node(state: State) -> State:
     """
@@ -247,12 +285,12 @@ def repair_assessment_node(state: State) -> State:
     # Create detailed message
     if needs_replacement:
         outcome_emoji = "🔄"
-        outcome_title = "**Bike Replacement Required**"
+        outcome_title = "Bike Replacement Required"
         outcome_explanation = ("Since at least one issue cannot be repaired by our swappers, "
-                               "we'll arrange a **replacement bike** for you.")
+                               "we'll arrange a replacement bike for you.")
     else:
         outcome_emoji = "✅"
-        outcome_title = "**Bike Can Be Repaired**"
+        outcome_title = "Bike Can Be Repaired"
         outcome_explanation = "All issues can be fixed by our bike swappers!"
 
     # Build detailed issue breakdown
@@ -263,29 +301,30 @@ def repair_assessment_node(state: State) -> State:
             position_text = 'Not applicable'
 
         issue_details.append(
-            f"**Issue {i + 1}:** {issue.get('part_name')} ({issue.get('part_category')}) - "
+            f"⚙ Issue {i + 1}: {issue.get('part_name')} ({issue.get('part_category')}) - "
             f"{issue.get('likely_service')} - Location: {position_text}"
         )
+
 
     # Summary statistics
     summary_stats = []
     if repairable_issues:
         summary_stats.append(
-            f"• {len(repairable_issues)} issue{'s' if len(repairable_issues) != 1 else ''} **repairable by swapper**")
+            f"• {len(repairable_issues)} issue{'s' if len(repairable_issues) != 1 else ''} repairable by swapper")
     if replacement_issues:
         summary_stats.append(
-            f"• {len(replacement_issues)} issue{'s' if len(replacement_issues) != 1 else ''} **require replacement**")
+            f"• {len(replacement_issues)} issue{'s' if len(replacement_issues) != 1 else ''} require replacement")
     if unknown_issues:
         summary_stats.append(
-            f"• {len(unknown_issues)} issue{'s' if len(unknown_issues) != 1 else ''} **need manual assessment**")
+            f"• {len(unknown_issues)} issue{'s' if len(unknown_issues) != 1 else ''} needs manual assessment")
 
     assessment_msg = AIMessage(
-        content=f"{outcome_emoji} **Assessment Complete - {bike_type}**\n\n"
+        content=f"{outcome_emoji} Assessment Complete - {bike_type}\n\n"
                 f"{outcome_title}\n\n"
-                f"**Issues Identified ({total_issues} total):**\n" +
+                f"Issues Identified ({total_issues} total):\n" +
                 "\n".join(issue_details) + "\n\n" +
-                f"**Summary:**\n" + "\n".join(summary_stats) + "\n\n" +
-                f"**Decision:** {outcome_explanation}\n\n"
+                f"Summary:\n" + "\n".join(summary_stats) + "\n\n" +
+                f"Decision: {outcome_explanation}\n\n"
                 f"Would you like me to proceed with booking this service?"
     )
 
@@ -306,12 +345,51 @@ def repair_assessment_node(state: State) -> State:
         "messages": state["messages"] + [assessment_msg]
     }
 
+def intro_prompt_node(state: dict) -> dict:
+    """Generate a varied intro message to ask the user what's wrong with their bike."""
+    prompts = [
+        "🚲 Hey there! What's going on with your bike today?",
+        "🛠️ Let’s get your bike back in shape. Can you tell me what seems to be the problem?",
+        "🎤 I'm all ears! What's wrong with your bike?",
+        "👋 Hi! Could you describe the issue you're having with your bike?",
+        "🔧 Tell me what’s not working as it should — I’ll do my best to help.",
+        "💬 Let’s start with what’s bugging you about the bike.",
+        "📣 Go ahead and describe the issue — I’ll take it from there.",
+        "❓What seems off with your bike? Share the details, big or small!",
+        "🚴‍♂️ Something not right? Let me know what’s wrong with the bike.",
+        "🧰 Okay, ready when you are — what’s going on with the bike?"
+    ]
+    intro_message = random.choice(prompts)
+    return {
+        **state,
+        "messages": state["messages"] + [AIMessage(content=intro_message)]
+    }
+
+def success_node(state: dict) -> dict:
+    """Say goodbye after the repair assessment is done."""
+    farewells = [
+        "✅ All set! Thanks for letting us know — we’ll take it from here 🚲",
+        "👍 Got it! We’ll get on this right away. Have a great ride!",
+        "👋 That’s everything I need for now. Thanks and take care!",
+        "🚴 Your request is confirmed — enjoy your ride!",
+        "🛠️ We’ve logged your issue. Thanks for your patience and trust!",
+        "✨ Thanks! We’ll make sure your bike is in tip-top shape.",
+        "🔧 All done! A swapper will be on it soon.",
+        "📦 Thanks for the details. We’ll take it from here.",
+        "🥳 That’s it! You’re all set.",
+        "👊 Nice work — we’ve got everything we need now."
+    ]
+    goodbye_message = random.choice(farewells)
+    return {
+        **state,
+        "messages": state["messages"] + [AIMessage(content=goodbye_message)]
+    }
 
 def audio_intro_node(state: dict) -> dict:
     return {
         **state,
         "messages": state["messages"] + [AIMessage(
-            content="🎙️ Please describe all the issues you're experiencing with your bike. Recording for 10 seconds...")]
+            content="🎙️ Recording for 10 seconds...")]
     }
 
 
@@ -523,10 +601,10 @@ def issue_classifier_node(state: State) -> State:
         part_name = issue.get('part_name', 'Unknown part')
         part_category = issue.get('part_category', '')
         likely_service = issue.get('likely_service', 'service')
-        issue_summaries.append(f"**Issue {i + 1}:** {part_name} ({part_category}) needs {likely_service.lower()}")
+        issue_summaries.append(f"Issue {i + 1}: {part_name} ({part_category}) needs {likely_service.lower()}")
 
     success_msg = AIMessage(
-        content=f"🔧 **Perfect!** I've identified **{issue_count} issue{'s' if issue_count != 1 else ''}** with your **{bike_type}**:\n\n" +
+        content=f"🔧 Perfect! I've identified {issue_count} issue{'s' if issue_count != 1 else ''} with your {bike_type}:\n\n" +
                 "\n".join(issue_summaries) +
                 f"\n\nLet me assess what we can do about {'these issues' if issue_count > 1 else 'this issue'}! 🚴‍♂️"
     )
@@ -564,15 +642,19 @@ def wait_for_human_node(state: State) -> State:
 graph = StateGraph(State)
 
 # Add nodes
+graph.add_node("intro_prompt", intro_prompt_node)
 graph.add_node("audio_intro", audio_intro_node)
 graph.add_node("audio_record", audio_record_node)
 graph.add_node("audio_process", audio_process_node)
 graph.add_node("issue_classifier", issue_classifier_node)
+graph.add_node("intent_classifier", intent_classifier_node)
 graph.add_node("wait_for_human", wait_for_human_node)
 graph.add_node("repair_assessment", repair_assessment_node)
+graph.add_node("success", success_node)
 
 # Add edges - simplified back to original flow
-graph.set_entry_point("audio_intro")
+graph.set_entry_point("intro_prompt")
+graph.add_edge("intro_prompt", "audio_intro")
 graph.add_edge("audio_intro", "audio_record")
 graph.add_edge("audio_record", "audio_process")
 graph.add_edge("audio_process", "issue_classifier")
@@ -584,7 +666,18 @@ graph.add_conditional_edges(
         "repair_assessment": "repair_assessment"
     }
 )
-graph.add_edge("repair_assessment", END)
+graph.add_edge("repair_assessment", "wait_for_human")
+graph.add_edge("wait_for_human", "intent_classifier")
+graph.add_conditional_edges(
+    "intent_classifier",
+    route_from_intent_classifier,
+    {
+        "success": "success",
+        "audio_intro": "audio_intro",
+        "wait_for_human": "wait_for_human"
+    }
+)
+graph.add_edge("success", END)
 
 # Compile the graph
 app = graph.compile(checkpointer=memory)
