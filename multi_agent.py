@@ -1,7 +1,7 @@
 import os
 import sys
 import json
-from typing import Literal, Optional, List, Dict
+from typing import Literal, Optional
 from dotenv import load_dotenv
 from utils_functions.issue_classifier import IssueClassification
 from langgraph.graph import StateGraph, END, MessagesState
@@ -10,9 +10,6 @@ from langchain_openai import ChatOpenAI
 from langchain.output_parsers import PydanticOutputParser
 from utils_functions.audio_tools import record_audio_to_wav
 from langgraph.checkpoint.memory import MemorySaver
-from pydantic import BaseModel
-
-import random
 
 from openai import OpenAI
 
@@ -21,13 +18,6 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 # Load environment variables
 load_dotenv()
 memory = MemorySaver()
-
-
-# Enhanced Pydantic model for multiple issues
-class MultipleIssuesClassification(BaseModel):
-    bike_type: str
-    issues: List[IssueClassification]
-    total_count: int
 
 
 # Load repair menu data
@@ -65,7 +55,7 @@ repair_menu = load_repair_menu()
 POSSIBLE_VALUES = extract_possible_values(repair_menu) if repair_menu else {}
 
 
-# State definition - back to simpler structure
+# 1. State definition
 class State(MessagesState):
     current_agent: Literal[
         "audio_intro_node",
@@ -76,22 +66,19 @@ class State(MessagesState):
     ]
     audio_path: Optional[str] = None
     transcription: Optional[str] = None
-    collected_info: Optional[dict] = None  # Back to single dict but with multiple issues
+    collected_info: Optional[dict] = None
     conversation_round: int = 0
     repair_assessment: Optional[dict] = None
 
 
-# Parsers
 parser = PydanticOutputParser(pydantic_object=IssueClassification)
-multi_parser = PydanticOutputParser(pydantic_object=MultipleIssuesClassification)
 
 OpenAI.api_key = os.environ["OPENAI_API_KEY"]
 llm = ChatOpenAI(model="gpt-4")
 client = OpenAI()
 
 sys_msg = SystemMessage(
-    content="You are a helpful assistant trying to understand what is wrong with the member's bike. "
-            "Listen carefully as they may describe multiple issues at once, and extract all problems mentioned.")
+    content="You are a helpful assistant trying to understand what is wrong with the member's bike. If the issue_classifier_node does not have enough information, ask the member for more feedback")
 
 
 def suggest_closest_value(invalid_value, valid_options):
@@ -142,6 +129,25 @@ def safe_lower(value):
     return value.lower() if isinstance(value, str) else str(value).lower()
 
 
+def extract_issue_details_lowercase(collected_info):
+    """Extract and convert issue details to lowercase for comparison"""
+    return {
+        'bike_type': safe_lower(collected_info.get('bike_type')),
+        'part_category': safe_lower(collected_info.get('part_category')),
+        'part_name': safe_lower(collected_info.get('part_name')),
+        'position': safe_lower(collected_info.get('position')),
+        'likely_service': safe_lower(collected_info.get('likely_service'))
+    }
+    """Normalize field values for comparison"""
+    if value is None:
+        return "NULL"
+    if isinstance(value, str):
+        if value.lower() in ["null", "none", ""]:
+            return "NULL"
+        return value.strip()
+    return str(value)
+
+
 def find_repair_option(bike_type, part_category, part_name, position, likely_service):
     """
     Find matching repair option in the repair menu
@@ -171,46 +177,10 @@ def find_repair_option(bike_type, part_category, part_name, position, likely_ser
 
     return None
 
-def intent_classifier_node(state: State) -> State:
-    last_human_msg = next((m for m in reversed(state["messages"]) if isinstance(m, HumanMessage)), None)
-    if not last_human_msg:
-        return state  # No human input to classify
-
-    prompt = """
-    You are an assistant classifying user intent after being asked whether to proceed.
-    Based on the user response, classify the intent into one of the following categories:
-
-    - confirm: the user agrees to proceed (e.g., "yes", "go ahead", "sure", "please do")
-    - decline: the user does not want to proceed (e.g., "no", "not now", "wait")
-    - unclear: the message is ambiguous or doesn’t answer the question directly
-
-    Respond with only the intent category: confirm, decline, or unclear.
-
-    User response: "{}"
-    """.format(last_human_msg.content.strip())
-
-    response = llm.invoke([SystemMessage(content=prompt)])
-    intent = response.content.strip().lower()
-
-    return {
-        **state,
-        "current_intent": intent,
-        "messages": state["messages"] + [AIMessage(content=f"🤖 Intent detected: `{intent}`")]
-    }
-
-def route_from_intent_classifier(state: State) -> str:
-    intent = state.get("current_intent", "unclear")
-    if intent == "confirm":
-        return "success"
-    elif intent == "decline":
-        return "audio_intro"
-    else:
-        return "wait_for_human"
-
 
 def repair_assessment_node(state: State) -> State:
     """
-    Assess multiple issues and determine if bike needs replacement or can be repaired
+    Assess whether the identified issue can be repaired by a swapper or needs replacement
     """
     collected_info = state.get("collected_info", {})
 
@@ -222,122 +192,67 @@ def repair_assessment_node(state: State) -> State:
             ]
         }
 
+    # Extract issue details
     bike_type = collected_info.get('bike_type')
-    issues = collected_info.get('issues', [])
+    part_category = collected_info.get('part_category')
+    part_name = collected_info.get('part_name')
+    position = collected_info.get('position')
+    likely_service = collected_info.get('likely_service')
 
-    if not issues:
-        return {
-            **state,
-            "messages": state["messages"] + [
-                AIMessage(content="❌ No issues found in the collected information.")
-            ]
-        }
+    # Find matching repair option
+    repair_option = find_repair_option(bike_type, part_category, part_name, position, likely_service)
 
-    # Assess each issue
-    assessments = []
-    repairable_issues = []
-    replacement_issues = []
-    unknown_issues = []
-
-    for i, issue in enumerate(issues):
-        # Each issue should already have bike_type, but ensure it's set
-        issue_data = {**issue, 'bike_type': bike_type}
-
-        part_category = issue_data.get('part_category')
-        part_name = issue_data.get('part_name')
-        position = issue_data.get('position')
-        likely_service = issue_data.get('likely_service')
-
-        # Find matching repair option
-        repair_option = find_repair_option(bike_type, part_category, part_name, position, likely_service)
-
-        if repair_option is None:
-            assessment = {
-                "issue_number": i + 1,
-                "found_in_menu": False,
-                "can_swapper_repair": None,
-                "issue_details": issue_data,
-                "message": "Not found in repair menu"
-            }
-            unknown_issues.append(assessment)
-        else:
-            can_repair = repair_option.get('can_swapper_repair', 0) == 1
-            assessment = {
-                "issue_number": i + 1,
-                "found_in_menu": True,
-                "can_swapper_repair": can_repair,
-                "issue_details": issue_data,
-                "repair_option": repair_option,
-                "message": "Assessment completed"
-            }
-
-            if can_repair:
-                repairable_issues.append(assessment)
-            else:
-                replacement_issues.append(assessment)
-
-        assessments.append(assessment)
-
-    # Determine overall outcome
-    total_issues = len(issues)
-    needs_replacement = len(replacement_issues) > 0
-
-    # Create detailed message
-    if needs_replacement:
-        outcome_emoji = "🔄"
-        outcome_title = "Bike Replacement Required"
-        outcome_explanation = ("Since at least one issue cannot be repaired by our swappers, "
-                               "we'll arrange a replacement bike for you.")
-    else:
-        outcome_emoji = "✅"
-        outcome_title = "Bike Can Be Repaired"
-        outcome_explanation = "All issues can be fixed by our bike swappers!"
-
-    # Build detailed issue breakdown
-    issue_details = []
-    for i, issue in enumerate(issues):
-        position_text = issue.get('position', 'NULL')
-        if position_text == 'NULL':
-            position_text = 'Not applicable'
-
-        issue_details.append(
-            f"⚙ Issue {i + 1}: {issue.get('part_name')} ({issue.get('part_category')}) - "
-            f"{issue.get('likely_service')} - Location: {position_text}"
+    if repair_option is None:
+        assessment_msg = AIMessage(
+            content=f"⚠️ **Repair Assessment**\n\n"
+                    f"I couldn't find this specific repair combination in our service menu:\n"
+                    f"• **Bike**: {bike_type}\n"
+                    f"• **Part**: {part_name} ({part_category})\n"
+                    f"• **Position**: {position if position and position != 'NULL' else 'Not applicable'}\n"
+                    f"• **Service**: {likely_service}\n\n"
+                    f"Please contact our support team for a manual assessment."
         )
 
+        assessment_result = {
+            "found_in_menu": False,
+            "can_swapper_repair": None,
+            "issue_details": collected_info,
+            "message": "Not found in repair menu"
+        }
+    else:
+        can_repair = repair_option.get('can_swapper_repair', 0) == 1
 
-    # Summary statistics
-    summary_stats = []
-    if repairable_issues:
-        summary_stats.append(
-            f"• {len(repairable_issues)} issue{'s' if len(repairable_issues) != 1 else ''} repairable by swapper")
-    if replacement_issues:
-        summary_stats.append(
-            f"• {len(replacement_issues)} issue{'s' if len(replacement_issues) != 1 else ''} require replacement")
-    if unknown_issues:
-        summary_stats.append(
-            f"• {len(unknown_issues)} issue{'s' if len(unknown_issues) != 1 else ''} needs manual assessment")
+        if can_repair:
+            status_emoji = "✅"
+            status_text = "**Good news!** This can be repaired by one of our bike swappers."
+            repair_info = "A swapper will be able to fix this issue for you without needing to replace your bike."
+        else:
+            status_emoji = "🔄"
+            status_text = "This issue requires a **bike replacement**."
+            repair_info = "Our swappers cannot repair this particular issue, so we'll arrange a replacement bike for you."
 
-    assessment_msg = AIMessage(
-        content=f"{outcome_emoji} Assessment Complete - {bike_type}\n\n"
-                f"{outcome_title}\n\n"
-                f"Issues Identified ({total_issues} total):\n" +
-                "\n".join(issue_details) + "\n\n" +
-                f"Summary:\n" + "\n".join(summary_stats) + "\n\n" +
-                f"Decision: {outcome_explanation}\n\n"
-                f"Would you like me to proceed with booking this service?"
-    )
+        position_text = position if position and position != 'NULL' else 'Not applicable'
 
-    assessment_result = {
-        "bike_type": bike_type,
-        "total_issues": total_issues,
-        "needs_replacement": needs_replacement,
-        "repairable_count": len(repairable_issues),
-        "replacement_count": len(replacement_issues),
-        "unknown_count": len(unknown_issues),
-        "detailed_assessments": assessments,
-        "issues": issues
-    }
+        assessment_msg = AIMessage(
+            content=f"{status_emoji} **Repair Assessment**\n\n"
+                    f"{status_text}\n\n"
+                    f"**Issue Details:**\n"
+                    f"• **Bike Model**: {bike_type}\n"
+                    f"• **Component**: {part_name} ({part_category})\n"
+                    f"• **Location**: {position_text}\n"
+                    f"• **Required Service**: {likely_service}\n\n"
+                    f"**Next Steps:**\n"
+                    f"{repair_info}\n\n"
+                    f"Would you like me to proceed with booking this service?"
+        )
+
+        assessment_result = {
+            "found_in_menu": True,
+            "can_swapper_repair": can_repair,
+            "issue_details": collected_info,
+            "repair_option": repair_option,
+            "message": "Repair assessment completed"
+        }
 
     return {
         **state,
@@ -345,51 +260,59 @@ def repair_assessment_node(state: State) -> State:
         "messages": state["messages"] + [assessment_msg]
     }
 
-def intro_prompt_node(state: dict) -> dict:
-    """Generate a varied intro message to ask the user what's wrong with their bike."""
-    prompts = [
-        "🚲 Hey there! What's going on with your bike today?",
-        "🛠️ Let’s get your bike back in shape. Can you tell me what seems to be the problem?",
-        "🎤 I'm all ears! What's wrong with your bike?",
-        "👋 Hi! Could you describe the issue you're having with your bike?",
-        "🔧 Tell me what’s not working as it should — I’ll do my best to help.",
-        "💬 Let’s start with what’s bugging you about the bike.",
-        "📣 Go ahead and describe the issue — I’ll take it from there.",
-        "❓What seems off with your bike? Share the details, big or small!",
-        "🚴‍♂️ Something not right? Let me know what’s wrong with the bike.",
-        "🧰 Okay, ready when you are — what’s going on with the bike?"
-    ]
-    intro_message = random.choice(prompts)
+
+def update_issues_node(state: State) -> State:
     return {
         **state,
-        "messages": state["messages"] + [AIMessage(content=intro_message)]
+        "messages": state["messages"] + [
+            AIMessage(content="🔁 Okay, please tell me which parts need to be updated.")
+        ]
     }
 
-def success_node(state: dict) -> dict:
-    """Say goodbye after the repair assessment is done."""
-    farewells = [
-        "✅ All set! Thanks for letting us know — we’ll take it from here 🚲",
-        "👍 Got it! We’ll get on this right away. Have a great ride!",
-        "👋 That’s everything I need for now. Thanks and take care!",
-        "🚴 Your request is confirmed — enjoy your ride!",
-        "🛠️ We’ve logged your issue. Thanks for your patience and trust!",
-        "✨ Thanks! We’ll make sure your bike is in tip-top shape.",
-        "🔧 All done! A swapper will be on it soon.",
-        "📦 Thanks for the details. We’ll take it from here.",
-        "🥳 That’s it! You’re all set.",
-        "👊 Nice work — we’ve got everything we need now."
-    ]
-    goodbye_message = random.choice(farewells)
+
+def render_issues_node(state: dict) -> dict:
+    # Parse structured issue(s) from last AI message
+    last_msg = next((msg.content for msg in reversed(state["messages"]) if isinstance(msg, AIMessage)), None)
+    if not last_msg:
+        return state
+
+    try:
+        issues = [parser.parse(last_msg).model_dump()]
+    except Exception:
+        issues = []
+
+    markdown_output = display_issues(issues)
+    image_message = AIMessage(content=markdown_output)
+
     return {
         **state,
-        "messages": state["messages"] + [AIMessage(content=goodbye_message)]
+        "messages": state["messages"] + [image_message]
     }
+
+
+def confirm_issues_node(state: State) -> State:
+    confirm_msg = AIMessage(content="✅ Does this look correct? (yes / no / partially)")
+    return {
+        **state,
+        "messages": state["messages"] + [confirm_msg]
+    }
+
+
+def handle_confirmation_node(state: State) -> str:
+    last_human = next((msg.content for msg in reversed(state["messages"]) if isinstance(msg, HumanMessage)), "").lower()
+    if "yes" in last_human:
+        return "repair_assessment"  # Changed from "next_agent" to "repair_assessment"
+    elif "partial" in last_human:
+        return "update_issues_node"
+    elif "no" in last_human:
+        return "clarification"
+    return "confirm_issues"  # fallback loop
+
 
 def audio_intro_node(state: dict) -> dict:
     return {
         **state,
-        "messages": state["messages"] + [AIMessage(
-            content="🎙️ Recording for 10 seconds...")]
+        "messages": state["messages"] + [AIMessage(content="🎙️ Alright, we are now recording for 10 seconds..")]
     }
 
 
@@ -421,11 +344,8 @@ def audio_process_node(state: dict) -> dict:
     }
 
 
+# Agent: Issue classifier
 def issue_classifier_node(state: State) -> State:
-    """
-    Enhanced classifier that can identify multiple issues from a single input
-    """
-
     def extract_content(msg) -> str:
         content = msg.content
         if isinstance(content, str):
@@ -449,7 +369,7 @@ def issue_classifier_node(state: State) -> State:
     combined_info = " ".join(user_messages)
     previous_info = state.get("collected_info", {})
 
-    # Generate dynamic prompt for multi-issue classification
+    # Generate dynamic prompt with exact possible values from repair menu
     bike_types = ", ".join(POSSIBLE_VALUES.get('bike_type', []))
     part_categories = ", ".join(POSSIBLE_VALUES.get('part_category', []))
     part_names = ", ".join(POSSIBLE_VALUES.get('part_name', []))
@@ -457,47 +377,46 @@ def issue_classifier_node(state: State) -> State:
     likely_services = ", ".join(POSSIBLE_VALUES.get('likely_service', []))
 
     prompt = f"""
-    You are a technical classification assistant. Extract structured information from a customer's description of bike problems.
-    The user may describe MULTIPLE issues in their message - identify and classify each one separately.
+    You are a technical classification assistant. Your job is to extract structured information from a customer's natural language description of a bike problem.
+    You need to translate the text of the customer into categories. You MUST only use the exact values listed below - no variations or alternatives allowed.
 
-    User's description: {combined_info}
-    Previous information: {previous_info if previous_info else "None"}
+    Previous information provided by the user: {previous_info if previous_info else "There is no information provided yet"}
+    The new information provided by the user: {combined_info}
 
-    IMPORTANT: 
-    1. Identify ALL issues mentioned (brake problems, chain issues, light problems, etc.)
-    2. The bike_type should be the SAME for all issues (one bike, multiple problems)
-    3. Create separate issue objects for each distinct problem
-    4. Use EXACT values from the lists below - no variations allowed
-    5. If you cannot determine a field with confidence, use "NULL"
+    IMPORTANT: You must only use the EXACT values listed below. Use exact capitalization as shown. If you cannot determine a field with confidence, use "NULL".
 
-    EXACT POSSIBLE VALUES:
-    bike_type: {bike_types}
-    part_category: {part_categories}
-    part_name: {part_names}
-    position: {positions}
-    likely_service: {likely_services}
+    EXACT POSSIBLE VALUES (use these ONLY):
 
-    Expected JSON format:
+    bike_type (choose exactly one): {bike_types}
+
+    part_category (choose exactly one): {part_categories}
+
+    part_name (choose exactly one): {part_names}
+
+    position (choose exactly one): {positions}
+
+    likely_service (choose exactly one): {likely_services}
+
+    RULES:
+    1. Use EXACT spelling and capitalization as shown above
+    2. If unsure about a value, use "NULL" rather than guessing incorrectly
+    3. Position should be "NULL" when location is not applicable to the part
+    4. Choose the most specific part_name that matches the user's description
+    5. If it's a pedal bike without gears that it's an Original 1. If it's a pedal bike with gears it's a Deluxe 7. 
+    If it's an e-bike without gears that it's an Power 1. If it's a e-bike with gears it's a Power 7.
+    If it's an e-bike with gears for Commercial Riders than it's a Power Plus
+
+    Example response format:
     {{
         "bike_type": "Deluxe 7",
-        "issues": [
-            {{
-                "part_category": "Drivetrain",
-                "part_name": "Chain", 
-                "position": "NULL",
-                "likely_service": "Replace"
-            }},
-            {{
-                "part_category": "Electrical",
-                "part_name": "Front Light",
-                "position": "Front",
-                "likely_service": "Replace"
-            }}
-        ],
-        "total_count": 2
+        "part_category": "Drivetrain", 
+        "part_name": "Chain",
+        "position": "NULL",
+        "likely_service": "Replace"
     }}
 
-    If only one issue is mentioned, still use the issues array format with one item.
+    Respond in this format:
+    {parser.get_format_instructions()}
     """.strip()
 
     result = llm.invoke([
@@ -506,155 +425,155 @@ def issue_classifier_node(state: State) -> State:
     ])
 
     try:
-        # Parse the JSON response directly
-        import re
-        json_match = re.search(r'\{.*\}', result.content, re.DOTALL)
-        if json_match:
-            json_str = json_match.group()
-            structured_dict = json.loads(json_str)
-        else:
-            raise ValueError("No valid JSON found in response")
+        structured = parser.parse(result.content)
+        structured_dict = structured.model_dump()
 
-        # Validate bike_type
-        bike_type = structured_dict.get('bike_type')
-        if bike_type not in POSSIBLE_VALUES.get('bike_type', []):
-            suggestion = suggest_closest_value(bike_type, POSSIBLE_VALUES.get('bike_type', []))
-            if suggestion:
-                structured_dict['bike_type'] = suggestion
-                print(f"[DEBUG] Auto-corrected bike_type: '{bike_type}' -> '{suggestion}'")
+        # Validate and attempt to auto-correct values
+        corrected_dict, was_corrected, validation_errors = validate_and_correct_classification(structured_dict)
 
-        # Validate each issue
-        validated_issues = []
-        for issue in structured_dict.get('issues', []):
-            corrected_issue, was_corrected, validation_errors = validate_and_correct_classification(issue)
-            if validation_errors:
-                print(f"[DEBUG] Issue validation errors: {validation_errors}")
-                continue  # Skip invalid issues but keep valid ones
-            validated_issues.append(corrected_issue)
+        if validation_errors:
+            print(f"[DEBUG] Validation errors after correction: {validation_errors}")
+            raise ValueError(f"Invalid classification values: {validation_errors}")
 
-        if not validated_issues:
-            raise ValueError("No valid issues found after validation")
+        if was_corrected:
+            print(f"[DEBUG] Auto-corrected classification values")
 
-        structured_dict['issues'] = validated_issues
-        structured_dict['total_count'] = len(validated_issues)
+        # Use the corrected dictionary
+        structured_dict = corrected_dict
 
     except Exception as e:
-        print(f"[DEBUG] Multi-issue classification failed: {str(e)}")
-        # FIXED: Don't set collected_info when we need more info
-        # This ensures route_from_issue_classifier will route back to audio_intro
+        print(f"[DEBUG] Classification parsing/validation failed: {str(e)}")
+        # Increment attempt counter
         new_round = state.get("conversation_round", 0) + 1
         return {
             **state,
             "conversation_round": new_round,
             "messages": state["messages"] + [
                 AIMessage(
-                    content="I need a bit more information to help you properly. Could you tell me:\n"
-                            "1. What type of bike you have\n"
-                            "2. Which specific parts have problems\n"
-                            "3. What exactly is wrong with each part?")
-            ]
-            # REMOVED: "collected_info": None,  # Keep existing info
-            # REMOVED: "current_agent": "audio_intro"  # This is ignored anyway
+                    content="Thanks! I need a bit more info to help — could you tell me which part of the bike this affects, and what kind of bike you have?")
+            ],
+            "current_agent": "audio_intro"
         }
 
-    # Check if we have enough information
-    bike_type = structured_dict.get('bike_type')
-    issues = structured_dict.get('issues', [])
+    updated_info = {**previous_info, **structured_dict}
 
-    if not bike_type or bike_type == 'NULL' or not issues:
+    # Check for incomplete fields
+    required_fields = ["bike_type", "part_category", "part_name", "likely_service"]
+    incomplete_fields = [
+        field for field in required_fields
+        if updated_info.get(field) in [None, "null", ""]
+    ]
+
+    if incomplete_fields:
+        # Generate specific question based on what's missing
+        missing_info = ", ".join(incomplete_fields)
+        followup_msg = AIMessage(
+            content=f"Great! I still need some more information: {missing_info}. Can you give me any more details about it?"
+        )
         new_round = state.get("conversation_round", 0) + 1
         return {
             **state,
+            "collected_info": updated_info,
             "conversation_round": new_round,
-            "messages": state["messages"] + [
-                AIMessage(
-                    content="Thanks! I still need more details about your bike type and the specific issues. Can you provide more information?")
-            ]
-            # FIXED: Don't set collected_info here either
+            "messages": state["messages"] + [followup_msg],
+            "current_agent": "audio_intro"
         }
 
-    # Check if individual issues are complete
-    incomplete_issues = []
-    for i, issue in enumerate(issues):
-        required_fields = ["part_category", "part_name", "likely_service"]
-        missing = [field for field in required_fields if issue.get(field) in [None, "null", "", "NULL"]]
-        if missing:
-            incomplete_issues.append(f"Issue {i + 1}: {', '.join(missing)}")
+    # We have all the information we need! Create an engaging summary
+    bike_type = updated_info.get('bike_type', 'Unknown')
+    part_name = updated_info.get('part_name', 'Unknown part')
+    part_category = updated_info.get('part_category', '')
+    position = updated_info.get('position', '')
+    likely_service = updated_info.get('likely_service', 'service')
 
-    if incomplete_issues:
-        new_round = state.get("conversation_round", 0) + 1
-        missing_info = "; ".join(incomplete_issues)
-        return {
-            **state,
-            "conversation_round": new_round,
-            "messages": state["messages"] + [
-                AIMessage(
-                    content=f"Great start! I still need some details: {missing_info}. Can you provide more information about these specific problems?")
-            ]
-            # FIXED: Don't set collected_info here either
-        }
+    # Format position nicely
+    position_text = ""
+    if position and position.lower() not in ['null', 'none', '']:
+        position_text = f" {position.lower()}"
 
-    # Success! Create summary message
-    issue_count = len(issues)
-    issue_summaries = []
-    for i, issue in enumerate(issues):
-        part_name = issue.get('part_name', 'Unknown part')
-        part_category = issue.get('part_category', '')
-        likely_service = issue.get('likely_service', 'service')
-        issue_summaries.append(f"Issue {i + 1}: {part_name} ({part_category}) needs {likely_service.lower()}")
+    # Format part description
+    part_description = f"{position_text} {part_name.lower()}" if position_text else part_name.lower()
 
-    success_msg = AIMessage(
-        content=f"🔧 Perfect! I've identified {issue_count} issue{'s' if issue_count != 1 else ''} with your {bike_type}:\n\n" +
-                "\n".join(issue_summaries) +
-                f"\n\nLet me assess what we can do about {'these issues' if issue_count > 1 else 'this issue'}! 🚴‍♂️"
-    )
-
-    # FIXED: Only set collected_info when we have complete information
-    return {
-        **state,
-        "collected_info": structured_dict,
-        "messages": state["messages"] + [success_msg],
+    # Make service description more natural
+    service_descriptions = {
+        'replace': 'needs to be replaced',
+        'repair': 'needs to be repaired',
+        'adjust': 'needs adjustment',
+        'lubricate': 'needs lubrication',
+        'tighten': 'needs to be tightened',
+        'grease': 'needs greasing',
+        'pump': 'needs to be pumped up',
+        'tension': 'needs tension adjustment'
     }
 
+    service_text = service_descriptions.get(likely_service.lower(), f"needs {likely_service.lower()}")
 
-def route_from_issue_classifier(state: State) -> str:
-    collected = state.get("collected_info", {})
-    bike_type = collected.get("bike_type")
-    issues = collected.get("issues", [])
-
-    if not bike_type or not issues:
-        return "audio_intro"
-
-    # Check if all issues have required fields
-    for issue in issues:
-        required_fields = ["part_category", "part_name", "likely_service"]
-        if any(issue.get(field) in [None, "null", "", "NULL"] for field in required_fields):
-            return "audio_intro"
-
-    return "repair_assessment"
+    success_msg = AIMessage(
+        content=f"🔧 **Got it!** I've identified the issue with your **{bike_type}**.\n\n"
+                f"**Problem Summary:**\n"
+                f"• Your{part_description} ({part_category.lower()}) {service_text}\n\n"
+                f"Let me show you the details and check what we can do about it! 🚴‍♂️"
+    )
+    return {
+        **state,
+        "collected_info": updated_info,
+        "messages": state["messages"] + [success_msg],
+    }
 
 
 def wait_for_human_node(state: State) -> State:
     return state
 
 
-# Build LangGraph - back to original structure
+def needs_more_info(state: State) -> bool:
+    last_ai_msg = next(
+        (msg for msg in reversed(state["messages"]) if isinstance(msg, AIMessage)),
+        None
+    )
+
+    if not last_ai_msg:
+        return True  # No AI response = not enough info
+
+    try:
+        structured = parser.parse(last_ai_msg.content)
+    except Exception:
+        return True  # Parsing failed = not valid info
+
+    return any(
+        getattr(structured, field) in (None, "null", "")
+        for field in ["bike_type", "part_category", "part_name", "likely_service"]
+    )
+
+
+def route_from_issue_classifier(state: State) -> str:
+    collected = state.get("collected_info", {})
+    required_fields = ["bike_type", "part_category", "part_name", "likely_service"]
+
+    has_all_info = all(
+        collected.get(field) not in [None, "null", ""]
+        for field in required_fields
+    )
+
+    return "repair_assessment" if has_all_info else "audio_intro"
+
+
+# 5. Build LangGraph
 graph = StateGraph(State)
 
 # Add nodes
-graph.add_node("intro_prompt", intro_prompt_node)
 graph.add_node("audio_intro", audio_intro_node)
 graph.add_node("audio_record", audio_record_node)
 graph.add_node("audio_process", audio_process_node)
 graph.add_node("issue_classifier", issue_classifier_node)
-graph.add_node("intent_classifier", intent_classifier_node)
 graph.add_node("wait_for_human", wait_for_human_node)
-graph.add_node("repair_assessment", repair_assessment_node)
-graph.add_node("success", success_node)
+graph.add_node("render_issues", render_issues_node)
+graph.add_node("confirm_issues", confirm_issues_node)
+graph.add_node("update_issues_node", wait_for_human_node)
+graph.add_node("clarification", wait_for_human_node)
+graph.add_node("repair_assessment", repair_assessment_node)  # New node
 
-# Add edges - simplified back to original flow
-graph.set_entry_point("intro_prompt")
-graph.add_edge("intro_prompt", "audio_intro")
+# Add edges
+graph.set_entry_point("audio_intro")
 graph.add_edge("audio_intro", "audio_record")
 graph.add_edge("audio_record", "audio_process")
 graph.add_edge("audio_process", "issue_classifier")
@@ -666,56 +585,17 @@ graph.add_conditional_edges(
         "repair_assessment": "repair_assessment"
     }
 )
-graph.add_edge("repair_assessment", "wait_for_human")
-graph.add_edge("wait_for_human", "intent_classifier")
-graph.add_conditional_edges(
-    "intent_classifier",
-    route_from_intent_classifier,
-    {
-        "success": "success",
-        "audio_intro": "audio_intro",
-        "wait_for_human": "wait_for_human"
-    }
-)
-graph.add_edge("success", END)
+graph.add_edge("render_issues", "confirm_issues")
 
-# Compile the graph
+# Route from confirm_issues
+graph.add_conditional_edges("confirm_issues", handle_confirmation_node, {
+    "repair_assessment": "repair_assessment",  # Changed from "next_agent"
+    "clarification": "clarification",
+    "update_issues_node": "update_issues_node",
+})
+
+graph.add_edge("update_issues_node", "render_issues")
+graph.add_edge("repair_assessment", END)  # End after repair assessment
+
+# Terminate at placeholder for now
 app = graph.compile(checkpointer=memory)
-
-
-# Helper function to run the system
-def run_bike_issue_reporter():
-    """
-    Main function to run the enhanced bike problem reporter
-    """
-    print("🚴‍♂️ Enhanced Multi-Issue Bike Problem Reporter Started!")
-    print("=" * 60)
-
-    config = {"configurable": {"thread_id": "bike_issues_enhanced"}}
-
-    try:
-        # Start the conversation
-        initial_input = {
-            "messages": [HumanMessage(content="I want to report bike problems")],
-            "conversation_round": 0
-        }
-
-        # Run the graph
-        for step in app.stream(initial_input, config):
-            for node_name, node_output in step.items():
-                print(f"\n[{node_name.upper()}]")
-                if "messages" in node_output and node_output["messages"]:
-                    latest_message = node_output["messages"][-1]
-                    print(f"💬 {latest_message.content}")
-
-        print("\n" + "=" * 60)
-        print("✅ Multi-Issue Bike Problem Reporter Session Complete!")
-
-    except Exception as e:
-        print(f"❌ Error: {str(e)}")
-        import traceback
-        traceback.print_exc()
-
-
-if __name__ == "__main__":
-    run_bike_issue_reporter()
